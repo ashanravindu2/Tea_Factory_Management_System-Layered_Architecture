@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.TeaLeafEntryController">
+   <children>
+      <AnchorPane prefHeight="612.0" prefWidth="940.0">
+         <children>
+            <ImageView accessibleHelp="QSDQD" accessibleRoleDescription="SASQS" accessibleText="QDQD" fitHeight="656.0" fitWidth="1066.0" layoutX="1.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <GaussianBlur radius="7.41" />
+               </effect>
+               <image>
+                  <Image url="@../assets/Image/5e.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8397a9" height="210.0" layoutX="37.0" layoutY="51.0" opacity="0.54" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="855.0" />
+            <TableView fx:id="tblTeaEntry" layoutX="38.0" layoutY="313.0" prefHeight="294.0" prefWidth="855.0">
+              <columns>
+                <TableColumn fx:id="colSupp" prefWidth="122.39999008178711" text="Supplier ID" />
+                  <TableColumn fx:id="colGros" prefWidth="172.00001525878906" text="Gross Weight(kg)" />
+                  <TableColumn fx:id="colWaterCon" prefWidth="159.0" text="Water Content" />
+                  <TableColumn fx:id="colNetWeight" prefWidth="149.60003662109375" text="Net Weight (kg)" />
+                  <TableColumn fx:id="colDate" prefWidth="141.59991455078125" text="Date" />
+                  <TableColumn fx:id="colRemove" prefWidth="107.9999877929688" text="Remove" />
+              </columns>
+            </TableView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffbd1f" height="41.0" strokeType="INSIDE" width="1068.0" />
+            <Label layoutX="398.0" text="Daily Tea Leaf Entry">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Serif Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="119.0" layoutY="65.0" text="Supplier ID :" AnchorPane.leftAnchor="119.0" AnchorPane.topAnchor="65.0">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="cmbSuppId" focusColor="#2344a8" layoutX="232.0" layoutY="71.0" onAction="#cmbSuppIdOnAction" prefHeight="26.0" prefWidth="143.0" unFocusColor="BLACK" />
+            <Label layoutX="119.0" layoutY="112.0" text="Tea Collector ID :" AnchorPane.leftAnchor="119.0" AnchorPane.topAnchor="112.0">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="cmbTeaColecId" layoutX="232.0" layoutY="118.0" onAction="#cmbTeaColecIdOnAction" prefHeight="26.0" prefWidth="143.0" unFocusColor="BLACK" />
+            <Label layoutX="121.0" layoutY="166.0" text="Gross Weight :" AnchorPane.leftAnchor="119.0">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtGrossWeight" layoutX="225.0" layoutY="172.0" onKeyTyped="#btnNotWaterSetNetWeightAction" prefHeight="26.0" prefWidth="118.0" promptText="kg" AnchorPane.leftAnchor="226.0" />
+            <Label layoutX="504.0" layoutY="65.0" text="Supplier Name :">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="503.0" layoutY="112.0" text="Tea Collector Name :" AnchorPane.leftAnchor="503.0">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="373.0" layoutY="166.0" onMouseEntered="#waterContentDetailAction" onMouseExited="#NowaterContentDetailAction" text="Water Content :" AnchorPane.leftAnchor="373.0">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtWater" layoutX="480.0" layoutY="172.0" onKeyTyped="#btnReducedWeightAction" prefHeight="26.0" prefWidth="118.0" promptText="\%" AnchorPane.leftAnchor="480.0" />
+            <Label fx:id="lblTeaColecName" layoutX="628.0" layoutY="112.0" prefHeight="38.0" prefWidth="225.0">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="622.0" layoutY="166.0" text="Date :">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="txtDate" editable="false" layoutX="666.0" layoutY="172.0" prefHeight="26.0" prefWidth="164.0" />
+            <Label layoutX="120.0" layoutY="218.0" text="Net Weight :" AnchorPane.leftAnchor="120.0">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNetWeight" layoutX="226.0" layoutY="222.0" prefHeight="32.0" prefWidth="174.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <JFXButton buttonType="RAISED" layoutX="525.0" layoutY="275.0" onAction="#btnClearOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="CLEAR" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" rotate="31.0">
+                     <image>
+                        <Image url="@../assets/Clear.png" />
+                     </image>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="CLEAR" />
+                  <String fx:value="CLEARBACKGROUND" />
+               </styleClass>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="651.0" layoutY="275.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="UPDATE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Update.png" />
+                     </image>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="UPDATE" />
+                  <String fx:value="UPDATEBACKGROUND" />
+               </styleClass>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="777.0" layoutY="275.0" onAction="#btnSaveOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="SAVE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Save.png" />
+                     </image>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="SAVE" />
+                  <String fx:value="SAVEBACKGROUND" />
+               </styleClass>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="215.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Search.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtsearchSuppId" layoutX="247.0" layoutY="280.0" onAction="#txtSearchOnAction" prefHeight="25.0" prefWidth="164.0" promptText="supplier ID" />
+            <Label fx:id="lblSuppName" layoutX="609.0" layoutY="65.0" prefHeight="37.0" prefWidth="190.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtwaterDetail" layoutX="343.0" layoutY="143.0" prefHeight="33.0" prefWidth="245.0" text="1%  water content, reduced 1 Gross weight(1kg)" textFill="RED" visible="false">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Bookshelf Symbol 7" size="11.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="txtSearchDate" editable="false" layoutX="37.0" layoutY="278.0" prefHeight="26.0" prefWidth="164.0" promptText="select Date" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

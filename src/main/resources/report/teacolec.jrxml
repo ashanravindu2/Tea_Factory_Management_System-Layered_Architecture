@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="teacolec" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ced95029-b569-4027-895c-af2843a4e088">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (26)"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="dailyPay" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select p.EmpId ,p.startTime,p.endDate,p.workCount,p.extraSalary,p.netTotal,c.Name AS NAME FROM payment p,collector c WHERE p.EmpId=c.teaColecId AND transctionId ='T009']]>
+	</queryString>
+	<field name="EmpId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="EmpId"/>
+		<property name="com.jaspersoft.studio.field.label" value="EmpId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="startTime" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="startTime"/>
+		<property name="com.jaspersoft.studio.field.label" value="startTime"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="endDate" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="endDate"/>
+		<property name="com.jaspersoft.studio.field.label" value="endDate"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="workCount" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="workCount"/>
+		<property name="com.jaspersoft.studio.field.label" value="workCount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="extraSalary" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="extraSalary"/>
+		<property name="com.jaspersoft.studio.field.label" value="extraSalary"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="netTotal" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="netTotal"/>
+		<property name="com.jaspersoft.studio.field.label" value="netTotal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="NAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Name"/>
+		<property name="com.jaspersoft.studio.field.label" value="NAME"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="collector"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{EmpId}]]></groupExpression>
+		<groupHeader>
+			<band height="38">
+				<frame>
+					<reportElement mode="Opaque" x="-21" y="7" width="597" height="24" forecolor="#B89F7D" backcolor="#F2EBDF" uuid="df26104b-a7fc-458f-8a21-50b13c7c7736"/>
+					<rectangle>
+						<reportElement mode="Opaque" x="21" y="0" width="36" height="24" backcolor="#736343" uuid="369745f3-8095-4b8b-8b7a-38e42b7aef67"/>
+						<graphicElement>
+							<pen lineWidth="0.0"/>
+						</graphicElement>
+					</rectangle>
+					<textField>
+						<reportElement style="SubTitle" x="63" y="-40" width="90" height="24" forecolor="#FFFFFF" uuid="ef0a10c7-2940-4ac1-a69e-db1a00ae6f2e"/>
+						<textElement>
+							<font size="15" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{EmpId}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="489" y="-41" width="100" height="24" forecolor="#FFFFFF" uuid="eda3da44-57bf-4843-9039-a0c2429f1163"/>
+						<textElement>
+							<font size="15" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="11" y="-41" width="50" height="19" forecolor="#FFFFFF" uuid="73a223b2-3276-492a-9e96-bcf799c967cb"/>
+						<textElement>
+							<font size="14" isBold="true"/>
+						</textElement>
+						<text><![CDATA[ID :]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="420" y="-41" width="50" height="19" forecolor="#FFFFFF" uuid="3fab4c21-02f3-4dbd-8d39-e046f64f67cd"/>
+						<textElement>
+							<font size="14" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Name :]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="217" y="3" width="104" height="19" forecolor="#736343" uuid="fb1012c3-d849-4bb4-a9ad-05b1e972fb0c"/>
+						<textElement>
+							<font size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[WORK COUNT ]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="101" y="3" width="43" height="19" forecolor="#736343" uuid="8366afaf-b658-4fc1-9a0a-121db3e6f96a"/>
+						<textElement>
+							<font size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[DATE ]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="351" y="3" width="104" height="19" forecolor="#736343" uuid="f306c9ad-29ee-4f93-b6cd-402a194f523e"/>
+						<textElement>
+							<font size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[EXTRA SALARY]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="496" y="4" width="59" height="17" forecolor="#736343" uuid="4284cf1b-f510-4182-824e-9d93e34d5f6f"/>
+						<textElement>
+							<font size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[TOTAL ]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="160" y="-41" width="142" height="19" forecolor="#FFFFFF" uuid="f1e77f34-ff16-49db-a491-2f523c9573f7"/>
+						<textElement>
+							<font size="14" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Payment of the day :]]></text>
+					</staticText>
+				</frame>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{startTime}]]></groupExpression>
+	</group>
+	<group name="endDate">
+		<groupExpression><![CDATA[$F{endDate}]]></groupExpression>
+	</group>
+	<group name="workCount">
+		<groupExpression><![CDATA[$F{workCount}]]></groupExpression>
+	</group>
+	<group name="extraSalary">
+		<groupExpression><![CDATA[$F{extraSalary}]]></groupExpression>
+	</group>
+	<group name="netTotal">
+		<groupExpression><![CDATA[$F{netTotal}]]></groupExpression>
+	</group>
+	<group name="NAME">
+		<groupExpression><![CDATA[$F{NAME}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="95" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-10" width="595" height="105" forecolor="#C2934C" backcolor="#D1B36D" uuid="ddcbcb01-3fde-495a-9f5a-d8ca20c2867a"/>
+				<staticText>
+					<reportElement style="Title" x="144" y="10" width="310" height="40" uuid="1a652692-054a-40f3-ade5-68d8da36626d"/>
+					<textElement verticalAlignment="Middle">
+						<font size="22"/>
+					</textElement>
+					<text><![CDATA[Tea Collectors Payment Receipt :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="310" y="71" width="100" height="19" forecolor="#FFFFFF" uuid="fb38075c-57cd-4d46-8c48-08213c91a080"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{dailyPay}]]></textFieldExpression>
+				</textField>
+				<textField pattern="HH:mm">
+					<reportElement x="488" y="10" width="100" height="30" uuid="9cadde90-c33d-4bee-8795-fc99095f6f0b"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="113" splitType="Stretch">
+			<textField>
+				<reportElement x="237" y="7" width="63" height="19" forecolor="#736343" uuid="c186f646-f836-480f-a778-2ba1ec6b9aa7"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{workCount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-9" y="4" width="100" height="25" forecolor="#736343" uuid="58ebcdd5-c557-4398-9a5f-b16df0b5ba1e"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{startTime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="4" width="100" height="25" forecolor="#736343" uuid="77340544-d1af-42f7-9be9-28f0d691ec6d"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{endDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="338" y="6" width="110" height="20" forecolor="#736343" uuid="6ca4a946-e577-452e-a3e0-b54add1a53ff"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{extraSalary}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="464" y="6" width="87" height="20" forecolor="#736343" uuid="af6da36f-de14-41b3-8085-338123be933d"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{netTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="183682bc-d976-4756-83e0-6625a3f98ed1"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="110" height="20" forecolor="#736343" uuid="0616f3fe-0354-456f-8911-ec30ec51a5ae"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

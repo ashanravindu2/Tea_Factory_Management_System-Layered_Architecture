@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.TeaTypeController">
+   <children>
+      <AnchorPane prefHeight="612.0" prefWidth="940.0">
+         <children>
+            <ImageView accessibleHelp="QSDQD" accessibleRoleDescription="SASQS" accessibleText="QDQD" fitHeight="612.0" fitWidth="1066.0" layoutX="4.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <GaussianBlur radius="12.96" />
+               </effect>
+               <image>
+                  <Image url="@../assets/Image/venture-tea-ceylon-black-tea-export-marketing-01-e1669636265408.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8397a9" height="133.0" layoutX="32.0" layoutY="57.0" opacity="0.54" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="871.0" />
+            <Label layoutX="124.0" layoutY="80.0" text="Tea Type Code :" textFill="#353810">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tblTeaType" layoutX="35.0" layoutY="244.0" prefHeight="354.0" prefWidth="871.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="164.0">
+              <columns>
+                <TableColumn fx:id="colId" prefWidth="135.20000457763672" text="Tea Type Code" />
+                <TableColumn fx:id="colName" prefWidth="201.60000610351562" text="Tea Type" />
+                  <TableColumn fx:id="colDes" prefWidth="168.0" text="Description" />
+                  <TableColumn fx:id="colPer" prefWidth="216.79998779296875" text="Per 1kg Price(Rs)" />
+                  <TableColumn fx:id="colAction" prefWidth="147.99993896484375" text="Action" />
+              </columns>
+            </TableView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffbd1f" height="41.0" strokeType="INSIDE" width="1070.0" />
+            <Label layoutX="382.0" text="TEA TYPE MANAGE" textFill="#763100">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Serif Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="124.0" layoutY="129.0" text="Tea Type :" textFill="#353810">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtteaName" layoutX="240.0" layoutY="135.0" />
+            <Label layoutX="514.0" layoutY="80.0" text="Description :" textFill="#353810">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtdes" layoutX="615.0" layoutY="86.0" prefHeight="26.0" prefWidth="177.0" />
+            <Label layoutX="514.0" layoutY="129.0" prefHeight="38.0" prefWidth="90.0" text="Per 1kg price :" textFill="#353810">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtPrice" layoutX="616.0" layoutY="135.0" prefHeight="26.0" prefWidth="177.0" />
+            <JFXButton buttonType="RAISED" layoutX="538.0" layoutY="204.0" onAction="#btnClearField" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="CLEAR" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" rotate="31.0">
+                     <image>
+                        <Image url="@../assets/Clear.png" />
+                     </image>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="CLEAR" />
+                  <String fx:value="CLEARBACKGROUND" />
+               </styleClass>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="665.0" layoutY="204.0" onAction="#btnTeaTypeUpdateOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="UPDATE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Update.png" />
+                     </image>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="UPDATE" />
+                  <String fx:value="UPDATEBACKGROUND" />
+               </styleClass>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="791.0" layoutY="204.0" onAction="#btnTeTypeSave" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="SAVE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Save.png" />
+                     </image>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="SAVE" />
+                  <String fx:value="SAVEBACKGROUND" />
+               </styleClass>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <TextField fx:id="txtTeaId" layoutX="240.0" layoutY="86.0" />
+            <TextField fx:id="txtsearchId" layoutX="61.0" layoutY="214.0" onAction="#txtSerchOnAction" prefHeight="11.0" prefWidth="135.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="31.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Search.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

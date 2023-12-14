@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.FuelController">
+   <children>
+      <ImageView fitHeight="579.0" fitWidth="1179.0" layoutX="-1.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Image/2084395831.jpg" />
+         </image>
+         <effect>
+            <GaussianBlur radius="15.19" />
+         </effect>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#79512780" height="55.0" layoutX="232.0" layoutY="65.0" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="516.0" />
+      <Label layoutX="496.0" layoutY="83.0" text="Fuel Available (Litre):" textFill="WHITE" AnchorPane.leftAnchor="496.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblLiterAval" layoutX="645.0" layoutY="84.0" prefHeight="19.0" prefWidth="90.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <JFXButton buttonType="RAISED" layoutX="525.0" layoutY="352.0" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="CLEAR" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" rotate="31.0">
+               <image>
+                  <Image url="@../assets/Clear.png" />
+               </image>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+               </effect>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <styleClass>
+            <String fx:value="CLEAR" />
+            <String fx:value="CLEARBACKGROUND" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="651.0" layoutY="352.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="UPDATE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Update.png" />
+               </image>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+               </effect>
+            </ImageView>
+         </graphic>
+         <styleClass>
+            <String fx:value="UPDATE" />
+            <String fx:value="UPDATEBACKGROUND" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="776.0" layoutY="352.0" onAction="#btnSaveOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="SAVE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Save.png" />
+               </image>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+               </effect>
+            </ImageView>
+         </graphic>
+         <styleClass>
+            <String fx:value="SAVE" />
+            <String fx:value="SAVEBACKGROUND" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffbd1f" height="41.0" strokeType="INSIDE" width="1066.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="105.20000000000005" AnchorPane.topAnchor="0.0" />
+      <Label layoutX="440.0" text="Fuel Manage">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="Serif Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="40.0" fitWidth="48.0" layoutX="14.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Image/icons8-back-64.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="15.0" layoutY="5.0" onAction="#btnBakc" prefHeight="32.0" prefWidth="40.0" stylesheets="@../css/CRUDbutton.css">
+         <styleClass>
+            <String fx:value="back" />
+            <String fx:value="backHover" />
+         </styleClass>
+      </JFXButton>
+      <Label layoutX="253.0" layoutY="83.0" text="Available Barrel :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAvailableBarrel" layoutX="381.0" layoutY="84.0" prefHeight="19.0" prefWidth="90.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffbd1f" height="41.0" layoutY="223.0" strokeType="INSIDE" width="1066.0" AnchorPane.leftAnchor="0.0" />
+      <Label layoutX="457.0" layoutY="223.0" text="Add Fuel" AnchorPane.leftAnchor="457.0">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="Serif Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtBId" layoutX="340.0" layoutY="290.0" prefHeight="26.0" prefWidth="102.0" />
+      <Label layoutX="285.0" layoutY="294.0" text="Barrel :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtBLId" layoutX="538.0" layoutY="290.0" prefHeight="26.0" prefWidth="101.0" />
+      <Label layoutX="483.0" layoutY="294.0" text="Litre :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="168.0" text="Barrel Code :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnUsed" buttonType="RAISED" layoutX="786.0" layoutY="162.0" onAction="#btnUseOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="USE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Save.png" />
+               </image>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+               </effect>
+            </ImageView>
+         </graphic>
+         <styleClass>
+            <String fx:value="SAVE" />
+            <String fx:value="SAVEBACKGROUND" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TableView fx:id="tblFuel" layoutX="43.0" layoutY="389.0" prefHeight="206.0" prefWidth="850.0">
+        <columns>
+          <TableColumn fx:id="colCode" prefWidth="218.4000015258789" text="Code" />
+          <TableColumn fx:id="colBarrelId" prefWidth="292.79998779296875" text="Barrel" />
+            <TableColumn fx:id="colLiter" prefWidth="226.4000244140625" text="Liter" />
+            <TableColumn fx:id="colAction" prefWidth="112.0" text="Remove" />
+        </columns>
+      </TableView>
+      <JFXButton buttonType="RAISED" layoutX="651.0" layoutY="161.0" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="CLEAR" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" rotate="31.0">
+               <image>
+                  <Image url="@../assets/Clear.png" />
+               </image>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+               </effect>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <styleClass>
+            <String fx:value="CLEAR" />
+            <String fx:value="CLEARBACKGROUND" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label layoutX="412.0" layoutY="169.0" text="Use Fuel (litre) :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbBId" layoutX="125.0" layoutY="165.0" onAction="#cmbBarrelId" prefHeight="25.0" prefWidth="90.0" />
+      <TextField fx:id="txtUseFuel" layoutX="517.0" layoutY="165.0" prefHeight="26.0" prefWidth="90.0" />
+      <Label layoutX="237.0" layoutY="169.0" text="Available :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c48d5680" height="26.0" layoutX="303.0" layoutY="165.0" strokeType="INSIDE" style="-fx-arc-height: 11; -fx-arc-width: 11;" width="101.0" />
+      <Label fx:id="lblAvilable" layoutX="303.0" layoutY="169.0" prefHeight="18.0" prefWidth="90.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="294.0" text="Next Reg Code :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c48d5680" height="26.0" layoutX="151.0" layoutY="291.0" strokeType="INSIDE" style="-fx-arc-height: 11; -fx-arc-width: 11;" width="91.0" />
+      <Label fx:id="lblFuelId" layoutX="153.0" layoutY="294.0" prefHeight="18.0" prefWidth="102.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtsearchId" layoutX="66.0" layoutY="359.0" onAction="#txtSearchIdOnAction" prefHeight="11.0" prefWidth="135.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
+      <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="36.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Search.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="679.0" layoutY="294.0" text="Register Code :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c48d5680" height="26.0" layoutX="778.0" layoutY="291.0" strokeType="INSIDE" style="-fx-arc-height: 11; -fx-arc-width: 11;" width="91.0" />
+      <Label fx:id="lblRegId" layoutX="782.0" layoutY="295.0" prefHeight="18.0" prefWidth="91.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

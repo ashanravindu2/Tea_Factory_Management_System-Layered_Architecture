@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="537.0" prefWidth="1066.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.TeaPowderAvailableController">
+   <children>
+      <AnchorPane prefHeight="537.0" prefWidth="859.0">
+         <children>
+            <ImageView accessibleHelp="QSDQD" accessibleRoleDescription="SASQS" accessibleText="QDQD" fitHeight="718.0" fitWidth="954.0" layoutX="2.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Image/tea-leaves-withering-feature.jpg" />
+               </image>
+               <effect>
+                  <GaussianBlur radius="4.71" />
+               </effect>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeb7bfb7" height="117.0" layoutX="30.0" layoutY="49.0" opacity="0.66" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="382.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeb7bfb7" height="551.0" layoutX="430.0" layoutY="49.0" opacity="0.66" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="490.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c7ced4b8" height="105.0" layoutX="452.0" layoutY="73.0" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="446.0" />
+            <Label layoutX="52.0" layoutY="57.0" text="Date :">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tblTeaPowder" layoutX="29.0" layoutY="214.0" prefHeight="306.0" prefWidth="382.0">
+              <columns>
+                <TableColumn fx:id="colDate" prefWidth="115.0" text="Date" />
+                <TableColumn fx:id="colUsed" prefWidth="165.00003051757812" text="Used TeaPowder" />
+                  <TableColumn fx:id="colAction" prefWidth="99.99996948242188" text="Action" />
+              </columns>
+            </TableView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffbd1f" height="41.0" strokeType="INSIDE" width="1066.0" />
+            <Label layoutX="387.0" text="Tea Leaf Maintain">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Serif Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="52.0" layoutY="96.0" prefHeight="58.0" prefWidth="163.0" text="Tea Leaf Using for Preparing Tea Powder(Kg)" wrapText="true">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="addcartbtn" buttonType="RAISED" layoutX="276.0" layoutY="177.0" onAction="#btnaddAction" prefHeight="30.0" prefWidth="135.0" ripplerFill="#3cff00" stylesheets="@../css/CRUDbutton.css" text="Add to cart" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Image/icons8-add-to-cart-96.png" />
+                     </image>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <styleClass>
+                  <String fx:value="addtocaert" />
+                  <String fx:value="addtocaertHover" />
+               </styleClass>
+            </JFXButton>
+            <JFXButton fx:id="savebtn" buttonType="RAISED" layoutX="295.0" layoutY="535.0" onAction="#btnPlaceAction" prefHeight="30.0" prefWidth="115.0" ripplerFill="#00ccff" stylesheets="@../css/CRUDbutton.css" text="Save " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Image/icons8-order-96.png" />
+                     </image>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <styleClass>
+                  <String fx:value="placeorder" />
+                  <String fx:value="placeorderHover" />
+               </styleClass>
+            </JFXButton>
+            <TextField fx:id="txtTeaPowder" layoutX="240.0" layoutY="112.0" onKeyTyped="#btnEnterAction" prefHeight="26.0" prefWidth="153.0" />
+            <Label layoutX="488.0" layoutY="85.0" text="Net TeaLeaf Available (kg):">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTeaNet" layoutX="674.0" layoutY="95.0" text="Label">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="datePickerId" editable="false" layoutX="119.0" layoutY="64.0" onKeyPressed="#timepickkerAction" onMouseEntered="#btnMouseEnterAction" onMouseExited="#btnMouseOutAction" prefHeight="26.0" prefWidth="156.0" />
+            <Label layoutX="488.0" layoutY="128.0" text="Free Avaialable :">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblFreeTea" layoutX="674.0" layoutY="138.0" text="Label">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="sayEnterPress" layoutX="311.0" layoutY="49.0" text="Set Date &amp; Press Enter Key !" textFill="RED" visible="false">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="updatebtn" buttonType="RAISED" layoutX="157.0" layoutY="535.0" onAction="#btnUpdateAction" prefHeight="30.0" prefWidth="115.0" ripplerFill="#00ccff" stylesheets="@../css/CRUDbutton.css" text="Update" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Update.png" />
+                     </image>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <styleClass>
+                  <String fx:value="placeorder" />
+                  <String fx:value="placeorderHover" />
+               </styleClass>
+            </JFXButton>
+            <Label fx:id="warningUnsuff" layoutX="665.0" layoutY="126.0" text="Tea Leaf is Out Of Stock" textFill="RED" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tblteaPowder" layoutX="468.0" layoutY="214.0" prefHeight="372.0" prefWidth="414.0">
+              <columns>
+                <TableColumn fx:id="colSdate" prefWidth="137.0" text="Date" />
+                <TableColumn fx:id="colPowderStock" prefWidth="167.0" text="Tea Powder Stock" />
+                  <TableColumn fx:id="colReAction" prefWidth="108.0" text="Action" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

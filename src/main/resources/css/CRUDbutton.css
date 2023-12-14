@@ -1,0 +1,60 @@
+.SAVE:hover{
+    -fx-background-color: #17608a;
+}
+.SAVEBACKGROUND{
+    -fx-background-color:  #2980b9;
+}
+
+
+.UPDATE:hover{
+    -fx-background-color: #158824;
+}
+.UPDATEBACKGROUND{
+    -fx-background-color: #28be3b;
+}
+
+
+.DELETE:hover{
+    -fx-background-color: #c21e1e;
+}
+.DELETEBACKGROUND{
+    -fx-background-color: #f33737;
+}
+
+
+.CLEAR:hover{
+    -fx-background-color: #b4581c;
+}
+.CLEARBACKGROUND{
+    -fx-background-color: #e87429;
+}
+.placeorder{
+    -fx-background-color: rgb(25, 71, 122);
+}
+.placeorderHover:hover{
+    -fx-background-color: #1e5ca1;
+}
+
+.addtocaert{
+    -fx-background-color: rgb(18, 86, 26);
+}
+.addtocaertHover:hover{
+    -fx-background-color: #249131;
+}
+
+
+.stock{
+    -fx-background-color: rgba(3, 31, 8, 0.42);
+}
+.stockHover:hover{
+    -fx-background-color: rgba(255, 255, 255, 0.42);
+    -fx-text-fill: black;
+}
+
+.back{
+    -fx-background-color: rgba(227, 125, 10, 0.42);
+}
+.backHover:hover{
+    -fx-background-color: rgba(148, 101, 9, 0.42);
+
+}

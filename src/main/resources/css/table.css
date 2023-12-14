@@ -1,0 +1,37 @@
+/* styles.css */
+.table-view {
+    -fx-background-color: #f5f5f5; /* Background color of the table */
+}
+
+.table-row-cell {
+    -fx-background-color: #ffffff; /* Background color of the cells */
+    -fx-border-color: #d0d0d0; /* Border color of the cells */
+    -fx-border-width: 0.5;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #4CAF50; /* Background color of selected cells */
+    -fx-text-fill: white; /* Text color of selected cells */
+}
+
+.table-column {
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-weight: bold;
+}
+
+/* Increase specificity for the table header */
+.table-view .column-header .label {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+/* Increase specificity for the entire table header */
+.table-view .column-header-background {
+    -fx-background-color: black;
+    -fx-pref-height: 30;
+}
+
+.table-view:focused {
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: transparent;
+}

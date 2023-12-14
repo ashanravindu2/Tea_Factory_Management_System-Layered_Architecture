@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="369.0" prefWidth="579.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.HomeDetailController">
+   <children>
+      <ImageView fitHeight="604.0" fitWidth="928.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Image/backg.png" />
+         </image>
+         <effect>
+            <GaussianBlur radius="15.89" />
+         </effect>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00000072" height="604.0" layoutY="2.0" strokeType="INSIDE" width="928.0">
+         <effect>
+            <GaussianBlur radius="0.0" />
+         </effect></Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3e3e344" height="416.0" layoutX="16.0" layoutY="177.0" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="224.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3e3e345" height="289.0" layoutX="536.0" layoutY="16.0" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="371.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3e3e345" height="37.0" layoutX="537.0" layoutY="16.0" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="371.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3e3e345" height="43.0" layoutX="170.0" layoutY="514.0" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="61.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3e3e345" height="202.0" layoutX="537.0" layoutY="316.0" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="371.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="699.0" layoutY="20.0" text="Stock" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="24.0" />
+         </font>
+      </Label>
+      <PieChart fx:id="pieChart" layoutX="536.0" layoutY="51.0" prefHeight="242.0" prefWidth="371.0" stylesheets="@../css/piechart.css">
+         <effect>
+            <DropShadow />
+         </effect></PieChart>
+      <BarChart fx:id="barChart" layoutX="15.0" layoutY="215.0" prefHeight="350.0" prefWidth="200.0" stylesheets="@../css/barchart.css">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" tickLength="5.0">
+               <tickLabelFont>
+                  <Font name="System Bold" size="11.0" />
+               </tickLabelFont>
+            </CategoryAxis>
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" tickLabelFill="WHITE" tickLabelGap="5.0" tickLength="5.0">
+               <tickLabelFont>
+                  <Font name="System Bold" size="11.0" />
+               </tickLabelFont>
+            </NumberAxis>
+        </yAxis>
+         <effect>
+            <DropShadow />
+         </effect>
+      </BarChart>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3e3e345" height="37.0" layoutX="16.0" layoutY="177.0" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="224.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="62.0" layoutY="184.0" text="Employee Attendence" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblWork" layoutX="180.0" layoutY="515.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblColec" layoutX="180.0" layoutY="540.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <ProgressBar fx:id="progressBar" layoutX="553.0" layoutY="412.0" prefHeight="20.0" prefWidth="338.0" progress="0.0" AnchorPane.bottomAnchor="174.0" />
+      <ProgressBar fx:id="progressBar1" layoutX="553.0" layoutY="346.0" prefHeight="20.0" prefWidth="338.0" progress="0.0" AnchorPane.bottomAnchor="240.0" />
+      <ProgressBar fx:id="progressBar11" layoutX="553.0" layoutY="479.0" prefHeight="20.0" prefWidth="338.0" progress="0.0" AnchorPane.bottomAnchor="107.0" />
+      <Label layoutX="557.0" layoutY="395.0" text="FUEL AVAILABLE %" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="558.0" layoutY="461.0" text="WOOD AVAILABLE %" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="557.0" layoutY="328.0" text="TEA POWDER AVAILABLE %" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="14.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3e3e345" height="52.0" layoutX="22.0" layoutY="21.0" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="347.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label fx:id="lblProfit" layoutX="308.0" layoutY="36.0" text="PROFIT" textFill="#00ff04" visible="false">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label layoutX="41.0" layoutY="36.0" text="Tea Leaf Entry (Kg)  :" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTeaEntry" layoutX="180.0" layoutY="38.0" prefHeight="22.0" prefWidth="166.0" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3e3e345" height="79.0" layoutX="20.0" layoutY="82.0" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="347.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Rectangle>
+      <Label layoutX="41.0" layoutY="94.0" text="Workers Count  :" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="127.0" text="Tea Collectors Count :" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblWorkers" layoutX="151.0" layoutY="96.0" prefHeight="22.0" prefWidth="166.0" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label fx:id="lblCollectors" layoutX="185.0" layoutY="129.0" prefHeight="22.0" prefWidth="166.0" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label fx:id="lblLost" layoutX="311.0" layoutY="37.0" text="LOSS" textFill="RED" visible="false">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>

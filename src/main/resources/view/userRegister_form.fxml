@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loginRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="720.0" styleClass="login" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.UserRegisterController">
+   <children>
+      <ImageView fitHeight="465.0" fitWidth="1046.0" layoutX="73.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Image/registerUser.png" />
+         </image>
+         <effect>
+            <GaussianBlur radius="5.54" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="390.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Image/loginBack.png" />
+         </image>
+         <effect>
+            <DropShadow radius="29.05" width="97.2" />
+         </effect>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0e5b16" height="9.0" layoutX="424.0" layoutY="37.0" opacity="0.69" strokeType="INSIDE" style="-fx-arc-height: 22;" width="86.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffffd4" height="301.0" layoutX="237.0" layoutY="45.0" opacity="0.42" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="460.0">
+         <effect>
+            <DropShadow height="59.1" radius="26.12" width="47.38" />
+         </effect></Rectangle>
+      <JFXButton alignment="CENTER" layoutX="354.0" layoutY="294.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.51" prefHeight="30.0" prefWidth="226.0" style="-fx-background-color: #03470A;" />
+      <JFXButton alignment="CENTER" layoutX="354.0" layoutY="294.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#btnRegisterOnAction" prefHeight="30.0" prefWidth="226.0" ripplerFill="#ffffff91" stylesheets="@../css/Style3.css" text="REGISTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <styleClass>
+            <String fx:value="RegisterBackgr" />
+            <String fx:value="RegisterHover" />
+         </styleClass>
+      </JFXButton>
+      <TextField fx:id="txtName" layoutX="279.0" layoutY="87.0" prefHeight="0.0" prefWidth="167.0" />
+      <Label layoutX="279.0" layoutY="62.0" text="Name" textFill="#053c13">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="488.0" layoutY="62.0" text="Telephone No" textFill="#053c13">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="279.0" layoutY="136.0" text="Address" textFill="#053c13">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="279.0" layoutY="210.0" text="User Name" textFill="#053c13">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="488.0" layoutY="136.0" text="Email" textFill="#053c13">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="488.0" layoutY="210.0" text="Password" textFill="#053c13">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="408.0" layoutY="17.0" text="USER REGISTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+      <TextField fx:id="txtTele" layoutX="488.0" layoutY="87.0" prefHeight="0.0" prefWidth="167.0" AnchorPane.rightAnchor="66.0" />
+      <TextField fx:id="txtAddress" layoutX="279.0" layoutY="163.0" prefHeight="0.0" prefWidth="167.0" />
+      <TextField fx:id="txtEmail" layoutX="487.0" layoutY="163.0" prefHeight="0.0" prefWidth="167.0" AnchorPane.rightAnchor="66.0" />
+      <TextField fx:id="txtUserName" layoutX="279.0" layoutY="237.0" prefHeight="0.0" prefWidth="167.0" />
+      <TextField fx:id="txtPass" layoutX="487.0" layoutY="237.0" prefHeight="0.0" prefWidth="167.0" AnchorPane.rightAnchor="66.0" />
+      <Label fx:id="lblUserId" layoutX="279.0" layoutY="20.0" prefHeight="19.0" prefWidth="117.0" textFill="#053c13">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

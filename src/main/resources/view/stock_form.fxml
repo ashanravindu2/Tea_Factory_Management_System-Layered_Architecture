@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="stockNode" prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.StocklController">
+   <children>
+      <ImageView fitHeight="693.0" fitWidth="1066.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-81.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../assets/Image/Minimum-Amount-For-Trading-in-india-2023-Cover-Image-1080x675.jpg" />
+         </image>
+         <effect>
+            <GaussianBlur radius="7.24" />
+         </effect>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffbd1f" height="41.0" strokeType="INSIDE" width="1066.0" />
+      <Label layoutX="438.0" text="STOCK">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="Serif Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="TOP" layoutX="107.0" layoutY="108.0" onAction="#btnTeaMnageAction" prefHeight="343.0" prefWidth="226.0" stylesheets="@../css/CRUDbutton.css" text="TEA MANAGE" textFill="WHITE" AnchorPane.topAnchor="108.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="stock" />
+            <String fx:value="stockHover" />
+         </styleClass>
+         <graphic>
+            <ImageView fitHeight="351.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Image/istockphoto-624021046-612x612.jpg" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" contentDisplay="TOP" layoutX="614.0" layoutY="110.0" onAction="#btnWoodMnageAction" prefHeight="337.0" prefWidth="195.0" stylesheets="@../css/CRUDbutton.css" text="WOOD MANAGE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="stock" />
+            <String fx:value="stockHover" />
+         </styleClass>
+         <graphic>
+            <ImageView fitHeight="353.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Image/istockphoto-1329013033-612x612.jpg" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton alignment="TOP_CENTER" buttonType="RAISED" contentDisplay="TOP" layoutX="363.0" layoutY="108.0" onAction="#btnFuelMnageAction" prefHeight="343.0" prefWidth="195.0" stylesheets="@../css/CRUDbutton.css" text="FUEL MANAGE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <styleClass>
+            <String fx:value="stock" />
+            <String fx:value="stockHover" />
+         </styleClass>
+         <graphic>
+            <ImageView fitHeight="354.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Image/fuel.jpg" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>

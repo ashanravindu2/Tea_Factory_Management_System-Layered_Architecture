@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.TeaSellsController">
+   <children>
+      <AnchorPane prefHeight="612.0" prefWidth="940.0">
+         <children>
+            <ImageView accessibleHelp="QSDQD" accessibleRoleDescription="SASQS" accessibleText="QDQD" fitHeight="730.0" fitWidth="1066.0" layoutX="2.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <GaussianBlur radius="12.96" />
+               </effect>
+               <image>
+                  <Image url="@../assets/Image/row-different-types-herbal-tea-packets_419341-94582.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2f2f235" height="26.0" layoutX="419.0" layoutY="161.0" strokeType="INSIDE" style="-fx-arc-height: 11; -fx-arc-width: 11;" width="80.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2f2f235" height="26.0" layoutX="495.0" layoutY="117.0" strokeType="INSIDE" style="-fx-arc-height: 11; -fx-arc-width: 11;" width="202.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2f2f235" height="26.0" layoutX="594.0" layoutY="161.0" strokeType="INSIDE" style="-fx-arc-height: 11; -fx-arc-width: 11;" width="80.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2f2f235" height="190.0" layoutX="50.0" layoutY="51.0" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="825.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2f2f235" height="38.0" layoutX="685.0" layoutY="58.0" strokeType="INSIDE" style="-fx-arc-height: 11; -fx-arc-width: 11;" width="181.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2f2f235" height="26.0" layoutX="783.0" layoutY="160.0" strokeType="INSIDE" style="-fx-arc-height: 11; -fx-arc-width: 11;" width="80.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2f2f235" height="38.0" layoutX="21.0" layoutY="521.0" strokeType="INSIDE" style="-fx-arc-height: 11; -fx-arc-width: 11;" width="231.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2f2f235" height="26.0" layoutX="135.0" layoutY="65.0" strokeType="INSIDE" style="-fx-arc-height: 11; -fx-arc-width: 11;" width="144.0" />
+            <Label layoutX="67.0" layoutY="59.0" text="Order ID :" textFill="WHITE">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="67.0" layoutY="159.0" text="Select Tea Type :" textFill="WHITE">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="699.0" layoutY="192.0" text="Quantity :" textFill="WHITE">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtQuan" layoutX="768.0" layoutY="198.0" prefHeight="26.0" prefWidth="91.0" />
+            <TableView fx:id="tblPlaceOrder" layoutX="18.0" layoutY="293.0" prefHeight="220.0" prefWidth="894.0">
+              <columns>
+                <TableColumn fx:id="colCodeTea" prefWidth="163.20004272460938" text="Code" />
+                <TableColumn fx:id="colTeaName" minWidth="0.0" prefWidth="174.39996337890625" text="Description" />
+                  <TableColumn fx:id="colQuantity" prefWidth="136.0" text="Quantity" />
+                  <TableColumn fx:id="colUnitPrice" prefWidth="176.79998779296875" text="UnitPrice" />
+                  <TableColumn fx:id="colTotal" prefWidth="134.4000244140625" text="Total(Rs.)" />
+                  <TableColumn fx:id="colAction" prefWidth="107.20004882812498" text="Action" />
+              </columns>
+            </TableView>
+            <Label layoutX="31.0" layoutY="516.0" text="New Total :" textFill="WHITE">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffbd1f" height="41.0" strokeType="INSIDE" width="1066.0" />
+            <Label layoutX="420.0" text="PLACE ORDER">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Serif Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="338.0" layoutY="154.0" text="Description :" textFill="WHITE">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="67.0" layoutY="106.0" text="Customer ID :" textFill="WHITE">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="384.0" layoutY="111.0" text="Customer Name :" textFill="WHITE">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="705.0" layoutY="58.0" text="Order Date :" textFill="WHITE">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblOrderId" layoutX="143.0" layoutY="68.0" prefHeight="18.0" prefWidth="131.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <JFXComboBox fx:id="cmbCusId" focusColor="WHITE" layoutX="163.0" layoutY="112.0" onAction="#cmbCusIdAction" prefHeight="25.0" prefWidth="95.0" unFocusColor="WHITE" />
+            <JFXComboBox fx:id="cmbTeaId" focusColor="WHITE" layoutX="175.0" layoutY="165.0" onAction="#cmbTeaIdAction" prefHeight="25.0" prefWidth="95.0" unFocusColor="WHITE" />
+            <Label fx:id="lblCusName" layoutX="505.0" layoutY="121.0" prefHeight="18.0" prefWidth="201.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="lblOrderDate" layoutX="785.0" layoutY="68.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="lblDescrip" layoutX="424.0" layoutY="165.0" prefHeight="18.0" prefWidth="80.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label layoutX="525.0" layoutY="154.0" text="Unit Price :" textFill="WHITE">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUnitPrice" layoutX="601.0" layoutY="164.0" prefHeight="18.0" prefWidth="80.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label layoutX="695.0" layoutY="154.0" text="Qty.On.Hand :" textFill="WHITE">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblQoH" layoutX="790.0" layoutY="164.0" prefHeight="18.0" prefWidth="80.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="lblNettotal" layoutX="134.0" layoutY="531.0" prefHeight="19.0" prefWidth="115.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <JFXButton buttonType="RAISED" layoutX="291.0" layoutY="107.0" onAction="#btnAddCusAction" prefHeight="25.0" prefWidth="69.0" ripplerFill="#4efff3" stylesheets="@../css/CRUDbutton.css" text="ADD" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Image/addcus.png" />
+                     </image>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <styleClass>
+                  <String fx:value="SAVE" />
+                  <String fx:value="SAVEBACKGROUND" />
+               </styleClass>
+            </JFXButton>
+            <JFXButton fx:id="addCartBtn" buttonType="RAISED" layoutX="798.0" layoutY="251.0" onAction="#btnaddCartAction" prefHeight="37.0" prefWidth="115.0" ripplerFill="#3cff00" stylesheets="@../css/CRUDbutton.css" text="Add to cart" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Image/icons8-add-to-cart-96.png" />
+                     </image>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <styleClass>
+                  <String fx:value="addtocaert" />
+                  <String fx:value="addtocaertHover" />
+               </styleClass>
+            </JFXButton>
+            <JFXButton fx:id="placeIdBtn" buttonType="RAISED" layoutX="723.0" layoutY="522.0" onAction="#btnPlaceAction" prefHeight="37.0" prefWidth="189.0" ripplerFill="#00ccff" stylesheets="@../css/CRUDbutton.css" text="Place Order" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Image/icons8-order-96.png" />
+                     </image>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+                     </effect>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <styleClass>
+                  <String fx:value="placeorder" />
+                  <String fx:value="placeorderHover" />
+               </styleClass>
+            </JFXButton>
+            <Label fx:id="lblTime" layoutX="772.0" layoutY="95.0" visible="false" />
+            <Label layoutX="692.0" layoutY="85.0">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

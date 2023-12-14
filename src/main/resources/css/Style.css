@@ -1,0 +1,18 @@
+.menuItemmenuItem:hover{
+    -fx-border-color: #660899;
+    -fx-border-width: 0px 8px 3px 8px;
+    -fx-background-color: #126886;
+}
+
+.slidebar:hover{
+    -fx-background-color: #99d966;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 0px 0px 0px 5px;
+    -fx-text-fill: #000000;
+}
+.slidebar2:focused{
+    -fx-background-color: #07330e;
+    -fx-text-fill: #00ff00
+}
+
+

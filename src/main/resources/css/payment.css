@@ -1,0 +1,19 @@
+
+.buttonHover:hover{
+    -fx-background-color: #1fa90a;
+    -fx-border-color: #59ff00;
+    -fx-border-width: 0px 0px 5px 0px;
+    -fx-text-fill: #ffffff;
+}
+.buttonClick:focused{
+    -fx-background-color: #0e591b;
+    -fx-text-fill: #ffffff
+}
+
+.backgroundColor{
+    -fx-background-color: linear-gradient(to right, #71f68a, #85b789);
+}
+
+
+
+

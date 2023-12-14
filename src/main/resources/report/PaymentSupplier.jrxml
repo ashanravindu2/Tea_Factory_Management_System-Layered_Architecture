@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PaymentSupplier" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a5c9b49-9dc5-422a-ac69-e92cf61ef530">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (20)"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="1kgtoPay" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+    p.transctionId,
+    p.EmpId,
+    p.netWeight,
+    p.fertilizerReduced,
+    p.netTotal,
+    s.suppName,
+    t.supplierId,
+    t.teaColecId,
+    t.grosWeight,
+    t.waterCon,
+    t.netWeight AS TeaLeafNetWeight,
+    t.date
+FROM payment AS p
+         JOIN suppliers AS s ON p.EmpId = s.supplierId
+         JOIN tea_leafentry AS t ON p.EmpId = t.supplierId
+WHERE p.transctionId = 'T001'
+  AND t.date BETWEEN ' 2023-11-22 ' AND ' 2023-11-23 ']]>
+	</queryString>
+	<field name="transctionId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="transctionId"/>
+		<property name="com.jaspersoft.studio.field.label" value="transctionId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="netWeight" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="netWeight"/>
+		<property name="com.jaspersoft.studio.field.label" value="netWeight"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="fertilizerReduced" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="fertilizerReduced"/>
+		<property name="com.jaspersoft.studio.field.label" value="fertilizerReduced"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="netTotal" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="netTotal"/>
+		<property name="com.jaspersoft.studio.field.label" value="netTotal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payment"/>
+	</field>
+	<field name="suppName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="suppName"/>
+		<property name="com.jaspersoft.studio.field.label" value="suppName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="suppliers"/>
+	</field>
+	<field name="supplierId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="supplierId"/>
+		<property name="com.jaspersoft.studio.field.label" value="supplierId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tea_leafentry"/>
+	</field>
+	<field name="teaColecId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="teaColecId"/>
+		<property name="com.jaspersoft.studio.field.label" value="teaColecId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tea_leafentry"/>
+	</field>
+	<field name="grosWeight" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="grosWeight"/>
+		<property name="com.jaspersoft.studio.field.label" value="grosWeight"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tea_leafentry"/>
+	</field>
+	<field name="waterCon" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="waterCon"/>
+		<property name="com.jaspersoft.studio.field.label" value="waterCon"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tea_leafentry"/>
+	</field>
+	<field name="TeaLeafNetWeight" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="netWeight"/>
+		<property name="com.jaspersoft.studio.field.label" value="TeaLeafNetWeight"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tea_leafentry"/>
+	</field>
+	<field name="date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="date"/>
+		<property name="com.jaspersoft.studio.field.label" value="date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tea_leafentry"/>
+	</field>
+	<variable name="netWeight1" class="java.lang.Double" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{netWeight}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{transctionId}]]></groupExpression>
+		<groupHeader>
+			<band height="47">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="3" width="635" height="24" forecolor="#B89F7D" backcolor="#000000" uuid="f24569ed-2518-465a-a480-0c195aacd180"/>
+					<staticText>
+						<reportElement x="285" y="5" width="188" height="13" forecolor="#FFFFFF" uuid="69a686a9-872e-4a57-8289-2f3954548b3c"/>
+						<text><![CDATA[1 water points reduced 1Kg Tea Weight]]></text>
+					</staticText>
+				</frame>
+				<rectangle>
+					<reportElement x="636" y="3" width="165" height="24" backcolor="#666666" uuid="70e1e931-2edd-4f3d-b09b-b9da04709f25"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="27"/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{fertilizerReduced}]]></groupExpression>
+	</group>
+	<group name="netTotal">
+		<groupExpression><![CDATA[$F{netTotal}]]></groupExpression>
+	</group>
+	<group name="suppName">
+		<groupExpression><![CDATA[$F{suppName}]]></groupExpression>
+	</group>
+	<group name="supplierId">
+		<groupExpression><![CDATA[$F{supplierId}]]></groupExpression>
+	</group>
+	<group name="netWeight">
+		<groupExpression><![CDATA[$F{netWeight}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="181" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="801" height="90" forecolor="#105730" backcolor="rgba(32, 66, 32, 0.92156863)" uuid="d8d9e644-3a32-491d-97cb-a277aff17133"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Dashed" lineColor="#000301"/>
+				</box>
+				<staticText>
+					<reportElement x="146" y="12" width="504" height="30" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="280adcf4-2f6e-40b9-805c-1a649ef6d0f7"/>
+					<textElement>
+						<font fontName="Engravers MT" size="22" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CAPTAIN GARDEN TEA FACTORY]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="656" y="61" width="139" height="30" forecolor="#FFFFFF" backcolor="rgba(255, 255, 255, 0.0)" uuid="4a40741d-ec44-4a61-b6fb-0ffd1612d293"/>
+					<textElement>
+						<font fontName="Calisto MT" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Tele : 077 329 4539]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="656" y="44" width="139" height="30" forecolor="#FFFFFF" backcolor="rgba(255, 255, 255, 0.0)" uuid="79c7dcd8-2903-44ef-8bc8-3dc191f1f583"/>
+					<textElement>
+						<font fontName="Calisto MT" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Gonamulla Junction,Galle]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="331" y="43" width="108" height="18" forecolor="#FFFFFF" backcolor="rgba(255, 255, 255, 0.0)" uuid="ab74b41a-8e82-4711-9b95-469d632508c8"/>
+					<textElement>
+						<font fontName="Calisto MT" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Tea Manufacturer]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="331" y="68" width="108" height="18" forecolor="#FFFFFF" backcolor="rgba(255, 255, 255, 0.0)" uuid="d5e8c3ad-0361-4281-a95b-496bb1d0c380"/>
+					<textElement>
+						<font fontName="Calisto MT" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SUPPLIER ]]></text>
+				</staticText>
+			</frame>
+			<rectangle radius="10">
+				<reportElement x="0" y="100" width="800" height="60" uuid="16d3a183-b307-4fa6-803f-47c3d9fee0f7"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="640" y="120" width="25" height="30" uuid="c688b1bd-1d46-454c-9527-54fae4d7b46f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TRC :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="107" width="116" height="30" uuid="a8b1e4f3-a582-41f5-9d05-5ebbaccb2ece"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tea Supplier Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="129" width="116" height="30" uuid="5b8c17e4-cd4f-48f4-8117-fdf4c16f5cb1"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="107" width="116" height="30" uuid="81a2fd5f-9bf1-41db-944c-b2d73f3b5469"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Months :]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="431" y="107" width="100" height="30" uuid="933c2240-6eef-41b3-bd92-9f31d820fed4"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="108" width="170" height="19" uuid="b1f832a3-68c2-464b-bfe4-cef42c831948"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{suppName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="58" y="130" width="161" height="17" uuid="e564427d-739f-45f1-8ac6-78d51843002c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{supplierId}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="656" y="4" width="112" height="18" forecolor="#000000" uuid="9f66b235-6023-425c-904e-7ba3ed00a3d6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="799b08b8-1ad9-4758-a82f-c2b3901aadfb"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TEA COLEC ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="159" y="4" width="159" height="18" forecolor="#000000" uuid="e8f2ee67-e944-4a15-a07f-5cd382592fae">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ce93462c-1a2d-41b0-a2fc-049ad3498bae"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GROSS WEIGHT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="311" y="4" width="159" height="18" forecolor="#000000" uuid="fde097a8-9fff-44d4-abc8-e7c7b02295d3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e472da1a-146b-46d8-8066-0e80251bead0"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[WATER INCLUDE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="465" y="4" width="173" height="18" forecolor="#000000" uuid="a44ce6dd-e302-42f5-92a4-748eb88f6ad8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="be0b08df-0991-41e5-b7e1-0a9aa1749f43"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ NET TEA LEAF WEIGHT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="0" y="4" width="91" height="18" forecolor="#000000" uuid="8bfa56aa-1ac6-4f3f-a01d-e0fba4a74b46">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="87894146-79d0-46f9-a4aa-89ccf0ef76b4"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="34a2ae4b-4055-476b-8676-d499f6af510b"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="671" y="0" width="109" height="18" uuid="68aba060-ad09-4ce7-bbbd-081f25ddbcab">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="799b08b8-1ad9-4758-a82f-c2b3901aadfb"/>
+					</reportElement>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{teaColecId}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="159" y="0" width="159" height="18" uuid="8115494e-dfe1-4824-9294-d80c0dd8995f">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ce93462c-1a2d-41b0-a2fc-049ad3498bae"/>
+					</reportElement>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{grosWeight}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="318" y="0" width="159" height="18" uuid="d3f63a96-42a5-4458-8336-35b28d2916f0">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e472da1a-146b-46d8-8066-0e80251bead0"/>
+					</reportElement>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{waterCon}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="477" y="0" width="159" height="18" uuid="9afc537e-793d-4d2c-bad7-d132d9b89d2f">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="be0b08df-0991-41e5-b7e1-0a9aa1749f43"/>
+					</reportElement>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TeaLeafNetWeight}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="136" height="18" uuid="a73c3e69-be22-4471-9d7b-e76226c5da7a">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="87894146-79d0-46f9-a4aa-89ccf0ef76b4"/>
+					</reportElement>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="60" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-6" y="-1" width="801" height="61" forecolor="#D0B48E" backcolor="#000000" uuid="ffb10ec8-0371-4545-8eaa-96d62ad3cec0"/>
+				<textField>
+					<reportElement positionType="Float" x="134" y="30" width="130" height="20" forecolor="#FFFFFF" uuid="c09ae599-41a3-4b19-8a1e-72af405a3627"/>
+					<textElement>
+						<font fontName="Times New Roman" size="13" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fertilizerReduced}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="470" y="30" width="90" height="17" forecolor="#FFFFFF" uuid="984fc4b9-61d9-430a-b6aa-1d0920b75774"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{netWeight}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="695" y="30" width="100" height="20" forecolor="#FFFFFF" uuid="68e6d843-3039-4659-93ca-49cdf44f6c74"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{netTotal}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="6" y="29" width="117" height="20" forecolor="#FFFFFF" uuid="6c509509-a48c-4e00-9c8a-22c272312531"/>
+					<textElement>
+						<font size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Fertilizer Price (Rs.) :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="300" y="30" width="153" height="17" forecolor="#FFFFFF" uuid="6b0ba2d7-2969-477e-aa51-661f235fa627"/>
+					<textElement>
+						<font size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[TOTAL  NET WEIGHT (kg)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="563" y="30" width="135" height="17" forecolor="#FFFFFF" uuid="35745db7-37a2-4573-a1fe-d926e054bcc4"/>
+					<textElement>
+						<font size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[TOTAL SALARY (Rs.) :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="6" y="10" width="117" height="20" forecolor="#FFFFFF" backcolor="#030000" uuid="a2d481f4-4d9a-4ab7-8e4c-7ebe9765a05e"/>
+					<textElement>
+						<font size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[(Fertilizer Reduced)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="336" y="12" width="120" height="17" forecolor="#FCFCFC" uuid="25983d5b-42a0-4b97-9a55-daeccfc82175"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Leaf 1Kg To Pay  *:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="472" y="12" width="100" height="17" forecolor="#FFFFFF" backcolor="#030101" uuid="c9d31ace-eb9a-4899-ac22-608f0063c6f1"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{1kgtoPay}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

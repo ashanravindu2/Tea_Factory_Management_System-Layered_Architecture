@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="100" prefHeight="534.0" prefWidth="333.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.EmpQSscannerPopUp">
+   <children>
+      <Text fx:id="lblTime" layoutX="190.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="45.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Text>
+      <JFXButton alignment="BASELINE_CENTER" buttonType="RAISED" ellipsisString="" layoutX="40.0" layoutY="56.0" onAction="#btnQRpopUpAction" prefHeight="385.0" prefWidth="254.0" ripplerFill="BLACK" style="-fx-background-radius: 10 10 10 10; -fx-background-color: #ced7da;" styleClass="stockHover" stylesheets="@../css/CRUDbutton.css" text="Button" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="109.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Image/icons8-touch-100.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#919b9e" height="53.0" layoutX="18.0" layoutY="458.0" strokeType="INSIDE" style="-fx-arc-height: 33; -fx-arc-width: 33;" width="297.0" />
+      <Label fx:id="lblDate" layoutX="44.0" layoutY="13.0" prefHeight="19.0" prefWidth="123.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="166.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="ibiWelcome" layoutX="106.0" layoutY="467.0" text="WELCOME" textFill="#001832">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbltryAgain" layoutX="88.0" layoutY="471.0" text="Please Try Again !!" textFill="RED">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNotRegister" layoutX="82.0" layoutY="471.0" text="Not Registered QR!!" textFill="RED">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSuchFul" layoutX="40.0" layoutY="471.0" text="Attendence Mark Successfully" textFill="#006813">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAttNoted" layoutX="23.0" layoutY="472.0" text="You Are Attendence Is Noted Today" textFill="#004d0c">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

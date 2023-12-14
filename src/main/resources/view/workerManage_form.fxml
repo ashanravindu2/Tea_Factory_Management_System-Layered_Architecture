@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="root" prefHeight="560.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.WorkerManageController">
+   <children>
+      <ImageView accessibleHelp="QSDQD" accessibleRoleDescription="SASQS" accessibleText="QDQD" fitHeight="523.0" fitWidth="957.0" layoutX="7.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="40.0">
+         <effect>
+            <GaussianBlur radius="7.41" />
+         </effect>
+         <image>
+            <Image url="@../assets/Image/5e.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8397a9" height="158.0" layoutX="25.0" layoutY="52.0" opacity="0.54" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="887.0" />
+      <TableView fx:id="tblworker" layoutX="31.0" layoutY="263.0" prefHeight="277.0" prefWidth="873.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="54.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="72.99999618530273" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="125.99996948242188" text="Name" />
+            <TableColumn fx:id="colGen" prefWidth="87.0" text="Gender" />
+            <TableColumn fx:id="colTele" prefWidth="125.0" text="Phone No" />
+            <TableColumn fx:id="colDOB" prefWidth="114.0" text="DateofBirth" />
+            <TableColumn fx:id="colAge" prefWidth="85.0" text="Age" />
+            <TableColumn fx:id="colAdd" prefWidth="145.0" text="Address" />
+            <TableColumn fx:id="colDOJ" prefWidth="113.79998779296875" text="Join Date" />
+         </columns>
+      </TableView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffbd1f" height="41.0" strokeType="INSIDE" width="958.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label layoutX="415.0" text="Worker Manage">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="Serif Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="59.0" text="Worker ID :" AnchorPane.leftAnchor="47.0" AnchorPane.topAnchor="59.0">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="335.0" layoutY="59.0" text="Name :">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtWorkerName" layoutX="405.0" layoutY="66.0" prefHeight="26.0" prefWidth="167.0" />
+      <JFXButton buttonType="RAISED" layoutX="411.0" layoutY="221.0" onAction="#btnCleraOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="CLEAR" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" rotate="31.0">
+               <image>
+                  <Image url="@../assets/Clear.png" />
+               </image>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+               </effect>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <styleClass>
+            <String fx:value="CLEAR" />
+            <String fx:value="CLEARBACKGROUND" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="537.0" layoutY="221.0" onAction="#btnWorkerDeletOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="DELETE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Delete.png" />
+               </image>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+               </effect>
+            </ImageView>
+         </graphic>
+         <styleClass>
+            <String fx:value="DELETE" />
+            <String fx:value="DELETEBACKGROUND" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="663.0" layoutY="221.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="UPDATE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Update.png" />
+               </image>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+               </effect>
+            </ImageView>
+         </graphic>
+         <styleClass>
+            <String fx:value="UPDATE" />
+            <String fx:value="UPDATEBACKGROUND" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="789.0" layoutY="221.0" onAction="#btnSaveOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="SAVE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Save.png" />
+               </image>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+               </effect>
+            </ImageView>
+         </graphic>
+         <styleClass>
+            <String fx:value="SAVE" />
+            <String fx:value="SAVEBACKGROUND" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </JFXButton>
+      <Label layoutX="702.0" layoutY="59.0" text="Gender :" AnchorPane.leftAnchor="702.0">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="111.0" text="Phone No :" AnchorPane.leftAnchor="47.0">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtWokerTele" layoutX="138.0" layoutY="117.0" prefHeight="26.0" prefWidth="128.0" />
+      <Label layoutX="301.0" layoutY="112.0" text="Date Of Birth :" AnchorPane.leftAnchor="301.0">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="562.0" layoutY="112.0" text="Age :">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtWorkerAge" layoutX="600.0" layoutY="118.0" prefHeight="26.0" prefWidth="48.0" />
+      <Label layoutX="47.0" layoutY="164.0" text="Date Of Join :">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="txtWokerDoJ" editable="false" layoutX="138.0" layoutY="172.0" prefHeight="25.0" prefWidth="135.0" />
+      <DatePicker fx:id="txtWorkerDoB" editable="false" layoutX="393.0" layoutY="118.0" prefHeight="25.0" prefWidth="135.0" />
+      <Label layoutX="680.0" layoutY="112.0" text="Address :">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtWorkerAdd" layoutX="744.0" layoutY="117.0" prefHeight="26.0" prefWidth="150.0" />
+      <JFXComboBox fx:id="cmbWorkGender" layoutX="776.0" layoutY="65.0" onAction="#cmbGenderOnAction" prefHeight="25.0" prefWidth="107.0" />
+      <Label fx:id="lblWorkId" layoutX="138.0" layoutY="69.0" prefHeight="18.0" prefWidth="128.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSearchId" layoutX="57.0" layoutY="233.0" onAction="#txtSearchIdOnAction" prefHeight="11.0" prefWidth="135.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
+      <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="27.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Search.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="593.0" prefWidth="536.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.AddCustomerController">
+   <children>
+      <ImageView fitHeight="593.0" fitWidth="891.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Image/AddCusBack.jpg" />
+         </image>
+         <effect>
+            <GaussianBlur radius="18.53" />
+         </effect>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="42.0" layoutY="-2.0" strokeType="INSIDE" width="536.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <fill>
+            <LinearGradient endX="0.8957345971563981" endY="0.20853080568720384" startX="0.3886255924170616" startY="0.9146919431279621">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.03125" green="0.25" blue="0.06041666492819786" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.10562865436077118" green="0.6710526347160339" blue="0.13389985263347626" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Label layoutX="173.0" layoutY="9.0" text="CUSTOMER MANAGE" textFill="WHITE">
+         <font>
+            <Font name="Serif Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="42.0" layoutY="66.0" text="Customer ID :" textFill="#074310" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="417.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCusId" layoutX="129.0" layoutY="66.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="220.0" layoutY="66.0" text="Customer Name :" textFill="#074310">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCusName" layoutX="327.0" layoutY="62.0" prefHeight="25.0" prefWidth="167.0" AnchorPane.leftAnchor="327.0" AnchorPane.rightAnchor="42.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Label layoutX="42.0" layoutY="108.0" text="Phone No:" textFill="#074310">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCusTele" layoutX="111.0" layoutY="104.0" prefHeight="25.0" prefWidth="111.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Label layoutX="266.0" layoutY="108.0" text="Address :" textFill="#074310">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCusAdd" layoutX="327.0" layoutY="104.0" prefHeight="25.0" prefWidth="167.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TableView fx:id="tblCustomer" layoutX="42.0" layoutY="243.0" prefHeight="339.0" prefWidth="452.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="42.0">
+         <columns>
+            <TableColumn fx:id="ColId" minWidth="50.0" prefWidth="88.0" text="ID" />
+            <TableColumn fx:id="ColName" minWidth="50.0" prefWidth="117.0" text="Customer Name" />
+            <TableColumn fx:id="colTele" minWidth="50.0" prefWidth="107.0" text="Phone No" />
+            <TableColumn fx:id="colAdd" minWidth="50.0" prefWidth="139.0" text="Address" />
+         </columns>
+      </TableView>
+      <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="109.0" layoutY="140.0" onAction="#btnClerAction" prefHeight="29.0" prefWidth="32.0" stylesheets="@../css/CRUDbutton.css" textAlignment="CENTER" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" rotate="31.0">
+               <image>
+                  <Image url="@../assets/Clear.png" />
+               </image>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+               </effect>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <styleClass>
+            <String fx:value="CLEAR" />
+            <String fx:value="CLEARBACKGROUND" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="210.0" layoutY="185.0" onAction="#btnDeleteAction" prefHeight="32.0" prefWidth="90.0" stylesheets="@../css/CRUDbutton.css" text="DELETE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Delete.png" />
+               </image>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+               </effect>
+            </ImageView>
+         </graphic>
+         <styleClass>
+            <String fx:value="DELETE" />
+            <String fx:value="DELETEBACKGROUND" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="306.0" layoutY="185.0" onAction="#btnUpdateAction" prefHeight="32.0" prefWidth="90.0" stylesheets="@../css/CRUDbutton.css" text="UPDATE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Update.png" />
+               </image>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+               </effect>
+            </ImageView>
+         </graphic>
+         <styleClass>
+            <String fx:value="UPDATE" />
+            <String fx:value="UPDATEBACKGROUND" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="403.0" layoutY="185.0" onAction="#btnSaveAction" prefHeight="32.0" prefWidth="90.0" stylesheets="@../css/CRUDbutton.css" text="SAVE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Save.png" />
+               </image>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+               </effect>
+            </ImageView>
+         </graphic>
+         <styleClass>
+            <String fx:value="SAVE" />
+            <String fx:value="SAVEBACKGROUND" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TextField fx:id="txtsearchId" layoutX="67.0" layoutY="212.0" onAction="#txtSerchOnAction" prefHeight="11.0" prefWidth="135.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
+      <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="37.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Search.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

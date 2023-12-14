@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="root" prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.TeaSuppplierPaymentController">
+   <children>
+      <ImageView accessibleHelp="QSDQD" accessibleRoleDescription="SASQS" accessibleText="QDQD" fitHeight="654.0" fitWidth="1022.0" layoutX="1.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+         <effect>
+            <GaussianBlur radius="7.41" />
+         </effect>
+         <image>
+            <Image url="@../assets/Image/360_F_399299681_pZzJnPPttah7EdmRalhaNE3of8Zhv7jb.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c2d1df" height="155.0" layoutX="90.0" layoutY="54.0" opacity="0.37" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="778.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c2d1df" height="41.0" layoutX="620.0" layoutY="60.0" opacity="0.37" strokeType="INSIDE" style="-fx-arc-height: 11; -fx-arc-width: 11;" width="239.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c2d1df" height="41.0" layoutX="91.0" layoutY="213.0" opacity="0.37" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="291.0" />
+      <TableView fx:id="tblPayment" layoutX="26.0" layoutY="299.0" prefHeight="242.0" prefWidth="886.0">
+         <columns>
+            <TableColumn fx:id="coltransactionId" prefWidth="103.99999618530273" text="Transaction Code" />
+            <TableColumn fx:id="colSuppName" prefWidth="212.0000457763672" text="Supplier Name" />
+            <TableColumn fx:id="colDate" prefWidth="139.199951171875" text="Date" />
+            <TableColumn fx:id="colNetWeight" prefWidth="149.60003662109375" text="Net Weight" />
+            <TableColumn fx:id="colTotal" prefWidth="188.79998779296875" text="Total (Rs)" />
+            <TableColumn fx:id="colAction" prefWidth="94.39990234375" text="Action" />
+         </columns>
+      </TableView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffbd1f" height="41.0" strokeType="INSIDE" width="1023.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label layoutX="415.0" text="Supplier Payment">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="Serif Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="128.0" layoutY="70.0" text="ID :" textFill="WHITE" AnchorPane.leftAnchor="128.0" AnchorPane.topAnchor="70.0">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cmbSuppId" focusColor="WHITE" layoutX="176.0" layoutY="75.0" onAction="#cmbSuppIdOnAction" prefHeight="25.0" prefWidth="105.0" unFocusColor="WHITE" />
+      <Label layoutX="332.0" layoutY="69.0" text="Name :" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSuppName" layoutX="380.0" layoutY="70.0" prefHeight="38.0" prefWidth="239.0" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="20.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Search.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtserchTransaction" layoutX="52.0" layoutY="268.0" onAction="#btntxtserchTransactionActioin" prefHeight="25.0" prefWidth="164.0" promptText="searchTransctionId" />
+      <Label layoutX="128.0" layoutY="109.0" text="Tea Leaf Entry Duration :" textFill="WHITE" AnchorPane.leftAnchor="128.0">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="datepicker1" editable="false" layoutX="287.0" layoutY="116.0" prefHeight="25.0" prefWidth="140.0" />
+      <DatePicker fx:id="datapicker2" editable="false" layoutX="442.0" layoutY="115.0" onAction="#datapicker2OnAction" prefHeight="25.0" prefWidth="140.0" />
+      <Label layoutX="97.0" layoutY="213.0" text="Total Salary (Rs) :" textFill="WHITE" AnchorPane.leftAnchor="97.0">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSalaryTotl" layoutX="215.0" layoutY="215.0" prefHeight="38.0" prefWidth="164.0" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="128.0" layoutY="154.0" text="Tea Net Weight :" textFill="WHITE" AnchorPane.leftAnchor="128.0">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="314.0" layoutY="147.0" text="1Kg TeaLeaf Pay :" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="762.0" layoutY="261.0" onAction="#btnPayOnAction" prefHeight="32.0" prefWidth="150.0" stylesheets="@../css/CRUDbutton.css" text="Pay" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Image/payment.png" />
+               </image>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
+               </effect>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <styleClass>
+            <String fx:value="UPDATEBACKGROUND" />
+            <String fx:value="UPDATE" />
+         </styleClass>
+      </JFXButton>
+      <Label fx:id="lblnetWeight" layoutX="234.0" layoutY="154.0" prefHeight="38.0" prefWidth="115.0" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPay" layoutX="425.0" layoutY="154.0" onKeyTyped="#btnGetTotalAction" prefHeight="25.0" prefWidth="150.0" promptText="Inputvalue &amp; PressEnter" />
+      <Label layoutX="598.0" layoutY="147.0" text="Fertilizer Charges(Rs) (-):" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtfertilizer" layoutX="747.0" layoutY="153.0" prefHeight="25.0" prefWidth="105.0" />
+      <Label layoutX="626.0" layoutY="62.0" text="TransactionCode :" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbltranCode" layoutX="735.0" layoutY="63.0" prefHeight="38.0" prefWidth="118.0" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

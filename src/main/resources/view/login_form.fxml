@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loginRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="613.0" styleClass="login" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.LogInController">
+   <children>
+      <ImageView fitHeight="421.0" fitWidth="984.0" layoutX="-315.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Image/loginBlur.png" />
+         </image></ImageView>
+      <ImageView fitHeight="390.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Image/loginBack.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="301.0" layoutX="323.0" layoutY="44.0" opacity="0.34" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="202.0" />
+      <JFXButton alignment="CENTER" layoutX="341.0" layoutY="280.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.51" prefHeight="30.0" prefWidth="167.0" style="-fx-background-color: #03470A;" />
+      <JFXButton alignment="CENTER" layoutX="341.0" layoutY="280.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#btnLoginAction" prefHeight="30.0" prefWidth="167.0" ripplerFill="#ffffff91" styleClass="logButton23" stylesheets="@../css/Style3.css" text="LOG IN" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TextField fx:id="txtUserName" layoutX="341.0" layoutY="92.0" prefHeight="0.0" prefWidth="167.0" />
+      <Label layoutX="341.0" layoutY="65.0" text="User Name">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="341.0" layoutY="149.0" text="Password">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="txtPassword" layoutX="341.0" layoutY="176.0" prefHeight="0.0" prefWidth="167.0" />
+      <Label fx:id="labelFocusNNotMatched" layoutX="419.0" layoutY="206.0" text="Password Incorrect !" textFill="RED">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="warnning1" fitHeight="14.0" fitWidth="10.0" layoutX="494.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Image/warning.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="warnning2" fitHeight="15.0" fitWidth="10.0" layoutX="494.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Image/warning.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

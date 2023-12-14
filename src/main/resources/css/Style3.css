@@ -1,0 +1,44 @@
+.backgroundColor{
+    -fx-background-color: linear-gradient(to right, #031f08, #0ea41f);
+}
+
+.backgroundColor2{
+    -fx-background-color: linear-gradient(to right, #074b17, #0cde22);
+}
+
+.backgroundColortop{
+    -fx-background-color: linear-gradient(to top, #0ea41f, #031f08);
+}
+
+.backgroundColortop3 {
+    -fx-border-color: #ba5fe8;
+}
+
+.backgroundColor4{
+    -fx-border-color: #ffffff;
+}
+
+.backgroundColor4{
+    -fx-border-width:linear-radius 3;
+}
+
+
+.logButton:hover{
+    -fx-background-color: rgba(34, 68, 34, 0.65);
+}
+
+.logButton23:hover{
+    -fx-background-color: rgba(255, 255, 255, 0.32);
+}
+
+
+.RegisterHover:hover{
+    -fx-background-color:  #56BC07;
+}
+
+.RegisterBackgr{
+    -fx-background-color: rgba(6, 105, 26, 0.83);
+}
+
+
+

@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="dashboardBorderPane" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.AdminDashBoeard">
+   <top>
+      <AnchorPane prefHeight="39.0" prefWidth="1066.0" styleClass="backgroundColor" stylesheets="@../css/Style3.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="36.0" layoutX="14.0" layoutY="5.0" opacity="0.82" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="776.0" AnchorPane.topAnchor="5.0">
+               <image>
+                  <Image url="@../assets/Image/icons8-factory.gif" />
+               </image>
+            </ImageView>
+            <Label layoutX="59.0" layoutY="10.0" text="CAPTAIN GARDEN TEA FACTORY" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Pane layoutX="364.0" layoutY="8.0" prefHeight="36.0" prefWidth="289.0" style="-fx-background-radius: 5 5 5 5;" styleClass="backgroundColor" stylesheets="@../css/Style3.css" AnchorPane.leftAnchor="364.0" AnchorPane.topAnchor="8.0">
+               <children>
+                  <ImageView fitHeight="31.0" fitWidth="45.0" layoutX="142.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Image/icons8-date-96.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblLoaclDate" layoutX="184.0" layoutY="7.0" prefHeight="18.0" prefWidth="83.0" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <ImageView fitHeight="31.0" fitWidth="45.0" layoutX="8.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Image/icons8-clock-94.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="lbltime" fill="#c3c3c3" layoutX="47.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Line endX="100.11155700683594" endY="91.98866271972656" layoutX="824.0" layoutY="-53.0" scaleX="4.0" scaleY="2.0" startX="100.0" startY="62.50508499145508" stroke="WHITE" AnchorPane.bottomAnchor="11.304229736328125" AnchorPane.topAnchor="8.797977447509766" />
+            <ImageView fitHeight="23.0" fitWidth="32.0" layoutX="813.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Image/icons8-logout-96.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="btnLogOut" buttonType="RAISED" layoutX="806.0" onAction="#btnLogOutAction" prefHeight="51.0" prefWidth="117.0" ripplerFill="BLACK" styleClass="logButton" stylesheets="@../css/Style3.css" text="     LOG OUT" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="958.0" layoutY="1.0" prefHeight="50.0" prefWidth="108.0" text="Mr. Lakmal (Admin)" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="23.0" fitWidth="32.0" layoutX="934.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Image/icons8-person-96.png" />
+               </image>
+            </ImageView>
+            <JFXButton buttonType="RAISED" layoutX="925.0" layoutY="-3.0" prefHeight="54.0" prefWidth="141.0" ripplerFill="BLACK" styleClass="logButton" stylesheets="@../css/Style3.css" textFill="WHITE" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="925.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <Line endX="100.11155700683594" endY="91.98866271972656" layoutX="703.0" layoutY="-54.0" scaleX="4.0" scaleY="2.0" startX="100.0" startY="62.50508499145508" stroke="WHITE" AnchorPane.bottomAnchor="12.304229736328125" AnchorPane.topAnchor="7.797977447509766" />
+            <JFXButton buttonType="RAISED" layoutX="676.0" onAction="#btnUserRegisterAction" prefHeight="51.0" prefWidth="126.0" ripplerFill="BLACK" styleClass="logButton" stylesheets="@../css/Style3.css" text="User Register" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/usericon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane fx:id="slider" prefHeight="610.0" prefWidth="179.0" styleClass="backgroundColor2" stylesheets="@../css/Style3.css" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="-4.0" layoutY="14.0" prefHeight="610.0" prefWidth="180.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btnHomeOnAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Home" textFill="WHITE">
+                     <stylesheets>
+                        <URL value="@../css/Style.css" />
+                        <URL value="@../css/Style3.css" />
+                     </stylesheets>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="11.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                     </padding>
+                     <effect>
+                        <DropShadow height="111.86" radius="72.895" width="181.72" />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/Image/icons8-home-96.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="slidebar" />
+                        <String fx:value="slidebar2" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" onAction="#btnEmployeeAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Employee" textFill="WHITE">
+                     <stylesheets>
+                        <URL value="@../css/Style.css" />
+                        <URL value="@../css/Style3.css" />
+                     </stylesheets>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                     </padding>
+                     <effect>
+                        <DropShadow height="111.86" radius="72.895" width="181.72" />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/Image/icons8-users-96.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="slidebar" />
+                        <String fx:value="slidebar2" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="10.0" layoutY="120.0" onAction="#btnTeaTypeOnAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Tea type" textFill="WHITE">
+                     <stylesheets>
+                        <URL value="@../css/Style.css" />
+                        <URL value="@../css/Style3.css" />
+                     </stylesheets>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                     </padding>
+                     <effect>
+                        <DropShadow height="111.86" radius="72.895" width="181.72" />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/Image/icons8-hot-beverage-96.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="slidebar" />
+                        <String fx:value="slidebar2" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="10.0" layoutY="65.0" onAction="#btnTeaLeafEntryAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Tea leaf entry" textFill="WHITE">
+                     <stylesheets>
+                        <URL value="@../css/Style.css" />
+                        <URL value="@../css/Style3.css" />
+                     </stylesheets>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                     </padding>
+                     <effect>
+                        <DropShadow height="111.86" radius="72.895" width="181.72" />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/Image/icons8-leaf-fluttering-in-wind-96.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="slidebar" />
+                        <String fx:value="slidebar2" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btnPowderAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Tea Powder" textFill="WHITE">
+                     <stylesheets>
+                        <URL value="@../css/Style.css" />
+                        <URL value="@../css/Style3.css" />
+                     </stylesheets>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                     </padding>
+                     <effect>
+                        <DropShadow height="111.86" radius="72.895" width="181.72" />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/Image/icons8-sand-watch-96.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="slidebar" />
+                        <String fx:value="slidebar2" />
+                     </styleClass>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btnStockOnAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Stock" textFill="WHITE">
+                     <stylesheets>
+                        <URL value="@../css/Style.css" />
+                        <URL value="@../css/Style3.css" />
+                     </stylesheets>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                     </padding>
+                     <effect>
+                        <DropShadow height="111.86" radius="72.895" width="181.72" />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/Image/icons8-warehouse-96.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="slidebar" />
+                        <String fx:value="slidebar2" />
+                     </styleClass>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="10.0" layoutY="175.0" onAction="#btnSellsOnAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Sells" textFill="WHITE">
+                     <stylesheets>
+                        <URL value="@../css/Style.css" />
+                        <URL value="@../css/Style3.css" />
+                     </stylesheets>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                     </padding>
+                     <effect>
+                        <DropShadow height="111.86" radius="72.895" width="181.72" />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/Image/icons8-worldwide-delivery-96.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="slidebar" />
+                        <String fx:value="slidebar2" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="10.0" layoutY="285.0" onAction="#btnPaymentAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Payment" textFill="WHITE">
+                     <stylesheets>
+                        <URL value="@../css/Style.css" />
+                        <URL value="@../css/Style3.css" />
+                     </stylesheets>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                     </padding>
+                     <effect>
+                        <DropShadow height="111.86" radius="72.895" width="181.72" />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/Image/icons8-payment-96.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="slidebar" />
+                        <String fx:value="slidebar2" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="10.0" layoutY="382.0" onAction="#btnAttendenceAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Attendence" textFill="WHITE">
+                     <stylesheets>
+                        <URL value="@../css/Style.css" />
+                        <URL value="@../css/Style3.css" />
+                     </stylesheets>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                     </padding>
+                     <effect>
+                        <DropShadow height="111.86" radius="72.895" width="181.72" />
+                     </effect>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/Image/icons8-attendance-96.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="slidebar" />
+                        <String fx:value="slidebar2" />
+                     </styleClass>
+                     <VBox.margin>
+                        <Insets top="11.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
