@@ -1,11 +1,9 @@
 package lk.captain.model;
 
-import lk.captain.Db.DbConnection;
-import lk.captain.dto.TeaCollctorDTO;
+import lk.captain.db.DbConnection;
 import lk.captain.dto.UserRegisterDTO;
 
 import java.sql.*;
-import java.time.LocalDate;
 
 public class UserRegisterModel {
 

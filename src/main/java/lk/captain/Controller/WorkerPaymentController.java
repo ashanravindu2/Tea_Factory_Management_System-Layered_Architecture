@@ -9,7 +9,7 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import lk.captain.Db.DbConnection;
+import lk.captain.db.DbConnection;
 import lk.captain.dto.*;
 import lk.captain.dto.tm.PaymentWorkerTM;
 import lk.captain.dto.util.GenerateTransactionCode;

@@ -10,7 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import lk.captain.Db.DbConnection;
+import lk.captain.db.DbConnection;
 import lk.captain.dto.PaymenSuppDetailGetDTO;
 import lk.captain.dto.PaymentDto;
 import lk.captain.dto.SupplierManageDTO;

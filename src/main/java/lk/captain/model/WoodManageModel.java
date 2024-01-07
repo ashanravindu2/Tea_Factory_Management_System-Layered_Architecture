@@ -1,9 +1,8 @@
 package lk.captain.model;
 
-import lk.captain.Db.DbConnection;
+import lk.captain.db.DbConnection;
 import lk.captain.dto.FuelMaterialDTO;
 import lk.captain.dto.WoodMaterialDTO;
-import lk.captain.dto.WorkerManageDTO;
 
 import java.sql.*;
 import java.util.ArrayList;

@@ -1,12 +1,10 @@
 package lk.captain.model;
 
-import lk.captain.Db.DbConnection;
-import lk.captain.dto.UserDTO;
+import lk.captain.db.DbConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Collection;
 
 public class UserModel {
 

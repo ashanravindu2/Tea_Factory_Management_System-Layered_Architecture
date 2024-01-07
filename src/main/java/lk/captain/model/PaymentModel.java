@@ -1,7 +1,6 @@
 package lk.captain.model;
 
-import javafx.scene.control.Alert;
-import lk.captain.Db.DbConnection;
+import lk.captain.db.DbConnection;
 import lk.captain.dto.PaymentDto;
 
 import java.sql.*;

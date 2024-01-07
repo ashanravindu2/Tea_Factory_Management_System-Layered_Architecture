@@ -1,8 +1,6 @@
 package lk.captain.model;
 
-import javafx.scene.control.Alert;
-import lk.captain.Db.DbConnection;
-import lk.captain.dto.StoreDetailsDTO;
+import lk.captain.db.DbConnection;
 import lk.captain.dto.TeaPowderDTO;
 import lk.captain.dto.TeaPowderGetDTO;
 import lk.captain.dto.tm.CartTM;

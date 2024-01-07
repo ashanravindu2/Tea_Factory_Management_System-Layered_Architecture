@@ -14,8 +14,7 @@ package lk.captain.Controller;
         import javafx.scene.control.*;
         import javafx.scene.control.cell.PropertyValueFactory;
         import javafx.stage.Stage;
-        import lk.captain.Db.DbConnection;
-        import java.util.HashMap;
+        import lk.captain.db.DbConnection;
         import lk.captain.dto.*;
         import lk.captain.dto.tm.OrderCartTM;
         import lk.captain.model.AddCustomerModel;
@@ -30,8 +29,6 @@ package lk.captain.Controller;
 
         import java.io.IOException;
         import java.io.InputStream;
-        import java.nio.Buffer;
-        import java.sql.ResultSet;
         import java.sql.SQLException;
         import java.time.LocalDate;
         import java.time.LocalTime;

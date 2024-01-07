@@ -1,13 +1,7 @@
 package lk.captain.model;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import lk.captain.Db.DbConnection;
+import lk.captain.db.DbConnection;
 import lk.captain.dto.FuelMaterialDTO;
-import lk.captain.dto.SupplierManageDTO;
-import lk.captain.dto.TeaTypeDTO;
-import lk.captain.dto.tm.FuelMatiralTM;
-import lk.captain.dto.tm.TeaSupplierManageTM;
 
 import java.sql.*;
 import java.util.ArrayList;

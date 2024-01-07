@@ -1,8 +1,7 @@
 package lk.captain.model;
 
-import lk.captain.Db.DbConnection;
+import lk.captain.db.DbConnection;
 import lk.captain.dto.AddCustomerDTO;
-import lk.captain.dto.TeaCollctorDTO;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -52,15 +51,7 @@ public class AddCustomerModel {
         return null;
     }
 
-    public boolean deleteCus(String cusIds) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "DELETE FROM customer WHERE cusId = ?";
-        PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1, cusIds);
-
-        return pstm.executeUpdate() > 0;
-    }
     public boolean updateCustomer(AddCustomerDTO dto) throws SQLException{
         Connection connection = DbConnection.getInstance().getConnection();
 

@@ -1,6 +1,4 @@
-package lk.captain.Db;
-
-import lombok.Getter;
+package lk.captain.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

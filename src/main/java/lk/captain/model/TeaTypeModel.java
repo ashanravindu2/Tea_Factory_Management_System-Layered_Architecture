@@ -1,6 +1,6 @@
 package lk.captain.model;
 
-import lk.captain.Db.DbConnection;
+import lk.captain.db.DbConnection;
 import lk.captain.dto.TeaTypeDTO;
 
 import java.sql.Connection;

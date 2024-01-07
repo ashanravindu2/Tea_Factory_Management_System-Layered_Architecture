@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.captain.bo.AddCustomerBO;
+import lk.captain.bo.BOFactory;
 import lk.captain.dto.AddCustomerDTO;
 import lk.captain.dto.tm.AddCustomerTM;
 import lk.captain.model.AddCustomerModel;
@@ -46,6 +48,8 @@ public class AddCustomerController {
     @FXML
     private TextField txtsearchId;
 
+    AddCustomerBO addCustomerBO =(AddCustomerBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.ADDCUSTOMER);
+
     public void initialize(){
         generateCusId();
         setCellValueFactory();
@@ -59,11 +63,11 @@ public class AddCustomerController {
     }
 
     @FXML
-    void btnDeleteAction(ActionEvent event) {
+    void btnDeleteAction(ActionEvent event) throws ClassNotFoundException {
         String deleteId = txtsearchId.getText();
 
         try {
-            boolean isDeleted = addCustomerModel.deleteCus(deleteId);
+            boolean isDeleted = addCustomerBO.deleteCus(deleteId);
             if (isDeleted)
                 new Alert(Alert.AlertType.CONFIRMATION,deleteId+" Customer is Deleted !").show();
             setCellValueFactory();

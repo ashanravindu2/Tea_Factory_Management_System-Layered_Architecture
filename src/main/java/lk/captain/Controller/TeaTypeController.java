@@ -1,6 +1,5 @@
 package lk.captain.Controller;
 
-import com.jfoenix.controls.base.IFXStaticControl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,22 +7,14 @@ import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.captain.Db.DbConnection;
 import lk.captain.dto.TeaTypeDTO;
 
 import lk.captain.dto.tm.TeaTypeTM;
 import lk.captain.model.TeaTypeModel;
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.JRDesignQuery;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JasperViewer;
 
-import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
 
 public class TeaTypeController {

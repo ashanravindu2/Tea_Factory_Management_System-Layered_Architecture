@@ -1,9 +1,7 @@
 package lk.captain.model;
 
-import lk.captain.Db.DbConnection;
+import lk.captain.db.DbConnection;
 import lk.captain.dto.StoreDetailsDTO;
-import lk.captain.dto.TeaSellsDTO;
-import lk.captain.dto.TeaTypeDTO;
 import lk.captain.dto.tm.OrderCartTM;
 
 import java.sql.*;
