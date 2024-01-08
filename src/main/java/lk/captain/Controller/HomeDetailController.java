@@ -12,6 +12,8 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
+import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.TeaCollectorBO;
 import lk.captain.model.*;
 
 import java.net.URL;
@@ -58,7 +60,7 @@ public class HomeDetailController {
     AttendenceModel attendenceModel = new AttendenceModel();
     TeaLeafModel teaLeafModel = new TeaLeafModel();
     WokerManageModel wokerManageModel = new WokerManageModel();
-    TeaCollectorModel teaCollectorModel = new TeaCollectorModel();
+    TeaCollectorBO teaCollectorBO = (TeaCollectorBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEACOLLECTOR);
 public void initialize() throws SQLException {
     Piechart();BarCharts();
 }
@@ -127,8 +129,13 @@ public void Piechart() throws SQLException {
 public void BarCharts() throws SQLException {
     ResultSet resultSet = attendenceModel.isTodayAtt();
     int wcount = wokerManageModel.searchCount();
-    int tcount = teaCollectorModel.searchCount();
-   lblWorkers.setText(String.valueOf(wcount));
+    int tcount = 0;
+    try {
+        tcount = teaCollectorBO.searchCount();
+    } catch (ClassNotFoundException e) {
+        throw new RuntimeException(e);
+    }
+    lblWorkers.setText(String.valueOf(wcount));
     lblCollectors.setText(String.valueOf(tcount));
 
     int workCount = 0;

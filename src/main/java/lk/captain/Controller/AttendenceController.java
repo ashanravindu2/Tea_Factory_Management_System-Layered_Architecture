@@ -17,6 +17,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import lk.captain.QRSacanner.QrCodeScanner;
+import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.TeaCollectorBO;
 import lk.captain.dto.AttendenceDTO;
 import lk.captain.dto.SupplierManageDTO;
 import lk.captain.dto.TeaCollctorDTO;
@@ -25,7 +27,7 @@ import lk.captain.dto.tm.AttendenceTM;
 import lk.captain.dto.util.DateTimeUtil;
 import lk.captain.model.AttendenceModel;
 import lk.captain.model.SupplierManageModel;
-import lk.captain.model.TeaCollectorModel;
+
 import lk.captain.model.WokerManageModel;
 
 import java.io.IOException;
@@ -89,8 +91,7 @@ public class AttendenceController {
 
     AttendenceModel attendenceModel = new AttendenceModel();
     WokerManageModel wokerManageModel = new WokerManageModel();
-    TeaCollectorModel teaCollectorModel = new TeaCollectorModel();
-
+    TeaCollectorBO teaCollectorBO = (TeaCollectorBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEACOLLECTOR);
     public void initialize(){
         setCellValueFactory();
         loadAttendence();
@@ -123,9 +124,13 @@ public class AttendenceController {
                 }
             }
         if (isSuppId){
-            var teaCollectorModel = new TeaCollectorModel();
             try {
-                TeaCollctorDTO dto = teaCollectorModel.searchTeaColecId(Id);
+                TeaCollctorDTO dto = null;
+                try {
+                    dto = teaCollectorBO.searchTeaColecId(Id);
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
 
                 if(dto != null) {
                     suppIdField(dto);
@@ -260,7 +265,12 @@ public class AttendenceController {
             lblTime1.setText(dto.getTime());
         }
         if (!isWorkerId){
-            TeaCollctorDTO tDto = teaCollectorModel.searchTeaColecId(empId);
+            TeaCollctorDTO tDto = null;
+            try {
+                tDto = teaCollectorBO.searchTeaColecId(empId);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
             lblName1.setText(tDto.getName());
             lblEmpPath1.setText("Tea Collector");
             lblTime1.setText(dto.getTime());

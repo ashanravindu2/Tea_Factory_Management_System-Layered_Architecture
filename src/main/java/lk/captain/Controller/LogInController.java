@@ -48,31 +48,31 @@ public class LogInController {
     private UserModel userModel = new UserModel();
     DashBoardController dashBoardController = new DashBoardController();
 
-    public void initialize(){
-    labelFocusNNotMatched.setVisible(false);
-    warnning1.setVisible(false);
-    warnning2.setVisible(false);
-}
+    public void initialize() {
+        labelFocusNNotMatched.setVisible(false);
+        warnning1.setVisible(false);
+        warnning2.setVisible(false);
+    }
 
     @FXML
     public void btnLoginAction(ActionEvent actionEvent) throws IOException {
-
+/*
 boolean isValid = valid();
 if (isValid==true) {
     String adminUser = txtUserName.getText();
     String adminPass = txtPassword.getText();
 
-    try {
+   *//* try {
         boolean isIn = userModel.getUser(adminUser, adminPass);
-         if (isIn == true) {
-            Parent borderPane = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
-            Scene scene = new Scene(borderPane);
-            Stage stage = (Stage) this.loginRoot.getScene().getWindow();
-            stage.setScene(scene);
-            stage.centerOnScreen();
-            stage.setTitle("USER DASHBOARD");
+         if (isIn == true) {*/
+        Parent borderPane = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
+        Scene scene = new Scene(borderPane);
+        Stage stage = (Stage) this.loginRoot.getScene().getWindow();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("USER DASHBOARD");
 
-        } else if (adminUser.equals("admin") && adminPass.equals("Admin@123")) {
+       /* } else if (adminUser.equals("admin") && adminPass.equals("Admin@123")) {
             Parent borderPane = FXMLLoader.load(this.getClass().getResource("/view/adminDashBoard_form.fxml"));
             Scene scene = new Scene(borderPane);
             Stage stage = (Stage) this.loginRoot.getScene().getWindow();
@@ -121,6 +121,7 @@ if (isValid==true) {
         return true;
    }
 
-
+*/
+    }
 }
 

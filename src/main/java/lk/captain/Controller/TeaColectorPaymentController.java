@@ -9,6 +9,8 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.TeaCollectorBO;
 import lk.captain.db.DbConnection;
 import lk.captain.dto.PaymentDto;
 import lk.captain.dto.PaymentWorkerDTO;
@@ -17,7 +19,6 @@ import lk.captain.dto.tm.PaymentWorkerTM;
 import lk.captain.dto.util.GenerateTransactionCode;
 import lk.captain.model.AttendenceModel;
 import lk.captain.model.PaymentModel;
-import lk.captain.model.TeaCollectorModel;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.engine.design.JasperDesign;
@@ -91,8 +92,8 @@ public class TeaColectorPaymentController {
 
     @FXML
     private TextField txtExtraSalry;
+    TeaCollectorBO teaCollectorBO = (TeaCollectorBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEACOLLECTOR);
 
-    TeaCollectorModel teaCollectorModel = new TeaCollectorModel();
     AttendenceModel attendenceModel = new AttendenceModel();
     PaymentModel paymentModel = new PaymentModel();
     public void initialize() throws SQLException {load();generateTransacId();AllPaymentDetails();setCellValueFactory();}
@@ -126,7 +127,12 @@ public class TeaColectorPaymentController {
     @FXML
     void cmbIdOnAction(ActionEvent event) throws SQLException {
         String Id = cmbId.getValue();
-        TeaCollctorDTO dto = teaCollectorModel.searchTeaColecId(Id);
+        TeaCollctorDTO dto = null;
+        try {
+            dto = teaCollectorBO.searchTeaColecId(Id);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         lblName.setText(dto.getName());
     }
 
@@ -241,7 +247,12 @@ public class TeaColectorPaymentController {
         ObservableList<String> obTeaColecList = FXCollections.observableArrayList();
 
         try {
-            List<TeaCollctorDTO> teaCollctorDTOS = teaCollectorModel.getAllCollector();
+            List<TeaCollctorDTO> teaCollctorDTOS = null;
+            try {
+                teaCollctorDTOS = teaCollectorBO.getAll();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
 
             for (TeaCollctorDTO dto : teaCollctorDTOS) {
                 obTeaColecList.add(dto.getTeaColecId());

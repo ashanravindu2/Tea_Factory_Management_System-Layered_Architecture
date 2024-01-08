@@ -14,12 +14,11 @@ package lk.captain.Controller;
         import javafx.scene.control.*;
         import javafx.scene.control.cell.PropertyValueFactory;
         import javafx.stage.Stage;
-        import lk.captain.bo.AddCustomerBO;
-        import lk.captain.bo.AddCustomerBOImpl;
+        import lk.captain.bo.custom.AddCustomerBO;
+        import lk.captain.bo.custom.AddCustomerBOImpl;
         import lk.captain.db.DbConnection;
         import lk.captain.dto.*;
         import lk.captain.dto.tm.OrderCartTM;
-        import lk.captain.entity.AddCustomer;
 
         import lk.captain.model.StoreDetailsModel;
         import lk.captain.model.TeaSellsModel;

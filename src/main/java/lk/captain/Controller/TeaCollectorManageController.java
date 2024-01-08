@@ -9,13 +9,18 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.captain.QrGenerate.QrcodeForUser;
+import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.AddCustomerBO;
+import lk.captain.bo.custom.TeaCollectorBO;
+import lk.captain.dao.custom.TeaCollectorDAO;
 import lk.captain.dto.SupplierManageDTO;
 import lk.captain.dto.TeaCollctorDTO;
 import lk.captain.dto.WorkerManageDTO;
 import lk.captain.dto.tm.TeaCollectorTM;
 import lk.captain.dto.tm.TeaSupplierManageTM;
+import lk.captain.entity.TeaCollector;
 import lk.captain.model.SupplierManageModel;
-import lk.captain.model.TeaCollectorModel;
+
 
 import java.sql.SQLException;
 import java.util.List;
@@ -63,9 +68,9 @@ public class TeaCollectorManageController {
     @FXML
     private TextField txtsearchId;
 
-    private TeaCollectorModel teacollectorModel =new TeaCollectorModel();
-    private QrcodeForUser qrcodeForUser = new QrcodeForUser();
 
+    private QrcodeForUser qrcodeForUser = new QrcodeForUser();
+    TeaCollectorBO teaCollectorBO = (TeaCollectorBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEACOLLECTOR);
     public void initialize(){
         try {
             gender();
@@ -87,7 +92,7 @@ public class TeaCollectorManageController {
     }
 
     @FXML
-    void btnColecSaveOnAction(ActionEvent event) {
+    void btnColecSaveOnAction(ActionEvent event) throws ClassNotFoundException {
         boolean isValid = Valid();
         if (isValid == true) {
             String teaColecId = lbltxtColecId.getText();
@@ -97,7 +102,7 @@ public class TeaCollectorManageController {
             String Gender = cmbGender.getValue();
 
             try {
-                boolean isSaved = teacollectorModel.teacollctorManage(new TeaCollctorDTO(teaColecId, Name, Address, Telephone, Gender));
+                boolean isSaved =teaCollectorBO.save(new TeaCollctorDTO(teaColecId, Name, Address, Telephone, Gender));
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Tea Collector added Successfully").show();
                     qrcodeForUser.CreateQr(teaColecId);
@@ -105,6 +110,7 @@ public class TeaCollectorManageController {
                     setCellValueFactory();
                     loadAllTeaColector();
                     return;
+
 
                 }
             } catch (SQLException e) {
@@ -123,22 +129,20 @@ public class TeaCollectorManageController {
             throw new RuntimeException(e);
         }
     }
-    public void generateColecId(){
+    public void generateColecId() throws ClassNotFoundException {
         try {
-            String suppid = teacollectorModel.generateColecId();
+            String suppid = teaCollectorBO.generateColecId();
             lbltxtColecId.setText(suppid);
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
     }
 
-    private void loadAllTeaColector() {
-        var teaCollectorModel = new TeaCollectorModel();
-
+    private void loadAllTeaColector() throws ClassNotFoundException {
         ObservableList<TeaCollectorTM> obList = FXCollections.observableArrayList();
 
         try {
-            List<TeaCollctorDTO> dtoList = teaCollectorModel.getAllCollector();
+            List<TeaCollctorDTO> dtoList = teaCollectorBO.getAll();
 
             for(TeaCollctorDTO dto : dtoList) {
                 obList.add(
@@ -161,11 +165,11 @@ public class TeaCollectorManageController {
 
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) {
+    void btnDeleteOnAction(ActionEvent event) throws ClassNotFoundException {
         String deleteId = txtsearchId.getText();
 
         try {
-            boolean isDeleted = teacollectorModel.deletecollector(deleteId);
+            boolean isDeleted = teaCollectorBO.delete(deleteId);
             if (isDeleted)
                 new Alert(Alert.AlertType.CONFIRMATION,deleteId+" "+deleteId+" "+"Tea Collector is Deleted !").show();
             loadAllTeaColector();
@@ -178,7 +182,7 @@ public class TeaCollectorManageController {
     }
 
     @FXML
-    void btnUpdateOnaction(ActionEvent event) {
+    void btnUpdateOnaction(ActionEvent event) throws ClassNotFoundException {
         boolean isValid = Valid();
         if (isValid == true) {
             String teaColecId = lbltxtColecId.getText();
@@ -189,9 +193,9 @@ public class TeaCollectorManageController {
 
             var dto = new TeaCollctorDTO(teaColecId, Name, Address, Telephone, Gender);
 
-            var model = new TeaCollectorModel();
+
             try {
-                boolean isUpdated = model.updateteaColector(dto);
+                boolean isUpdated = teaCollectorBO.update(dto);
                 System.out.println(isUpdated);
                 if (isUpdated) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Tea Collector Updated Success!").show();
@@ -209,9 +213,13 @@ public class TeaCollectorManageController {
     void txtSearchIdOnAction(ActionEvent event) {
         String id =txtsearchId .getText();
 
-        var teaCollectorModel = new TeaCollectorModel();
         try {
-            TeaCollctorDTO dto = teaCollectorModel.searchTeaColecId(id);
+            TeaCollctorDTO dto = null;
+            try {
+                dto = teaCollectorBO.searchTeaColecId(id);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
 
             if(dto != null) {
                 fillFields(dto);
@@ -235,7 +243,7 @@ public class TeaCollectorManageController {
     }
 
     @FXML
-    void btnClearOnAction(ActionEvent event) {
+    void btnClearOnAction(ActionEvent event) throws ClassNotFoundException {
         txtColecTele.setText("");
         txtColecAdd.setText("");
         txtColceName.setText("");

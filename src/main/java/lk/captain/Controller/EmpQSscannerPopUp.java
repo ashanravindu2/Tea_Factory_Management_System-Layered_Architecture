@@ -13,12 +13,13 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import lk.captain.QRSacanner.QrCodeScanner;
+import lk.captain.bo.custom.TeaCollectorBO;
 import lk.captain.dto.AttendenceDTO;
 import lk.captain.dto.TeaCollctorDTO;
 import lk.captain.dto.WorkerManageDTO;
 import lk.captain.dto.util.DateTimeUtil;
 import lk.captain.model.AttendenceModel;
-import lk.captain.model.TeaCollectorModel;
+
 import lk.captain.model.WokerManageModel;
 
 import java.sql.SQLException;
@@ -42,6 +43,7 @@ public class EmpQSscannerPopUp {
     public Rectangle penwa;
     QrCodeScanner qrCodeScanner = new QrCodeScanner();
     AttendenceModel attendenceModel = new AttendenceModel();
+    TeaCollectorBO teaCollectorBO = (TeaCollectorBO) lk.captain.bo.BOFactory.getBoFactory().getBOTypes(lk.captain.bo.BOFactory.BOTypes.TEACOLLECTOR);
 
     public void initialize(){
       ibiWelcome.setVisible(true);
@@ -116,9 +118,13 @@ public class EmpQSscannerPopUp {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         } else if (isSupId) {
-            var teaCollectorModel = new TeaCollectorModel();
             try {
-                TeaCollctorDTO dto = teaCollectorModel.searchTeaColecId(empID);
+                TeaCollctorDTO dto = null;
+                try {
+                    dto = teaCollectorBO.searchTeaColecId(empID);
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
                 if(dto==null) {
                     initialize();
                     ibiWelcome.setVisible(false);

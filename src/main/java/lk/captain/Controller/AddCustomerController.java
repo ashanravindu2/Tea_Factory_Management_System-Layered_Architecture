@@ -1,12 +1,10 @@
 package lk.captain.Controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.captain.bo.AddCustomerBO;
+import lk.captain.bo.custom.AddCustomerBO;
 import lk.captain.bo.BOFactory;
 import lk.captain.dto.AddCustomerDTO;
 import lk.captain.dto.tm.AddCustomerTM;
@@ -14,7 +12,6 @@ import lk.captain.dto.tm.AddCustomerTM;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class AddCustomerController {

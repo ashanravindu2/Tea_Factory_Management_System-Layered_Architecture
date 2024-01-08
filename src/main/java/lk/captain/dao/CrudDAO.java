@@ -10,10 +10,11 @@ import java.util.List;
 public interface CrudDAO<T> extends SuperDAO{
     boolean delete(String id) throws SQLException, ClassNotFoundException;
     boolean save(T dto) throws SQLException, ClassNotFoundException;
-    boolean updateCustomer(T dto) throws SQLException, ClassNotFoundException;
-    T searchCusId(String id) throws SQLException, ClassNotFoundException;
-    String generateCusId() throws SQLException, ClassNotFoundException;
-     ArrayList<T> getAllCus() throws SQLException, ClassNotFoundException;
+    boolean update(T dto) throws SQLException, ClassNotFoundException;
+    T search(String id) throws SQLException, ClassNotFoundException;
+    String generateId() throws SQLException, ClassNotFoundException;
+     ArrayList<T> getAll() throws SQLException, ClassNotFoundException;
+     int searchCount() throws SQLException, ClassNotFoundException;
 
 
 

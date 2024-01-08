@@ -11,6 +11,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.TeaCollectorBO;
 import lk.captain.dto.*;
 import lk.captain.dto.tm.TeaLeafEntryTM;
 import lk.captain.dto.tm.WorkerManageTM;
@@ -82,14 +84,18 @@ public class TeaLeafEntryController {
 
     @FXML
     private Label txtwaterDetail;
-
+    TeaCollectorBO teaCollectorBO = (TeaCollectorBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEACOLLECTOR);
     private TeaLeafModel teaLeafModel = new TeaLeafModel();
     private SupplierManageModel suppliermanageModel =new SupplierManageModel();
-    private TeaCollectorModel teaCollectorModel=new TeaCollectorModel();
+
 
     public void initialize(){
         txtWater.setText("0");
-        load();
+        try {
+            load();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         loadAllTeaEntry();
         setCellValueFactory();
     }
@@ -202,7 +208,12 @@ public class TeaLeafEntryController {
     @FXML
     void cmbTeaColecIdOnAction(ActionEvent event) throws SQLException {
         String id =cmbTeaColecId.getValue();
-        TeaCollctorDTO dto = teaCollectorModel.searchTeaColecId(id);
+        TeaCollctorDTO dto = null;
+        try {
+            dto = teaCollectorBO.searchTeaColecId(id);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         lblTeaColecName.setText(dto.getName());
 
     }
@@ -237,12 +248,12 @@ public class TeaLeafEntryController {
     }
 
 
-    private void load() {
+    private void load() throws ClassNotFoundException {
         ObservableList<String> obSuppList = FXCollections.observableArrayList();
         ObservableList<String> obColecList = FXCollections.observableArrayList();
         try {
             List<SupplierManageDTO> suppList = suppliermanageModel.getAllTeaSupp();
-            List<TeaCollctorDTO> ColecList = teaCollectorModel.getAllCollector();
+            List<TeaCollctorDTO> ColecList = teaCollectorBO.getAll();
 
             for (SupplierManageDTO dto : suppList) {
                 obSuppList.add(dto.getSupplierId());
