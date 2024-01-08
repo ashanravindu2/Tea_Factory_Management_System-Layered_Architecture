@@ -10,6 +10,9 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.TeaSupplierBO;
+import lk.captain.bo.custom.WoodBO;
 import lk.captain.dto.FuelMaterialDTO;
 import lk.captain.dto.WoodMaterialDTO;
 import lk.captain.dto.tm.WoodMatirialTM;
@@ -75,9 +78,12 @@ public class WoodManageController {
 
     WoodManageModel woodManageModel = new WoodManageModel();
     FuelManageModel fuelManageModel = new FuelManageModel();
+    WoodBO woodBO = (WoodBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.WOOD);
 
-    public void initialize() throws SQLException {generateWoodId();
-        load();loadWood();setCellValueFactory();getAvl();}
+        @FXML
+    public void initialize() throws SQLException, ClassNotFoundException {generateWoodId();
+        load();
+        loadWood();setCellValueFactory();getAvl();}
 
         @FXML
         void btnClearFieldAction(ActionEvent event) {
@@ -87,7 +93,7 @@ public class WoodManageController {
         }
 
         @FXML
-        void btnSaveOnAction(ActionEvent event) {
+        void btnSaveOnAction(ActionEvent event) throws ClassNotFoundException {
             boolean isValid = Valid();
             if (isValid == true) {
                 String id = lblGFuelId.getText();
@@ -95,7 +101,7 @@ public class WoodManageController {
                 double weight = Double.parseDouble(txtWeight.getText());
 
                 try {
-                    boolean isSaved = woodManageModel.woodSave(new FuelMaterialDTO(id, category, weight));
+                    boolean isSaved = woodBO.save(new WoodMaterialDTO(id, category, weight));
                     if (isSaved) {
                         new Alert(Alert.AlertType.CONFIRMATION, "Barrel Saved Successful").show();
                         initialize();
@@ -108,7 +114,7 @@ public class WoodManageController {
         }
 
         @FXML
-        void btnUpdateOnAction(ActionEvent event) {
+        void btnUpdateOnAction(ActionEvent event) throws ClassNotFoundException {
             boolean isValid = Valid();
             if (isValid == true) {
                 String category = txtWCategory.getText();
@@ -120,7 +126,7 @@ public class WoodManageController {
 
 
                 try {
-                    boolean isUpdated = woodManageModel.updateWood(dto);
+                    boolean isUpdated = woodBO.update(dto);
                     System.out.println(isUpdated);
                     if (isUpdated) {
                         new Alert(Alert.AlertType.CONFIRMATION, "Fuel Updated Success!").show();
@@ -141,7 +147,7 @@ public class WoodManageController {
         }
 
         @FXML
-        void btnUsedOnAction(ActionEvent event) {
+        void btnUsedOnAction(ActionEvent event) throws ClassNotFoundException {
             boolean isValid = Valids();
             if (isValid == true) {
                 String id = cmbWoodId.getValue();
@@ -164,7 +170,7 @@ public class WoodManageController {
         void cmbWoodOnAction(ActionEvent event) {
             try {
                 String id = cmbWoodId.getValue();
-                WoodMaterialDTO dto = woodManageModel.searchWoodId(id);
+                WoodMaterialDTO dto = woodBO.search(id);
                 lblUsedAvl.setText(String.valueOf(dto.getWWeight()));
                 double available = Double.parseDouble(lblUsedAvl.getText());
                 if (available <= 0) {
@@ -200,11 +206,11 @@ public class WoodManageController {
             throw new RuntimeException(e);
         }
     }
-    private void load() {
+    private void load() throws ClassNotFoundException {
         ObservableList<String> obWoodList = FXCollections.observableArrayList();
 
         try {
-            List<WoodMaterialDTO> suppList = woodManageModel.getAllWoodId();
+            List<WoodMaterialDTO> suppList = woodBO.getAll();
 
             for (WoodMaterialDTO dto : suppList) {
                 obWoodList.add(dto.getBarrelId());
@@ -214,12 +220,12 @@ public class WoodManageController {
             throw new RuntimeException(e);
         }
     }
-    private void loadWood() {
+    private void loadWood() throws ClassNotFoundException {
 
         ObservableList<WoodMatirialTM> obList = FXCollections.observableArrayList();
 
         try {
-            List<WoodMaterialDTO> dtoList = woodManageModel.getAllWoodId();
+            List<WoodMaterialDTO> dtoList = woodBO.getAll();
 
             for (WoodMaterialDTO dto : dtoList) {
 
@@ -235,7 +241,11 @@ public class WoodManageController {
                         int selectedIndex = tblWood.getSelectionModel().getSelectedIndex();
                         String id = (String) colCode.getCellData(selectedIndex);
 
-                        deletedWId(id);
+                        try {
+                            deletedWId(id);
+                        } catch (ClassNotFoundException ex) {
+                            throw new RuntimeException(ex);
+                        }
 
                         obList.remove(selectedIndex);
                         tblWood.refresh();
@@ -259,9 +269,9 @@ public class WoodManageController {
             throw new RuntimeException(e);
         }
     }
-    private void deletedWId(String id){
+    private void deletedWId(String id) throws ClassNotFoundException {
         try {
-            boolean isDeleted = woodManageModel.deletedWIds(id);
+            boolean isDeleted = woodBO.delete(id);
             if (isDeleted)
                 new Alert(Alert.AlertType.CONFIRMATION,"Wood Stock Removed !").show();
         }catch (SQLException e){
@@ -319,11 +329,11 @@ public class WoodManageController {
 
     }
     @FXML
-    void txtSearchIdOnAction(ActionEvent event) {
+    void txtSearchIdOnAction(ActionEvent event) throws ClassNotFoundException {
         String id = txtsearchId.getText();
 
         try {
-            WoodMaterialDTO dto = woodManageModel.searchWoodId(id);
+            WoodMaterialDTO dto = woodBO.search(id);
 
             if(dto != null) {
                 fillFields(dto);

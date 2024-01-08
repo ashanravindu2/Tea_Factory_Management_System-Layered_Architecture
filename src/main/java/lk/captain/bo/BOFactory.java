@@ -1,9 +1,6 @@
 package lk.captain.bo;
 
-import lk.captain.bo.custom.AddCustomerBOImpl;
-import lk.captain.bo.custom.TeaCollectorBOImpl;
-import lk.captain.bo.custom.TeaSupplierBOImpl;
-import lk.captain.bo.custom.WorkerBOImpl;
+import lk.captain.bo.custom.*;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -18,7 +15,7 @@ public class BOFactory {
     public enum BOTypes {
         ADDCUSTOMER
         ,TEACOLLECTOR
-        ,WORKER,TEASUPPLIER
+        ,WORKER,TEASUPPLIER,WOOD
     }
     public SuperBO getBOTypes(BOTypes boTypes) {
         switch (boTypes) {
@@ -30,6 +27,8 @@ public class BOFactory {
                     return new WorkerBOImpl();
                     case TEASUPPLIER:
                     return new TeaSupplierBOImpl();
+                    case WOOD:
+                    return new WoodBOImpl();
             default:
                 return null;
         }

@@ -1,10 +1,7 @@
 package lk.captain.dao;
 
 import lk.captain.bo.custom.WorkerBOImpl;
-import lk.captain.dao.custom.AddCustomerDAOImpl;
-import lk.captain.dao.custom.TeaCollectorDAOImpl;
-import lk.captain.dao.custom.TeaSupplierDAOImpl;
-import lk.captain.dao.custom.WorkerDAOImpl;
+import lk.captain.dao.custom.*;
 
 public class DAOFactory {
     //singleton design pattern
@@ -20,7 +17,7 @@ public class DAOFactory {
         ADDCUSTOMER,
         TEACOLLECTOR,
         WORKER,
-        TEASUPPLIER
+        TEASUPPLIER,WOOD
 
     }
 
@@ -34,6 +31,8 @@ public class DAOFactory {
                 return new WorkerDAOImpl();
                 case TEASUPPLIER:
                 return new TeaSupplierDAOImpl();
+            case WOOD:
+                return new WoodDAOImpl();
             default:
                 return null;
         }
