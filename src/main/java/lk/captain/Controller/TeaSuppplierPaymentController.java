@@ -10,6 +10,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.TeaSupplierBO;
 import lk.captain.db.DbConnection;
 import lk.captain.dto.PaymenSuppDetailGetDTO;
 import lk.captain.dto.PaymentDto;
@@ -94,8 +96,8 @@ public class TeaSuppplierPaymentController {
     SupplierManageModel supplierManageModel = new SupplierManageModel();
     TeaLeafModel teaLeafModel = new TeaLeafModel();
     PaymentModel paymentModel = new PaymentModel();
-
-public void initialize() throws SQLException {
+    TeaSupplierBO teaSupplierBO = (TeaSupplierBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEASUPPLIER);
+public void initialize() throws SQLException, ClassNotFoundException {
     load();
     generateTransacId();
     AllPaymentDetails();
@@ -216,9 +218,9 @@ public void initialize() throws SQLException {
     }
 
     @FXML
-    void cmbSuppIdOnAction(ActionEvent event) throws SQLException {
+    void cmbSuppIdOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String id = cmbSuppId.getValue();
-        SupplierManageDTO dto = supplierManageModel.searchSupplierId(id);
+        SupplierManageDTO dto = teaSupplierBO.searchSupplierId(id);
         lblSuppName.setText(dto.getSuppName());
 
     }
@@ -241,11 +243,11 @@ public void initialize() throws SQLException {
 
     }
 
-    private void load() {
+    private void load() throws ClassNotFoundException {
         ObservableList<String> obSuppList = FXCollections.observableArrayList();
 
         try {
-            List<SupplierManageDTO> suppList = supplierManageModel.getAllTeaSupp();
+            List<SupplierManageDTO> suppList = teaSupplierBO.getAllTeaSupp();
 
             for (SupplierManageDTO dto : suppList) {
                 obSuppList.add(dto.getSupplierId());

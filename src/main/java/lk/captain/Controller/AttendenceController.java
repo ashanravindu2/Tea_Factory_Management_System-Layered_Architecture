@@ -19,6 +19,7 @@ import javafx.util.Duration;
 import lk.captain.QRSacanner.QrCodeScanner;
 import lk.captain.bo.BOFactory;
 import lk.captain.bo.custom.TeaCollectorBO;
+import lk.captain.bo.custom.WorkerBO;
 import lk.captain.dto.AttendenceDTO;
 import lk.captain.dto.SupplierManageDTO;
 import lk.captain.dto.TeaCollctorDTO;
@@ -28,7 +29,6 @@ import lk.captain.dto.util.DateTimeUtil;
 import lk.captain.model.AttendenceModel;
 import lk.captain.model.SupplierManageModel;
 
-import lk.captain.model.WokerManageModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -90,7 +90,7 @@ public class AttendenceController {
     private Label lblTime;
 
     AttendenceModel attendenceModel = new AttendenceModel();
-    WokerManageModel wokerManageModel = new WokerManageModel();
+    WorkerBO workerBO = (WorkerBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.WORKER);
     TeaCollectorBO teaCollectorBO = (TeaCollectorBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEACOLLECTOR);
     public void initialize(){
         setCellValueFactory();
@@ -105,14 +105,14 @@ public class AttendenceController {
     }
 
     @FXML
-    void txtSerchEmpIdOnAction(ActionEvent event) {
+    void txtSerchEmpIdOnAction(ActionEvent event) throws ClassNotFoundException {
         String Id = txtempId.getText();
         boolean isWorkerId = Pattern.matches("\\b[Ww]\\w*\\b",Id);
         boolean isSuppId = Pattern.matches("\\b[Kk]\\w*\\b",Id);
         if (isWorkerId){
-                var wokerManageModel = new WokerManageModel();
+
                 try {
-                    WorkerManageDTO dto = wokerManageModel.searchWorkerId(Id);
+                    WorkerManageDTO dto = workerBO.searchWorkerId(Id);
 
                     if(dto != null) {
                         workerField(dto);
@@ -233,7 +233,7 @@ public class AttendenceController {
 
     }
     @FXML
-    void txtSerchOnAction(ActionEvent event) {
+    void txtSerchOnAction(ActionEvent event) throws ClassNotFoundException {
         String Id = txtsearchId.getText();
         String date = String.valueOf(datePicker.getValue());
         boolean is = Pattern.matches("\\b[WwKk]\\w*\\b",Id);
@@ -255,11 +255,11 @@ public class AttendenceController {
             new Alert(Alert.AlertType.ERROR, "Employee is not found this Factory!").show();
         }
     }
-    private void attField(AttendenceDTO dto) throws SQLException {
+    private void attField(AttendenceDTO dto) throws SQLException, ClassNotFoundException {
         String empId = dto.getEmpAttenId();
         boolean isWorkerId = Pattern.matches("\\b[Ww]\\w*\\b",empId);
         if (isWorkerId){
-            WorkerManageDTO wDto = wokerManageModel.searchWorkerId(empId);
+            WorkerManageDTO wDto = workerBO.searchWorkerId(empId);
             lblName1.setText(wDto.getWorkName());
             lblEmpPath1.setText("Worker");
             lblTime1.setText(dto.getTime());

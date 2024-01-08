@@ -8,11 +8,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.TeaSupplierBO;
 import lk.captain.dto.SupplierManageDTO;
 import lk.captain.dto.WorkerManageDTO;
 import lk.captain.dto.tm.TeaSupplierManageTM;
 import lk.captain.model.SupplierManageModel;
-import lk.captain.model.WokerManageModel;
+
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -61,12 +63,16 @@ public class TeaSupplierManageController {
     @FXML
     private TableView<TeaSupplierManageTM> tblTeaSupp;
 
-    private SupplierManageModel suppliermanageModel = new SupplierManageModel();
+   TeaSupplierBO teaSupplierBO = (TeaSupplierBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEASUPPLIER);
 
-    public void initialize() {
+    public void initialize() throws ClassNotFoundException {
         suppgender();
         generateSupId();
-        loadTeaSupplier();
+        try {
+            loadTeaSupplier();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         setCellValueFactory();
     }
 
@@ -79,7 +85,7 @@ public class TeaSupplierManageController {
     }
 
     @FXML
-    void btnSupplierSaveOnAction(ActionEvent event) {
+    void btnSupplierSaveOnAction(ActionEvent event) throws ClassNotFoundException {
 
         boolean isValid = Valid();
         if (isValid == true) {
@@ -90,7 +96,12 @@ public class TeaSupplierManageController {
             String suppGen = cmbGender.getValue();
 
             try {
-                boolean isSaved = suppliermanageModel.supplierSave(new SupplierManageDTO(supplierId, suppName, suppAddres, suppTele, suppGen));
+                boolean isSaved = false;
+                try {
+                    isSaved = teaSupplierBO.supplierSave(new SupplierManageDTO(supplierId, suppName, suppAddres, suppTele, suppGen));
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Supplier Saved Successful").show();
                     generateSupId();
@@ -115,22 +126,22 @@ public class TeaSupplierManageController {
         }
     }
 
-    public void generateSupId() {
+    public void generateSupId() throws ClassNotFoundException {
         try {
-            String suppid = suppliermanageModel.generateSupId();
+            String suppid = teaSupplierBO.generateSupId();
             lblSuppId.setText(suppid);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private void loadTeaSupplier() {
+    private void loadTeaSupplier() throws ClassNotFoundException {
         var suppliermanageModel = new SupplierManageModel();
 
         ObservableList<TeaSupplierManageTM> obList = FXCollections.observableArrayList();
 
         try {
-            List<SupplierManageDTO> dtoList = suppliermanageModel.getAllTeaSupp();
+            List<SupplierManageDTO> dtoList = teaSupplierBO.getAllTeaSupp();
 
             for (SupplierManageDTO dto : dtoList) {
                 obList.add(
@@ -151,7 +162,7 @@ public class TeaSupplierManageController {
     }
 
     @FXML
-    void btnClearAction(ActionEvent event) {
+    void btnClearAction(ActionEvent event) throws ClassNotFoundException {
         txtSupplierName.setText("");
         txtSupplierTele.setText("");
         txtSupplierAdd.setText("");
@@ -161,11 +172,11 @@ public class TeaSupplierManageController {
     }
 
     @FXML
-    void btnDeleteAction(ActionEvent event) {
+    void btnDeleteAction(ActionEvent event) throws ClassNotFoundException {
         String deleteId = txtsearchId.getText();
 
         try {
-            boolean isDeleted = suppliermanageModel.deleteSupplier(deleteId);
+            boolean isDeleted = teaSupplierBO.deleteSupplier(deleteId);
             if (isDeleted)
                 new Alert(Alert.AlertType.CONFIRMATION, deleteId + " " + deleteId + " " + "Supplier is Deleted !").show();
             loadTeaSupplier();
@@ -179,7 +190,7 @@ public class TeaSupplierManageController {
     }
 
     @FXML
-    void btnUpdateAction(ActionEvent event) {
+    void btnUpdateAction(ActionEvent event) throws ClassNotFoundException {
         String supplierId = lblSuppId.getText();
         String suppName = txtSupplierName.getText();
         String suppAddres = txtSupplierAdd.getText();
@@ -191,7 +202,7 @@ public class TeaSupplierManageController {
 
         var model = new SupplierManageModel();
         try {
-            boolean isUpdated = model.updateSupplier(dto);
+            boolean isUpdated = teaSupplierBO.updateSupplier(dto);
             System.out.println(isUpdated);
             if (isUpdated) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Supplier Updated Success!").show();
@@ -206,12 +217,11 @@ public class TeaSupplierManageController {
     }
 
     @FXML
-    void txtSearchIdOnAction(ActionEvent event) {
+    void txtSearchIdOnAction(ActionEvent event) throws ClassNotFoundException {
         String id = txtsearchId.getText();
 
-        var supplierManageModel = new SupplierManageModel();
         try {
-            SupplierManageDTO dto = supplierManageModel.searchSupplierId(id);
+            SupplierManageDTO dto = teaSupplierBO.searchSupplierId(id);
 
             if (dto != null) {
                 fillFields(dto);

@@ -9,13 +9,14 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.WorkerBO;
 import lk.captain.db.DbConnection;
 import lk.captain.dto.*;
 import lk.captain.dto.tm.PaymentWorkerTM;
 import lk.captain.dto.util.GenerateTransactionCode;
 import lk.captain.model.AttendenceModel;
 import lk.captain.model.PaymentModel;
-import lk.captain.model.WokerManageModel;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.engine.design.JasperDesign;
@@ -89,10 +90,10 @@ public class WorkerPaymentController {
     private TextField txtSalary;
 
     AttendenceModel attendenceModel = new AttendenceModel();
-    WokerManageModel wokerManageModel = new WokerManageModel();
     PaymentModel paymentModel = new PaymentModel();
+    WorkerBO workerBO = (WorkerBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.WORKER);
 
-    public void initialize() throws SQLException {
+    public void initialize() throws SQLException, ClassNotFoundException {
         load();
         AllPaymentDetails();
          setCellValueFactory();
@@ -102,7 +103,12 @@ public class WorkerPaymentController {
     @FXML
     void cmbWorkIdOnAction(ActionEvent event) throws SQLException {
         String ids = cmbWorkId.getValue();
-        WorkerManageDTO dto = wokerManageModel.searchWorkerId(ids);
+        WorkerManageDTO dto = null;
+        try {
+            dto = workerBO.searchWorkerId(ids);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         lblworkerName.setText(dto.getWorkName());
     }
 
@@ -186,7 +192,11 @@ public class WorkerPaymentController {
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, lblworkerName.getText() + " is " + "Payment Successfully").show();
                     supplierBill();
-                    initialize();
+                    try {
+                        initialize();
+                    } catch (ClassNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
                     return;
                 }
             } catch (SQLException e) {
@@ -196,11 +206,11 @@ public class WorkerPaymentController {
     }
 
 
-    private void load() {
+    private void load() throws ClassNotFoundException {
         ObservableList<String> obWorkerList = FXCollections.observableArrayList();
 
         try {
-            List<WorkerManageDTO> workerManageDTOS = wokerManageModel.getAllWorker();
+            List<WorkerManageDTO> workerManageDTOS = workerBO.getAllWorker();
 
             for (WorkerManageDTO dto : workerManageDTOS) {
                 obWorkerList.add(dto.getWorkId());

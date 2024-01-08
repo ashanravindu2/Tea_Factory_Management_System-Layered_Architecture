@@ -13,14 +13,15 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import lk.captain.QRSacanner.QrCodeScanner;
+import lk.captain.bo.BOFactory;
 import lk.captain.bo.custom.TeaCollectorBO;
+import lk.captain.bo.custom.WorkerBO;
 import lk.captain.dto.AttendenceDTO;
 import lk.captain.dto.TeaCollctorDTO;
 import lk.captain.dto.WorkerManageDTO;
 import lk.captain.dto.util.DateTimeUtil;
 import lk.captain.model.AttendenceModel;
 
-import lk.captain.model.WokerManageModel;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -44,7 +45,7 @@ public class EmpQSscannerPopUp {
     QrCodeScanner qrCodeScanner = new QrCodeScanner();
     AttendenceModel attendenceModel = new AttendenceModel();
     TeaCollectorBO teaCollectorBO = (TeaCollectorBO) lk.captain.bo.BOFactory.getBoFactory().getBOTypes(lk.captain.bo.BOFactory.BOTypes.TEACOLLECTOR);
-
+    WorkerBO workerBO = (WorkerBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.WORKER);
     public void initialize(){
       ibiWelcome.setVisible(true);
       lblNotRegister.setVisible(false);
@@ -83,16 +84,15 @@ public class EmpQSscannerPopUp {
 
 
     }
-    public void isAttendenceMarked(String empID){
+    public void isAttendenceMarked(String empID) throws ClassNotFoundException {
 
 
         boolean isWorkerId = Pattern.matches("\\b[Ww]\\w*\\b",empID);
         boolean isSupId = Pattern.matches("\\b[Kk]\\w*\\b",empID);
 
         if (isWorkerId){
-            var wokerManageModel = new WokerManageModel();
             try {
-                WorkerManageDTO dto = wokerManageModel.searchWorkerId(empID);
+                WorkerManageDTO dto = workerBO.searchWorkerId(empID);
                 if(dto==null) {
                     initialize();
                     ibiWelcome.setVisible(false);

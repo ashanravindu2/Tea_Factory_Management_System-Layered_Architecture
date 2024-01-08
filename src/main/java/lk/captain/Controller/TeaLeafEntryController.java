@@ -13,6 +13,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import lk.captain.bo.BOFactory;
 import lk.captain.bo.custom.TeaCollectorBO;
+import lk.captain.bo.custom.TeaSupplierBO;
 import lk.captain.dto.*;
 import lk.captain.dto.tm.TeaLeafEntryTM;
 import lk.captain.dto.tm.WorkerManageTM;
@@ -87,7 +88,7 @@ public class TeaLeafEntryController {
     TeaCollectorBO teaCollectorBO = (TeaCollectorBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEACOLLECTOR);
     private TeaLeafModel teaLeafModel = new TeaLeafModel();
     private SupplierManageModel suppliermanageModel =new SupplierManageModel();
-
+    TeaSupplierBO teaSupplierBO = (TeaSupplierBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEASUPPLIER);
 
     public void initialize(){
         txtWater.setText("0");
@@ -197,9 +198,9 @@ public class TeaLeafEntryController {
         }
     }
     @FXML
-    void cmbSuppIdOnAction(ActionEvent event) throws SQLException {
+    void cmbSuppIdOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String id = cmbSuppId.getValue();
-        SupplierManageDTO dto = suppliermanageModel.searchSupplierId(id);
+        SupplierManageDTO dto = teaSupplierBO.searchSupplierId(id);
 
         lblSuppName.setText(dto.getSuppName());
 
@@ -252,7 +253,7 @@ public class TeaLeafEntryController {
         ObservableList<String> obSuppList = FXCollections.observableArrayList();
         ObservableList<String> obColecList = FXCollections.observableArrayList();
         try {
-            List<SupplierManageDTO> suppList = suppliermanageModel.getAllTeaSupp();
+            List<SupplierManageDTO> suppList = teaSupplierBO.getAllTeaSupp();
             List<TeaCollctorDTO> ColecList = teaCollectorBO.getAll();
 
             for (SupplierManageDTO dto : suppList) {

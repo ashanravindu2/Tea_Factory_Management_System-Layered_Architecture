@@ -9,12 +9,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.captain.QrGenerate.QrcodeForUser;
+import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.WorkerBO;
 import lk.captain.dto.TeaTypeDTO;
 import lk.captain.dto.WorkerManageDTO;
 import lk.captain.dto.tm.WorkerManageTM;
 import lk.captain.model.TeaTypeModel;
-import lk.captain.model.WokerManageModel;
-
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -78,11 +78,15 @@ public class WorkerManageController {
 
     @FXML
     private JFXComboBox<String> cmbWorkGender;
-    private WokerManageModel workerManageModel = new WokerManageModel();
+    WorkerBO workerBO = (WorkerBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.WORKER);
     private  QrcodeForUser qrcodeForUser = new QrcodeForUser();
 
-    public void initialize(){
-        genersteWorkerId();
+    public void initialize() throws ClassNotFoundException {
+        try {
+            genersteWorkerId();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         gender();
         loadWorkers();
         setCellValueFactory();
@@ -100,7 +104,7 @@ public class WorkerManageController {
     }
 
     @FXML
-    void btnSaveOnAction(ActionEvent event) {
+    void btnSaveOnAction(ActionEvent event) throws ClassNotFoundException {
         boolean isValid = Valid();
         if (isValid == true) {
             String workId = lblWorkId.getText();
@@ -115,7 +119,7 @@ public class WorkerManageController {
             try {
                 //  String newAge = String.format(workAge);
 
-                boolean isSaved = workerManageModel.workerManage(new WorkerManageDTO(workId, workName, workAddress, workAge, workTele, workGen, workJoin, workBirth));
+                boolean isSaved = workerBO.workerManage(new WorkerManageDTO(workId, workName, workAddress, workAge, workTele, workGen, workJoin, workBirth));
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Worker added Successfully").show();
                     qrcodeForUser.CreateQr(workId);
@@ -145,9 +149,9 @@ public class WorkerManageController {
        // String gender = cmbWorkGender.getValue();
     }
 
-    public void genersteWorkerId(){
+    public void genersteWorkerId() throws ClassNotFoundException {
         try {
-            String userId = workerManageModel.generateNextWorkerId();
+            String userId = workerBO.generateNextWorkerId();
             lblWorkId.setText(userId);
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -155,13 +159,13 @@ public class WorkerManageController {
 
     }
 
-    private void loadWorkers() {
-        var wokerManageModel  = new WokerManageModel();
+    private void loadWorkers() throws ClassNotFoundException {
+
 
         ObservableList<WorkerManageTM> obList = FXCollections.observableArrayList();
 
         try {
-            List<WorkerManageDTO> dtoList = wokerManageModel.getAllWorker();
+            List<WorkerManageDTO> dtoList = workerBO.getAllWorker();
 
             for(WorkerManageDTO dto : dtoList) {
                 obList.add(
@@ -186,12 +190,10 @@ public class WorkerManageController {
     }
 
     @FXML
-    void txtSearchIdOnAction(ActionEvent event) {
+    void txtSearchIdOnAction(ActionEvent event) throws ClassNotFoundException {
         String id =txtSearchId .getText();
-
-        var wokerManageModel = new WokerManageModel();
         try {
-            WorkerManageDTO dto = wokerManageModel.searchWorkerId(id);
+            WorkerManageDTO dto = workerBO.searchWorkerId(id);
 
             if(dto != null) {
                 fillFields(dto);
@@ -224,12 +226,16 @@ public class WorkerManageController {
         txtWorkerAdd.setText("");
         txtWokerTele.setText("");
         txtSearchId.setText("");
-        genersteWorkerId();
+        try {
+            genersteWorkerId();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
     @FXML
-    void btnUpdateOnAction(ActionEvent event) {
+    void btnUpdateOnAction(ActionEvent event) throws ClassNotFoundException {
         boolean isValid = Valid();
         if (isValid == true) {
             String workId = lblWorkId.getText();
@@ -243,9 +249,8 @@ public class WorkerManageController {
 
             var dto = new WorkerManageDTO(workId, workName, workAddress, workAge, workTele, workGen, workJoin, workBirth);
 
-            var model = new WokerManageModel();
             try {
-                boolean isUpdated = model.updateWorker(dto);
+                boolean isUpdated = workerBO.updateWorker(dto);
                 System.out.println(isUpdated);
                 if (isUpdated) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Workers Updated Success!").show();
@@ -260,11 +265,11 @@ public class WorkerManageController {
     }
 
     @FXML
-    void btnWorkerDeletOnAction(ActionEvent event) {
+    void btnWorkerDeletOnAction(ActionEvent event) throws ClassNotFoundException {
         String deleteId = txtSearchId.getText();
 
         try {
-            boolean isDeleted = workerManageModel.deleteWorker(deleteId);
+            boolean isDeleted = workerBO.deleteWorker(deleteId);
             if (isDeleted)
                 new Alert(Alert.AlertType.CONFIRMATION,deleteId+" "+"Worker is Deleted !").show();
             loadWorkers();
