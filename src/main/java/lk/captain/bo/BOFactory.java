@@ -1,7 +1,7 @@
 package lk.captain.bo;
 
 public class BOFactory {
-private static BOFactory boFactory;
+    private static BOFactory boFactory;
 
     private BOFactory() {
     }
@@ -10,15 +10,15 @@ private static BOFactory boFactory;
         return (boFactory==null)?boFactory=new BOFactory():(boFactory);
     }
 
-public enum BOTypes {
-    ADDCUSTOMER
-}
-public SuperBO getBOTypes(BOTypes boTypes) {
-    switch (boTypes) {
-        case ADDCUSTOMER:
-            return new AddCustomerBOImpl();
-        default:
-            return null;
+    public enum BOTypes {
+        ADDCUSTOMER
     }
-}
+    public SuperBO getBOTypes(BOTypes boTypes) {
+        switch (boTypes) {
+            case ADDCUSTOMER:
+                return new AddCustomerBOImpl();
+            default:
+                return null;
+        }
+    }
 }

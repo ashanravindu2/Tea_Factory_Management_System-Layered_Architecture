@@ -10,9 +10,10 @@ import lk.captain.bo.AddCustomerBO;
 import lk.captain.bo.BOFactory;
 import lk.captain.dto.AddCustomerDTO;
 import lk.captain.dto.tm.AddCustomerTM;
-import lk.captain.model.AddCustomerModel;
+
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -50,10 +51,9 @@ public class AddCustomerController {
 
     AddCustomerBO addCustomerBO =(AddCustomerBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.ADDCUSTOMER);
 
-    public void initialize(){
+    public void initialize() throws ClassNotFoundException {
         generateCusId();
         setCellValueFactory();
-        loadAllCustomer();
         loadAllCustomer();
     }
 
@@ -72,16 +72,14 @@ public class AddCustomerController {
                 new Alert(Alert.AlertType.CONFIRMATION,deleteId+" Customer is Deleted !").show();
             setCellValueFactory();
             loadAllCustomer();
-            loadAllCustomer();
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
 
     }
 
-    AddCustomerModel addCustomerModel = new AddCustomerModel();
     @FXML
-    void btnSaveAction(ActionEvent event) {
+    void btnSaveAction(ActionEvent event) throws ClassNotFoundException {
         boolean isValid = Valid();
         if (isValid == true) {
             String cusId = lblCusId.getText();
@@ -90,12 +88,11 @@ public class AddCustomerController {
             String cusAddress = txtCusAdd.getText();
 
             try {
-                boolean isSaved = addCustomerModel.addCustomer(new AddCustomerDTO(cusId, cusName, cusTele, cusAddress));
+                boolean isSaved = addCustomerBO.addCustomer(new AddCustomerDTO(cusId, cusName, cusTele, cusAddress));
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "New Customer added Successfully").show();
                     generateCusId();
                     setCellValueFactory();
-                    loadAllCustomer();
                     loadAllCustomer();
                     return;
 
@@ -107,9 +104,9 @@ public class AddCustomerController {
         }
     }
 
-    public void generateCusId(){
+    public void generateCusId() throws ClassNotFoundException {
         try {
-            String cusId = addCustomerModel.generateCusId();
+            String cusId = addCustomerBO.generateCusId();
             lblCusId.setText(cusId);
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -117,7 +114,7 @@ public class AddCustomerController {
     }
 
     @FXML
-    void btnUpdateAction(ActionEvent event) {
+    void btnUpdateAction(ActionEvent event) throws ClassNotFoundException {
         boolean isValid = Valid();
         if (isValid == true) {
             String cusId = lblCusId.getText();
@@ -129,7 +126,7 @@ public class AddCustomerController {
 
 
             try {
-                boolean isUpdated = addCustomerModel.updateCustomer(dto);
+                boolean isUpdated = addCustomerBO.updateCustomer(dto);
 
                 if (isUpdated) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Customer Updated Success!").show();
@@ -147,11 +144,11 @@ public class AddCustomerController {
     }
 
     @FXML
-    void txtSerchOnAction(ActionEvent event) {
+    void txtSerchOnAction(ActionEvent event) throws ClassNotFoundException {
         String id =txtsearchId .getText();
 
         try {
-            AddCustomerDTO dto = addCustomerModel.searchCusId(id);
+            AddCustomerDTO dto = addCustomerBO.searchCusId(id);
 
             if(dto != null) {
                 fillFields(dto);
@@ -170,24 +167,19 @@ public class AddCustomerController {
         txtCusTele.setText(dto.getCusTele());
     }
 
-    private void loadAllCustomer() {
-        ObservableList<AddCustomerTM> obList = FXCollections.observableArrayList();
-
+    private void loadAllCustomer() throws ClassNotFoundException {
+        tblCustomer.getItems().clear();
         try {
-            List<AddCustomerDTO> dtoList = addCustomerModel.getAllCus();
+            ArrayList<AddCustomerDTO> dtoList = addCustomerBO.getAllCus();
 
                 for(AddCustomerDTO dto : dtoList) {
-                obList.add(
+                tblCustomer.getItems().add(
                         new AddCustomerTM(
                                 dto.getCusId(),
                                 dto.getCusName(),
                                 dto.getCusTele(),
-                                dto.getCusAddress()
-                        )
-                );
+                                dto.getCusAddress()));
             }
-
-            tblCustomer.setItems(obList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

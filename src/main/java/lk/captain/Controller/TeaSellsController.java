@@ -14,10 +14,13 @@ package lk.captain.Controller;
         import javafx.scene.control.*;
         import javafx.scene.control.cell.PropertyValueFactory;
         import javafx.stage.Stage;
+        import lk.captain.bo.AddCustomerBO;
+        import lk.captain.bo.AddCustomerBOImpl;
         import lk.captain.db.DbConnection;
         import lk.captain.dto.*;
         import lk.captain.dto.tm.OrderCartTM;
-        import lk.captain.model.AddCustomerModel;
+        import lk.captain.entity.AddCustomer;
+
         import lk.captain.model.StoreDetailsModel;
         import lk.captain.model.TeaSellsModel;
         import lk.captain.model.TeaTypeModel;
@@ -102,14 +105,14 @@ public class TeaSellsController {
     @FXML
     private Label lblTime;
 
-
+        AddCustomerBO addCustomerBO = new AddCustomerBOImpl();
     TeaTypeModel teaTypeModel = new TeaTypeModel();
-    AddCustomerModel addCustomerModel = new AddCustomerModel();
+
     StoreDetailsModel storeDetailsModel = new StoreDetailsModel();
     TeaSellsModel teaSellsModel = new TeaSellsModel();
     private final ObservableList<OrderCartTM> obList = FXCollections.observableArrayList();
 
-    public void initialize() {
+    public void initialize() throws ClassNotFoundException {
         load();
         lblOrderDate.setText(String.valueOf(LocalDate.now()));
         generateNextOrderId();
@@ -248,9 +251,9 @@ public class TeaSellsController {
     }
 
     @FXML
-    void cmbCusIdAction(ActionEvent event) throws SQLException {
+    void cmbCusIdAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String cusId = cmbCusId.getValue();
-        AddCustomerDTO dto = addCustomerModel.searchCusId(cusId);
+        AddCustomerDTO dto = addCustomerBO.searchCusId (cusId);
         lblCusName.setText(dto.getCusName());
         LocalTime currentTime = LocalTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
@@ -270,11 +273,11 @@ public class TeaSellsController {
 
     }
 
-    private void load() {
+    private void load() throws ClassNotFoundException {
         ObservableList<String> obCusId = FXCollections.observableArrayList();
         ObservableList<String> obTeaTypeId = FXCollections.observableArrayList();
         try {
-            List<AddCustomerDTO> suppList = addCustomerModel.getAllCus();
+            List<AddCustomerDTO> suppList = addCustomerBO.getAllCus();
             List<TeaTypeDTO> ColecList = teaTypeModel.loadAllTeaTypes();
 
             for (AddCustomerDTO dto : suppList) {
@@ -293,7 +296,7 @@ public class TeaSellsController {
 
 
     @FXML
-    void btnAddCusAction(ActionEvent event) throws IOException {
+    void btnAddCusAction(ActionEvent event) throws IOException, ClassNotFoundException {
         Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/addCustomer_form.fxml"));
         Scene scene = new Scene(rootNode);
         Stage stage = new Stage();

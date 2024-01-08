@@ -1,5 +1,6 @@
 package lk.captain.dao;
 
+import lk.captain.dto.AddCustomerDTO;
 import lk.captain.entity.AddCustomer;
 
 import java.sql.SQLException;
