@@ -8,6 +8,8 @@ import lk.captain.dto.FuelMaterialDTO;
 import lk.captain.entity.Fuel;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FuelBOImpl implements FuelBO{
 
@@ -37,7 +39,26 @@ public class FuelBOImpl implements FuelBO{
     }
 
     @Override
-    public boolean usedUpdateFuel(FuelMaterialDTO fuelMaterialDTO) throws SQLException {
-        return false;
+    public boolean update(FuelMaterialDTO fuelMaterialDTO) throws SQLException, ClassNotFoundException {
+        return fuelDAO.update(new Fuel(
+                fuelMaterialDTO.getBarrelId(),
+                fuelMaterialDTO.getBCategory(),
+                fuelMaterialDTO.getBLeter()
+        ));
+    }
+
+    @Override
+    public List<FuelMaterialDTO> getAllFuel() throws SQLException, ClassNotFoundException {
+        ArrayList<Fuel> fuels = fuelDAO.getAll();
+        ArrayList<FuelMaterialDTO> fuelMaterialDTOS = new ArrayList<>();
+
+        for (Fuel fuel : fuels) {
+            fuelMaterialDTOS.add(new FuelMaterialDTO(
+                    fuel.getBarrelId(),
+                    fuel.getBCategory(),
+                    fuel.getBLeter()
+            ));
+        }
+        return fuelMaterialDTOS;
     }
 }
