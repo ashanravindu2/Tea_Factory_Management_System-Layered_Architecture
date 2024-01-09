@@ -46,7 +46,14 @@ public class TeaTypeBOImpl implements TeaTypeBO{
 
     @Override
     public TeaTypeDTO serchOnTeaType(String id) throws SQLException, ClassNotFoundException {
-
+        TeaType teaType = teaTypeDAO.search(id);
+        TeaTypeDTO teaTypeDTO = new TeaTypeDTO(
+                teaType.getTeaTypeId(),
+                teaType.getTeaTypeName(),
+                teaType.getTeaTypeDesc(),
+                teaType.getTeaPerPrice()
+        );
+        return teaTypeDTO;
     }
 
     @Override
