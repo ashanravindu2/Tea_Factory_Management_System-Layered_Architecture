@@ -18,7 +18,6 @@ import lk.captain.dto.PaymentDto;
 import lk.captain.dto.SupplierManageDTO;
 import lk.captain.dto.tm.PaymentSupplierTM;
 import lk.captain.dto.util.GenerateTransactionCode;
-import lk.captain.model.SupplierManageModel;
 import lk.captain.model.PaymentModel;
 import lk.captain.model.TeaLeafModel;
 import net.sf.jasperreports.engine.*;
@@ -93,7 +92,7 @@ public class TeaSuppplierPaymentController {
     private Label lbltranCode;
 
 
-    SupplierManageModel supplierManageModel = new SupplierManageModel();
+
     TeaLeafModel teaLeafModel = new TeaLeafModel();
     PaymentModel paymentModel = new PaymentModel();
     TeaSupplierBO teaSupplierBO = (TeaSupplierBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEASUPPLIER);

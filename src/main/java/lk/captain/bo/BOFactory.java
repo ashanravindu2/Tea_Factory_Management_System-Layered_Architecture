@@ -15,7 +15,7 @@ public class BOFactory {
     public enum BOTypes {
         ADDCUSTOMER
         ,TEACOLLECTOR
-        ,WORKER,TEASUPPLIER,WOOD,TEATYPE
+        ,WORKER,TEASUPPLIER,WOOD,TEATYPE,FUEL
     }
     public SuperBO getBOTypes(BOTypes boTypes) {
         switch (boTypes) {
@@ -31,6 +31,8 @@ public class BOFactory {
                     return new WoodBOImpl();
                     case TEATYPE:
                     return new TeaTypeBOImpl();
+                    case FUEL:
+                    return new FuelBOImpl();
             default:
                 return null;
         }

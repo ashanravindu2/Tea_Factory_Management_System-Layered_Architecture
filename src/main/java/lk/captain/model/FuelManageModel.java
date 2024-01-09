@@ -39,17 +39,7 @@ public class FuelManageModel {
         return null;
     }
 
-    public boolean fuelSave(FuelMaterialDTO fuelMaterialDTO) throws SQLException {
-            Connection connection = DbConnection.getInstance().getConnection();
 
-            String sql = "INSERT INTO matirials(barrelId,bCategory,bLeter) VALUES (?,?,?)";
-            PreparedStatement pstm = connection.prepareStatement(sql);
-            pstm.setString(1,fuelMaterialDTO.getBarrelId());
-            pstm.setString(2,fuelMaterialDTO.getBCategory());
-            pstm.setDouble(3,fuelMaterialDTO.getBLeter());
-
-            return pstm.executeUpdate()>0;
-        }
 
     public List<FuelMaterialDTO> getAllFuel() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
@@ -75,50 +65,10 @@ public class FuelManageModel {
         }
         return dtoList;
     }
-    public boolean deleteFuel(String id) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE matirials SET bCategory = NULL, bLeter = NULL WHERE barrelId = ? ";
-        PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1, id);
 
-        return pstm.executeUpdate() > 0;
-    }
 
-    public FuelMaterialDTO searchFuelId(String id) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "select matirials.barrelId,bCategory,bLeter FROM matirials where barrelId= ? ";
-        PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1, id);
-
-        ResultSet resultSet = pstm.executeQuery();
-
-        FuelMaterialDTO dto = null;
-
-        if(resultSet.next()) {
-            String code = resultSet.getString(1);
-            String bCategory = resultSet.getString(2);
-            double bLeter = resultSet.getDouble(3);
-
-            dto = new FuelMaterialDTO(code,bCategory, bLeter);
-        }
-
-        return dto;
-    }
-
-    public boolean updateFuel(FuelMaterialDTO dto) throws SQLException {
-            Connection connection = DbConnection.getInstance().getConnection();
-
-            String sql = "UPDATE matirials SET bCategory = ?, bLeter = ? WHERE barrelId= ?";
-            PreparedStatement pstm = connection.prepareStatement(sql);
-
-            pstm.setString(1, dto.getBCategory());
-            pstm.setDouble(2, dto.getBLeter());
-            pstm.setString(3, dto.getBarrelId());
-
-            return pstm.executeUpdate() > 0;
-    }
 
     public List<FuelMaterialDTO> getAllFuels() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
@@ -144,18 +94,7 @@ public class FuelManageModel {
         }
         return dtoList;
     }
-    public boolean usedUpdateFuel(String id ,double liter) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "UPDATE matirials SET bLeter = bLeter-? WHERE barrelId= ?";
-        PreparedStatement pstm = connection.prepareStatement(sql);
-
-        pstm.setDouble(1,liter );
-        pstm.setString(2,id );
-
-
-        return pstm.executeUpdate() > 0;
-    }
 
         public ResultSet getAllAvalable() throws SQLException {
             Connection connection = DbConnection.getInstance().getConnection();

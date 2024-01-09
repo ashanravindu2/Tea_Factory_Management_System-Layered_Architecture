@@ -13,7 +13,7 @@ import lk.captain.bo.custom.TeaSupplierBO;
 import lk.captain.dto.SupplierManageDTO;
 import lk.captain.dto.WorkerManageDTO;
 import lk.captain.dto.tm.TeaSupplierManageTM;
-import lk.captain.model.SupplierManageModel;
+
 
 
 import java.sql.ResultSet;
@@ -219,7 +219,7 @@ public class TeaSupplierManageController {
 
         var dto = new SupplierManageDTO(supplierId, suppName, suppAddres, suppTele, suppGen);
 
-        var model = new SupplierManageModel();
+
         try {
             boolean isUpdated = teaSupplierBO.updateSupplier(dto);
             System.out.println(isUpdated);

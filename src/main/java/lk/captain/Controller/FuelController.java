@@ -10,6 +10,9 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.AddCustomerBO;
+import lk.captain.bo.custom.FuelBO;
 import lk.captain.dto.*;
 import lk.captain.dto.tm.FuelMatiralTM;
 import lk.captain.model.FuelManageModel;
@@ -78,6 +81,8 @@ public class FuelController {
 
 FuelManageModel fuelManageModel = new FuelManageModel();
 
+    FuelBO fuelBO = (FuelBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.FUEL);
+
     public void initialize() throws SQLException {
         getAvl();
         loadFuel();
@@ -88,7 +93,7 @@ FuelManageModel fuelManageModel = new FuelManageModel();
     }
 
     @FXML
-    void btnSaveOnAction(ActionEvent event) {
+    void btnSaveOnAction(ActionEvent event) throws ClassNotFoundException {
         boolean isValid = Valid();
         if (isValid == true) {
             String id = lblFuelId.getText();
@@ -96,7 +101,7 @@ FuelManageModel fuelManageModel = new FuelManageModel();
             double liter = Double.parseDouble(txtBLId.getText());
 
             try {
-                boolean isSaved = fuelManageModel.fuelSave(new FuelMaterialDTO(id, barrel, liter));
+                boolean isSaved = fuelBO.fuelSave(new FuelMaterialDTO(id, barrel, liter));
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Barrel Saved Successful").show();
                     initialize();
@@ -115,9 +120,10 @@ FuelManageModel fuelManageModel = new FuelManageModel();
         if (isValid == true) {
             String id = cmbBId.getValue();
             double useLiter = Double.parseDouble(txtUseFuel.getText());
+            String cate = lbl
 
             try {
-                boolean isSaved = fuelManageModel.usedUpdateFuel(id, useLiter);
+                boolean isSaved = fuelBO.usedUpdateFuel(new FuelMaterialDTO(id,"", useLiter));
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Barrel Used Successful").show();
                     initialize();
@@ -132,7 +138,7 @@ FuelManageModel fuelManageModel = new FuelManageModel();
     void cmbBarrelId(ActionEvent event) throws SQLException {
         try {
             String id = cmbBId.getValue();
-            FuelMaterialDTO dto = fuelManageModel.searchFuelId(id);
+            FuelMaterialDTO dto = fuelBO.searchFuelId(id);
             lblAvilable.setText(String.valueOf(dto.getBLeter()));
             double available = Double.parseDouble(lblAvilable.getText());
             if (available <= 0) {
@@ -187,7 +193,11 @@ FuelManageModel fuelManageModel = new FuelManageModel();
                         int selectedIndex = tblFuel.getSelectionModel().getSelectedIndex();
                         String id = (String) colCode.getCellData(selectedIndex);
 
-                        deleteteaId(id);
+                        try {
+                            deleteteaId(id);
+                        } catch (ClassNotFoundException ex) {
+                            throw new RuntimeException(ex);
+                        }
 
                         obList.remove(selectedIndex);
                         tblFuel.refresh();
@@ -217,9 +227,9 @@ FuelManageModel fuelManageModel = new FuelManageModel();
         colLiter.setCellValueFactory(new PropertyValueFactory<>("bLeter"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
     }
-    private void deleteteaId(String id){
+    private void deleteteaId(String id) throws ClassNotFoundException {
         try {
-            boolean isDeleted = fuelManageModel.deleteFuel(id);
+            boolean isDeleted = fuelBO.deleteFuel(id);
             if (isDeleted)
                 new Alert(Alert.AlertType.CONFIRMATION,"Fuel Stock Removed !").show();
         }catch (SQLException e){
@@ -227,12 +237,12 @@ FuelManageModel fuelManageModel = new FuelManageModel();
         }
     }
     @FXML
-    void txtSearchIdOnAction(ActionEvent event) {
+    void txtSearchIdOnAction(ActionEvent event) throws ClassNotFoundException {
         String id = txtsearchId.getText();
 
 
         try {
-            FuelMaterialDTO dto = fuelManageModel.searchFuelId(id);
+            FuelMaterialDTO dto = fuelBO.searchFuelId(id);
 
             if(dto != null) {
                 fillFields(dto);

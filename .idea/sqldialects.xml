@@ -2,7 +2,6 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/63dd4bfd-4146-4245-8c2b-e5f42158c5e0/console.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/src/main/java/lk/captain/model/SupplierManageModel.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/lk/captain/model/UserRegisterModel.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/main/resources/sql/Mainschema.sql" dialect="MySQL" />
   </component>

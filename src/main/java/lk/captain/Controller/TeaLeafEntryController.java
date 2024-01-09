@@ -87,7 +87,7 @@ public class TeaLeafEntryController {
     private Label txtwaterDetail;
     TeaCollectorBO teaCollectorBO = (TeaCollectorBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEACOLLECTOR);
     private TeaLeafModel teaLeafModel = new TeaLeafModel();
-    private SupplierManageModel suppliermanageModel =new SupplierManageModel();
+
     TeaSupplierBO teaSupplierBO = (TeaSupplierBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEASUPPLIER);
 
     public void initialize(){
