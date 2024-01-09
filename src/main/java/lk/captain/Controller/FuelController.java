@@ -83,7 +83,7 @@ FuelManageModel fuelManageModel = new FuelManageModel();
 
     FuelBO fuelBO = (FuelBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.FUEL);
 
-    public void initialize() throws SQLException {
+    public void initialize() throws SQLException, ClassNotFoundException {
         getAvl();
         loadFuel();
         generateSupId();
@@ -115,15 +115,14 @@ FuelManageModel fuelManageModel = new FuelManageModel();
     }
 
     @FXML
-    void btnUseOnAction(ActionEvent event) throws SQLException {
+    void btnUseOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         boolean isValid = Valids();
         if (isValid == true) {
             String id = cmbBId.getValue();
             double useLiter = Double.parseDouble(txtUseFuel.getText());
-            String cate = lbl
 
             try {
-                boolean isSaved = fuelBO.usedUpdateFuel(new FuelMaterialDTO(id,"", useLiter));
+                boolean isSaved = fuelManageModel.usedUpdateFuel(id, useLiter);
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Barrel Used Successful").show();
                     initialize();
@@ -171,13 +170,13 @@ FuelManageModel fuelManageModel = new FuelManageModel();
             throw new RuntimeException(e);
         }
     }
-    private void loadFuel() {
+    private void loadFuel() throws ClassNotFoundException {
         var fuelManageModel = new FuelManageModel();
 
         ObservableList<FuelMatiralTM> obList = FXCollections.observableArrayList();
 
         try {
-            List<FuelMaterialDTO> dtoList = fuelManageModel.getAllFuel();
+            List<FuelMaterialDTO> dtoList = fuelBO.getAllFuel();
 
             for (FuelMaterialDTO dto : dtoList) {
 
@@ -261,7 +260,7 @@ FuelManageModel fuelManageModel = new FuelManageModel();
     }
 
     @FXML
-    void btnUpdateOnAction(ActionEvent event) {
+    void btnUpdateOnAction(ActionEvent event) throws ClassNotFoundException {
         boolean isValid = Valid();
         if (isValid == true) {
 
@@ -269,12 +268,8 @@ FuelManageModel fuelManageModel = new FuelManageModel();
             double liter = Double.parseDouble(txtBLId.getText());
             String id = lblRegId.getText();
 
-
-            var dto = new FuelMaterialDTO(id, category, liter);
-
-
             try {
-                boolean isUpdated = fuelManageModel.updateFuel(dto);
+                boolean isUpdated = fuelBO.update(new FuelMaterialDTO(id, category, liter));
                 System.out.println(isUpdated);
                 if (isUpdated) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Fuel Updated Success!").show();
