@@ -13,14 +13,17 @@ import javafx.scene.layout.AnchorPane;
 import lk.captain.bo.BOFactory;
 import lk.captain.bo.custom.AddCustomerBO;
 import lk.captain.bo.custom.FuelBO;
+import lk.captain.db.DbConnection;
 import lk.captain.dto.*;
 import lk.captain.dto.tm.FuelMatiralTM;
-import lk.captain.model.FuelManageModel;
+
 import org.eclipse.jdt.internal.compiler.apt.dispatch.HookedJavaFileObject;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Pattern;
@@ -79,7 +82,7 @@ public class FuelController {
     @FXML
     private TextField txtUseFuel;
 
-FuelManageModel fuelManageModel = new FuelManageModel();
+
 
     FuelBO fuelBO = (FuelBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.FUEL);
 
@@ -122,7 +125,7 @@ FuelManageModel fuelManageModel = new FuelManageModel();
             double useLiter = Double.parseDouble(txtUseFuel.getText());
 
             try {
-                boolean isSaved = fuelManageModel.usedUpdateFuel(id, useLiter);
+                boolean isSaved = fuelBO.usedUpdateFuel(id, useLiter);
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Barrel Used Successful").show();
                     initialize();
@@ -162,16 +165,35 @@ FuelManageModel fuelManageModel = new FuelManageModel();
 
 
     }
-    public void generateSupId() {
+    public void generateSupId() throws ClassNotFoundException {
         try {
-            String fuelId = fuelManageModel.generateFuelId();
-            lblFuelId.setText(fuelId);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+            ResultSet resultSet = fuelBO.generateFuelId();
+
+                    boolean isExist = resultSet.next();
+
+                    if(isExist){
+                        String oldBId = resultSet.getString(1);
+                        oldBId =oldBId.substring(1,oldBId.length());
+                        int intId =Integer.parseInt(oldBId);
+                        intId =intId+1;
+
+                        if (intId <10){
+                            lblFuelId.setText("B00" +intId);
+                        } else if (intId <100) {
+                            lblFuelId.setText("B0"+intId);
+
+                        }else {
+                            lblFuelId.setText("B"+intId);
+                        }
+                    }else {
+                        lblFuelId.setText("B001");
+                    }
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
     }
     private void loadFuel() throws ClassNotFoundException {
-        var fuelManageModel = new FuelManageModel();
+
 
         ObservableList<FuelMatiralTM> obList = FXCollections.observableArrayList();
 
@@ -281,11 +303,11 @@ FuelManageModel fuelManageModel = new FuelManageModel();
         }
     }
 
-    private void load() {
+    private void load() throws ClassNotFoundException {
         ObservableList<String> obFuelList = FXCollections.observableArrayList();
 
         try {
-            List<FuelMaterialDTO> suppList = fuelManageModel.getAllFuels();
+            List<FuelMaterialDTO> suppList = fuelBO.getAllFuel();
 
             for (FuelMaterialDTO dto : suppList) {
                 obFuelList.add(dto.getBarrelId());
@@ -295,8 +317,8 @@ FuelManageModel fuelManageModel = new FuelManageModel();
             throw new RuntimeException(e);
         }
     }
-    public  void getAvl() throws SQLException {
-        ResultSet resultSet = fuelManageModel.getAllAvalable();
+    public  void getAvl() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = fuelBO.getAllAvalable();
 
         int barrelCount = 0;
         double liter = 0;
