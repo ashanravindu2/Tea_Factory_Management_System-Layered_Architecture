@@ -17,7 +17,7 @@ public class DAOFactory {
         ADDCUSTOMER,
         TEACOLLECTOR,
         WORKER,
-        TEASUPPLIER,WOOD,TEATYPE,FUEL
+        TEASUPPLIER,WOOD,TEATYPE,FUEL,WAREHOUSE
 
     }
 
@@ -37,6 +37,8 @@ public class DAOFactory {
                 return new TeaTypeDAOImpl();
             case FUEL:
                 return new FuelDAOImpl();
+            case WAREHOUSE:
+                return new WareHouseDAOImpl();
             default:
                 return null;
         }

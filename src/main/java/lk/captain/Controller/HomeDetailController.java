@@ -14,6 +14,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
 import lk.captain.bo.BOFactory;
 import lk.captain.bo.custom.TeaCollectorBO;
+import lk.captain.bo.custom.WareHouseBO;
 import lk.captain.bo.custom.WorkerBO;
 import lk.captain.model.*;
 
@@ -57,11 +58,11 @@ public class HomeDetailController {
     private ProgressBar progressBar11;
 
     HomeModel homeModel = new HomeModel();
-    WareHouseModel wareHouseModel = new WareHouseModel();
     AttendenceModel attendenceModel = new AttendenceModel();
     TeaLeafModel teaLeafModel = new TeaLeafModel();
     WorkerBO workerBO = (WorkerBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.WORKER);
     TeaCollectorBO teaCollectorBO = (TeaCollectorBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEACOLLECTOR);
+    WareHouseBO wareHouseBO = (WareHouseBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.WAREHOUSE);
 public void initialize() throws SQLException, ClassNotFoundException {
     Piechart();BarCharts();
 }
@@ -80,7 +81,7 @@ public void Piechart() throws SQLException, ClassNotFoundException {
     }
     double liter = homeModel.getAvlF();
     double wood = homeModel.getAvlW();
-    double netPowder = wareHouseModel.getTeapowderTotl();
+    double netPowder = wareHouseBO.getCount();
 
     double minLiter = liter/1000;
     double minwood = wood/1000;
