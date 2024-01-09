@@ -11,12 +11,13 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.FuelBO;
 import lk.captain.bo.custom.TeaSupplierBO;
 import lk.captain.bo.custom.WoodBO;
 import lk.captain.dto.FuelMaterialDTO;
 import lk.captain.dto.WoodMaterialDTO;
 import lk.captain.dto.tm.WoodMatirialTM;
-import lk.captain.model.FuelManageModel;
+
 import lk.captain.model.WoodManageModel;
 
 import java.io.IOException;
@@ -77,10 +78,11 @@ public class WoodManageController {
         private TextField txtWeight;
 
     WoodManageModel woodManageModel = new WoodManageModel();
-    FuelManageModel fuelManageModel = new FuelManageModel();
-    WoodBO woodBO = (WoodBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.WOOD);
 
-        @FXML
+    WoodBO woodBO = (WoodBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.WOOD);
+    FuelBO fuelBO = (FuelBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.FUEL);
+
+    @FXML
     public void initialize() throws SQLException, ClassNotFoundException {generateWoodId();
         load();
         loadWood();setCellValueFactory();getAvl();}
@@ -198,12 +200,30 @@ public class WoodManageController {
         this.root.getChildren().add(anchorPane);
 
     }
-    public void generateWoodId() {
+    public void generateWoodId() throws ClassNotFoundException {
         try {
-            String fuelId = fuelManageModel.generateFuelId();
-            lblGFuelId.setText(fuelId);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            ResultSet resultSet = fuelBO.generateFuelId();
+            boolean isExist = resultSet.next();
+
+            if(isExist){
+                String oldBId = resultSet.getString(1);
+                oldBId =oldBId.substring(1,oldBId.length());
+                int intId =Integer.parseInt(oldBId);
+                intId =intId+1;
+
+                if (intId <10){
+                    lblGFuelId.setText("B00" +intId);
+                } else if (intId <100) {
+                    lblGFuelId.setText("B0"+intId);
+
+                }else {
+                    lblGFuelId.setText("B"+intId);
+                }
+            }else {
+                lblGFuelId.setText("B001");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
         }
     }
     private void load() throws ClassNotFoundException {

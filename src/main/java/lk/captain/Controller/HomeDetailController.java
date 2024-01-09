@@ -66,7 +66,7 @@ public void initialize() throws SQLException, ClassNotFoundException {
     Piechart();BarCharts();
 }
 
-public void Piechart() throws SQLException {
+public void Piechart() throws SQLException, ClassNotFoundException {
     lblTeaEntry.setText(String.valueOf(teaLeafModel.getNetTotal(String.valueOf(LocalDate.now()))));
     double entry = Double.parseDouble(lblTeaEntry.getText());
     if (entry<8000){

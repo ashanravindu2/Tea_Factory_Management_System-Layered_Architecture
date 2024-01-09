@@ -1,17 +1,19 @@
 package lk.captain.model;
 
+import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.FuelBO;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
 
 public class HomeModel {
-
-    FuelManageModel fuelManageModel = new FuelManageModel();
+    FuelBO fuelBO = (FuelBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.FUEL);
     WoodManageModel woodManageModel = new WoodManageModel();
 
-    public double getAvlF() throws SQLException {
-        ResultSet resultSet = fuelManageModel.getAllAvalable();
+    public double getAvlF() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = fuelBO.getAllAvalable();
         double liter = 0;
 
         if (resultSet.next()){
