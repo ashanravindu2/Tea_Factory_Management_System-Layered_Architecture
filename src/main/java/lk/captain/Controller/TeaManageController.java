@@ -14,13 +14,14 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.captain.bo.BOFactory;
 import lk.captain.bo.custom.TeaTypeBO;
+import lk.captain.bo.custom.WareHouseBO;
 import lk.captain.dto.StoreDetailsDTO;
 import lk.captain.dto.TeaTypeDTO;
 import lk.captain.dto.tm.StoreDetailsTM;
 import lk.captain.dto.tm.TeaTypeTM;
 import lk.captain.model.StoreDetailsModel;
 
-import lk.captain.model.WareHouseModel;
+
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -72,9 +73,9 @@ public class TeaManageController {
     private JFXButton savebtnId;
 
 
-    WareHouseModel wareHouseModel = new WareHouseModel();
     StoreDetailsModel storeDetailsModel = new StoreDetailsModel();
     TeaTypeBO teaTypeBO = (TeaTypeBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEATYPE);
+    WareHouseBO wareHouseBO = (WareHouseBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.WAREHOUSE);
 
     @FXML
     void btnBakc(ActionEvent event) throws IOException {
@@ -84,7 +85,7 @@ public class TeaManageController {
     }
 
     public void initialize() throws SQLException, ClassNotFoundException {
-        double netTeaPowder = wareHouseModel.getTeapowderTotl();
+        double netTeaPowder = wareHouseBO.getCount();
         lblteaPowderAvailable.setText(String.valueOf(netTeaPowder));
         load();
         setCellValueFactory();

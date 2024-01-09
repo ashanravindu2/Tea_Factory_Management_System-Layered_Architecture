@@ -1,5 +1,7 @@
 package lk.captain.model;
 
+import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.WareHouseBO;
 import lk.captain.db.DbConnection;
 import lk.captain.dto.StoreDetailsDTO;
 import lk.captain.dto.tm.OrderCartTM;
@@ -10,9 +12,8 @@ import java.util.List;
 
 public class StoreDetailsModel {
 
-    WareHouseModel wareHouseModel = new WareHouseModel();
-
-    public boolean store(String wareHouseId,String teaTypeId,String date,double quantity) throws SQLException {
+    WareHouseBO wareHouseBO = (WareHouseBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.WAREHOUSE);
+    public boolean store(String wareHouseId,String teaTypeId,String date,double quantity) throws SQLException, ClassNotFoundException {
         boolean result = false;
         Connection connection= null;
 
@@ -28,7 +29,7 @@ public class StoreDetailsModel {
         boolean isStored =  pstm.executeUpdate() > 0;
 
         if (isStored){
-            boolean isReducedTeaPowder = wareHouseModel.updated(quantity);
+            boolean isReducedTeaPowder = wareHouseBO.isupdated(quantity);
             if (isReducedTeaPowder){
                 connection.commit();
                 result = true;
