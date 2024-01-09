@@ -1,9 +1,12 @@
 package lk.captain.dao.custom;
 
 import lk.captain.dao.SQLUtil;
+import lk.captain.db.DbConnection;
 import lk.captain.dto.WoodMaterialDTO;
 import lk.captain.entity.Wood;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -72,5 +75,16 @@ while (rst.next()) {
     @Override
     public int searchCount() throws SQLException, ClassNotFoundException {
         return 0;
+    }
+
+    @Override
+    public ResultSet getAllAvalable() throws SQLException, ClassNotFoundException {
+       return SQLUtil.execute( "select COUNT(wCategory)AS COUNTS,SUM(wWeight) AS WEIGHT FROM matirials WHERE wCategory IS NOT NULL  AND wWeight IS NOT NULL ");
+    }
+
+    @Override
+    public boolean usedUpdateWood(String id, double used) throws SQLException, ClassNotFoundException {
+       return SQLUtil.execute( "UPDATE matirials SET wWeight = wWeight-? WHERE barrelId= ?",used,id);
+
     }
 }

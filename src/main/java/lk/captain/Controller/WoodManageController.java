@@ -18,7 +18,6 @@ import lk.captain.dto.FuelMaterialDTO;
 import lk.captain.dto.WoodMaterialDTO;
 import lk.captain.dto.tm.WoodMatirialTM;
 
-import lk.captain.model.WoodManageModel;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -77,7 +76,7 @@ public class WoodManageController {
         @FXML
         private TextField txtWeight;
 
-    WoodManageModel woodManageModel = new WoodManageModel();
+
 
     WoodBO woodBO = (WoodBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.WOOD);
     FuelBO fuelBO = (FuelBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.FUEL);
@@ -156,7 +155,7 @@ public class WoodManageController {
                 double used = Double.parseDouble(txtUsedWeight.getText());
 
                 try {
-                    boolean isSaved = woodManageModel.usedUpdateWood(id, used);
+                    boolean isSaved = woodBO.usedUpdateWood(id, used);
                     if (isSaved) {
                         new Alert(Alert.AlertType.CONFIRMATION, "Wood Category Used Successful").show();
                         initialize();
@@ -305,8 +304,8 @@ public class WoodManageController {
         colAction.setCellValueFactory(new PropertyValueFactory<>("btn"));
     }
 
-    public void getAvl() throws SQLException {
-        ResultSet resultSet = woodManageModel.getAllAvalable();
+    public void getAvl() throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = woodBO.getAllAvalable();
 
         int count = 0;
         double weight = 0;

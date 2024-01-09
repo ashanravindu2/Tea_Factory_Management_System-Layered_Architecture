@@ -71,4 +71,14 @@ public class WoodBOImpl implements WoodBO{
     public int searchCount() throws SQLException, ClassNotFoundException {
         return 0;
     }
+
+    @Override
+    public ResultSet getAllAvalable() throws SQLException, ClassNotFoundException {
+        return woodDAO.getAllAvalable();
+    }
+
+    @Override
+    public boolean usedUpdateWood(String id, double used) throws SQLException, ClassNotFoundException {
+        return woodDAO.usedUpdateWood(id,used);
+    }
 }

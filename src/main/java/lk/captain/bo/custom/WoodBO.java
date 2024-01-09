@@ -2,9 +2,12 @@ package lk.captain.bo.custom;
 
 import lk.captain.bo.SuperBO;
 import lk.captain.dao.SQLUtil;
+import lk.captain.db.DbConnection;
 import lk.captain.dto.WoodMaterialDTO;
 import lk.captain.entity.Wood;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -28,4 +31,8 @@ public interface WoodBO extends SuperBO {
 
 
     public int searchCount() throws SQLException, ClassNotFoundException;
+
+    public ResultSet getAllAvalable() throws SQLException, ClassNotFoundException;
+
+    public boolean usedUpdateWood(String id, double used) throws SQLException, ClassNotFoundException;
 }
