@@ -5,10 +5,7 @@ import lk.captain.db.DbConnection;
 import lk.captain.dto.FuelMaterialDTO;
 import lk.captain.entity.Fuel;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +49,7 @@ public class FuelDAOImpl implements FuelDAO{
 
     @Override
     public ResultSet generateId() throws SQLException, ClassNotFoundException {
-        return null;
+        return SQLUtil.execute("SELECT barrelId FROM matirials ORDER BY barrelId DESC LIMIT 1");
     }
 
     @Override
@@ -80,4 +77,16 @@ public class FuelDAOImpl implements FuelDAO{
     public int searchCount() throws SQLException, ClassNotFoundException {
         return 0;
     }
+
+    @Override
+    public boolean usedUpdateFuel(String id, double liter) throws SQLException, ClassNotFoundException {
+        return SQLUtil.execute("UPDATE matirials SET bLeter = bLeter-? WHERE barrelId= ?",liter,id);
+    }
+
+    @Override
+    public ResultSet getAllAvalable() throws SQLException, ClassNotFoundException {
+       return SQLUtil.execute("select COUNT(bCategory)AS COUNTS,SUM(bLeter) AS LETER FROM matirials WHERE bCategory IS NOT NULL  AND bLeter IS NOT NULL");
+    }
+
+
 }
