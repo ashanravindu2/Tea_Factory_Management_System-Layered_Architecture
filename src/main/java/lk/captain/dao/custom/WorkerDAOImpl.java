@@ -49,8 +49,6 @@ public class WorkerDAOImpl implements WorkerDAO {
     public Worker search(String id) throws SQLException, ClassNotFoundException {
         ResultSet resultSet = SQLUtil.execute("SELECT * FROM workers WHERE workId = ?", id);
 
-        WorkerManageDTO dto = null;
-
         if(resultSet.next()) {
             return new Worker(
                     resultSet.getString(1),
@@ -67,32 +65,10 @@ public class WorkerDAOImpl implements WorkerDAO {
     }
 
     @Override
-    public String generateId() throws SQLException, ClassNotFoundException {
-        try {
-            ResultSet resultSet =SQLUtil.execute("SELECT workId FROM workers ORDER BY workId DESC LIMIT 1");
-            boolean isExist = resultSet.next();
+    public ResultSet generateId() throws SQLException, ClassNotFoundException {
 
-            if (isExist) {
-                String currentWorkerId = resultSet.getString(1);
-                currentWorkerId = currentWorkerId.substring(1, currentWorkerId.length());
-                int intId = Integer.parseInt(currentWorkerId);
-                intId = intId + 1;
+           return SQLUtil.execute("SELECT workId FROM workers ORDER BY workId DESC LIMIT 1");
 
-                if (intId < 10) {
-                    return "W00" + intId;
-                } else if (intId < 100) {
-                    return "W0" + intId;
-                } else {
-                    return "W" + intId;
-                }
-
-            } else {
-                return "W001";
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return null;
     }
 
     @Override

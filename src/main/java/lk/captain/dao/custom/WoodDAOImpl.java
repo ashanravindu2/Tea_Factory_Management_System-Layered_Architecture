@@ -1,6 +1,7 @@
 package lk.captain.dao.custom;
 
 import lk.captain.dao.SQLUtil;
+import lk.captain.dto.WoodMaterialDTO;
 import lk.captain.entity.Wood;
 
 import java.sql.ResultSet;
@@ -31,20 +32,22 @@ public class WoodDAOImpl implements WoodDAO{
 
     @Override
     public Wood search(String id) throws SQLException, ClassNotFoundException {
-        ResultSet rst = SQLUtil.execute("select matirials.barrelId,wCategory,wWeight FROM matirials where barrelId= ? ");
+        ResultSet rst = SQLUtil.execute("select matirials.barrelId,wCategory,wWeight FROM matirials where barrelId= ? ", id);
+        Wood dto = null;
         if (rst.next()) {
             return new Wood(
                     rst.getString(1),
                     rst.getString(2),
                     rst.getDouble(3)
             );
+
         }
-        return null;
+        return dto;
 
     }
 
     @Override
-    public String generateId() throws SQLException, ClassNotFoundException {
+    public ResultSet generateId() throws SQLException, ClassNotFoundException {
         return null;
     }
 

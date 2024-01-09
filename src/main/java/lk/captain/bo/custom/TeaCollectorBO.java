@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public interface TeaCollectorBO extends SuperBO {
      boolean save(TeaCollctorDTO dto) throws SQLException, ClassNotFoundException;
-      String generateColecId() throws SQLException, ClassNotFoundException;
+      ResultSet generateColecId() throws SQLException, ClassNotFoundException;
     ArrayList<TeaCollctorDTO> getAll() throws SQLException, ClassNotFoundException;
      boolean delete(String id) throws SQLException, ClassNotFoundException;
      boolean update(TeaCollctorDTO dto) throws SQLException, ClassNotFoundException;

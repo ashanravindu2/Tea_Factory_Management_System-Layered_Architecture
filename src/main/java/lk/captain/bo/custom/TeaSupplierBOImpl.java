@@ -6,6 +6,7 @@ import lk.captain.dao.custom.TeaSupplierDAO;
 import lk.captain.dto.SupplierManageDTO;
 import lk.captain.entity.TeaSupplier;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class TeaSupplierBOImpl implements TeaSupplierBO{
     }
 
     @Override
-    public String generateSupId() throws SQLException, ClassNotFoundException {
+    public ResultSet generateSupId() throws SQLException, ClassNotFoundException {
         return teaSupplierDAO.generateId();
     }
 

@@ -12,12 +12,14 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.TeaTypeBO;
 import lk.captain.dto.StoreDetailsDTO;
 import lk.captain.dto.TeaTypeDTO;
 import lk.captain.dto.tm.StoreDetailsTM;
 import lk.captain.dto.tm.TeaTypeTM;
 import lk.captain.model.StoreDetailsModel;
-import lk.captain.model.TeaTypeModel;
+
 import lk.captain.model.WareHouseModel;
 
 import java.io.IOException;
@@ -69,10 +71,10 @@ public class TeaManageController {
     @FXML
     private JFXButton savebtnId;
 
-    TeaTypeModel teaTypeModel = new TeaTypeModel();
+
     WareHouseModel wareHouseModel = new WareHouseModel();
     StoreDetailsModel storeDetailsModel = new StoreDetailsModel();
-
+    TeaTypeBO teaTypeBO = (TeaTypeBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEATYPE);
 
     @FXML
     void btnBakc(ActionEvent event) throws IOException {
@@ -81,7 +83,7 @@ public class TeaManageController {
         this.root.getChildren().add(anchorPane);
     }
 
-    public void initialize() throws SQLException {
+    public void initialize() throws SQLException, ClassNotFoundException {
         double netTeaPowder = wareHouseModel.getTeapowderTotl();
         lblteaPowderAvailable.setText(String.valueOf(netTeaPowder));
         load();
@@ -100,7 +102,7 @@ public class TeaManageController {
 
 
     @FXML
-    void btnSaveAction(ActionEvent event) {
+    void btnSaveAction(ActionEvent event) throws ClassNotFoundException {
         boolean isValid = Valid();
         if (isValid == true) {
             String wareHouseId = "W001";
@@ -177,19 +179,19 @@ public class TeaManageController {
 
 
     @FXML
-    void cmbTeaTypAction(ActionEvent event) throws SQLException {
+    void cmbTeaTypAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String teacode = cmbTeaCode.getValue();
-        TeaTypeDTO dto = teaTypeModel.serchOnTeaType(teacode);
+        TeaTypeDTO dto = teaTypeBO.serchOnTeaType(teacode);
         lblteaNameId.setText(dto.getTeaTypeName());
 
     }
 
 
-    private void load(){
+    private void load() throws ClassNotFoundException {
         ObservableList<String> obTeaTypeList = FXCollections.observableArrayList();
 
         try {
-            List<TeaTypeDTO> teaTypeDTOList = teaTypeModel.loadAllTeaTypes();
+            List<TeaTypeDTO> teaTypeDTOList = teaTypeBO.loadAllTeaTypes();
 
             for (TeaTypeDTO dto : teaTypeDTOList){
                 obTeaTypeList.add(dto.getTeaTypeId());

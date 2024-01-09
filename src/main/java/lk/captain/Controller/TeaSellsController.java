@@ -14,15 +14,17 @@ package lk.captain.Controller;
         import javafx.scene.control.*;
         import javafx.scene.control.cell.PropertyValueFactory;
         import javafx.stage.Stage;
+        import lk.captain.bo.BOFactory;
         import lk.captain.bo.custom.AddCustomerBO;
         import lk.captain.bo.custom.AddCustomerBOImpl;
+        import lk.captain.bo.custom.TeaTypeBO;
         import lk.captain.db.DbConnection;
         import lk.captain.dto.*;
         import lk.captain.dto.tm.OrderCartTM;
 
         import lk.captain.model.StoreDetailsModel;
         import lk.captain.model.TeaSellsModel;
-        import lk.captain.model.TeaTypeModel;
+
         import net.sf.jasperreports.engine.*;
         import net.sf.jasperreports.engine.design.JRDesignQuery;
         import net.sf.jasperreports.engine.design.JasperDesign;
@@ -105,8 +107,8 @@ public class TeaSellsController {
     private Label lblTime;
 
         AddCustomerBO addCustomerBO = new AddCustomerBOImpl();
-    TeaTypeModel teaTypeModel = new TeaTypeModel();
 
+    TeaTypeBO teaTypeBO = (TeaTypeBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEATYPE);
     StoreDetailsModel storeDetailsModel = new StoreDetailsModel();
     TeaSellsModel teaSellsModel = new TeaSellsModel();
     private final ObservableList<OrderCartTM> obList = FXCollections.observableArrayList();
@@ -262,9 +264,9 @@ public class TeaSellsController {
     }
 
     @FXML
-    void cmbTeaIdAction(ActionEvent event) throws SQLException {
+    void cmbTeaIdAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String teaid = cmbTeaId.getValue();
-        TeaTypeDTO dto = teaTypeModel.serchOnTeaType(teaid);
+        TeaTypeDTO dto = teaTypeBO.serchOnTeaType(teaid);
         lblDescrip.setText(dto.getTeaTypeName());
         lblUnitPrice.setText(String.valueOf(dto.getTeaPerPrice()));
         StoreDetailsDTO storeTeaType = storeDetailsModel.serchOnTeaType(teaid);
@@ -277,7 +279,7 @@ public class TeaSellsController {
         ObservableList<String> obTeaTypeId = FXCollections.observableArrayList();
         try {
             List<AddCustomerDTO> suppList = addCustomerBO.getAllCus();
-            List<TeaTypeDTO> ColecList = teaTypeModel.loadAllTeaTypes();
+            List<TeaTypeDTO> ColecList = teaTypeBO.loadAllTeaTypes();
 
             for (AddCustomerDTO dto : suppList) {
                 obCusId.add(dto.getCusId());

@@ -25,7 +25,7 @@ public class TeaCollectorBOImpl implements TeaCollectorBO{
     }
 
     @Override
-    public String generateColecId() throws SQLException, ClassNotFoundException {
+    public ResultSet generateColecId() throws SQLException, ClassNotFoundException {
         return teaCollectorDAO.generateId();
     }
 

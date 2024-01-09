@@ -22,6 +22,7 @@ import lk.captain.entity.TeaCollector;
 import lk.captain.model.SupplierManageModel;
 
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -131,11 +132,30 @@ public class TeaCollectorManageController {
     }
     public void generateColecId() throws ClassNotFoundException {
         try {
-            String suppid = teaCollectorBO.generateColecId();
-            lbltxtColecId.setText(suppid);
+            ResultSet resultSet = teaCollectorBO.generateColecId();
+            boolean isExist = resultSet.next();
+
+            if(isExist){
+                String oldSupId = resultSet.getString(1);
+                oldSupId =oldSupId.substring(1,oldSupId.length());
+                int intId =Integer.parseInt(oldSupId);
+                intId =intId+1;
+
+                if (intId <10){
+                    lbltxtColecId.setText("K00" +intId);
+                } else if (intId <100) {
+                    lbltxtColecId.setText( "K0"+intId);
+
+                }else {
+                    lbltxtColecId.setText("S"+intId);
+                }
+            }else {
+                lbltxtColecId.setText("K001");
+            }
         }catch (SQLException e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+
     }
 
     private void loadAllTeaColector() throws ClassNotFoundException {

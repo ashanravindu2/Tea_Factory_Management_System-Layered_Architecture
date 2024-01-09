@@ -12,7 +12,7 @@ public interface CrudDAO<T> extends SuperDAO{
     boolean save(T dto) throws SQLException, ClassNotFoundException;
     boolean update(T dto) throws SQLException, ClassNotFoundException;
     T search(String id) throws SQLException, ClassNotFoundException;
-    String generateId() throws SQLException, ClassNotFoundException;
+    ResultSet generateId() throws SQLException, ClassNotFoundException;
      ArrayList<T> getAll() throws SQLException, ClassNotFoundException;
      int searchCount() throws SQLException, ClassNotFoundException;
 

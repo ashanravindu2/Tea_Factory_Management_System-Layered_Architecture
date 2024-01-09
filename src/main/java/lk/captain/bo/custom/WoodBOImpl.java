@@ -48,7 +48,7 @@ public class WoodBOImpl implements WoodBO{
     }
 
     @Override
-    public String generateId() throws SQLException, ClassNotFoundException {
+    public ResultSet generateId() throws SQLException, ClassNotFoundException {
         return woodDAO.generateId();
     }
 

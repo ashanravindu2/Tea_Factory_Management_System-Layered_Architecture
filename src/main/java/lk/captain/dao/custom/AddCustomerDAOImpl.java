@@ -40,32 +40,9 @@ public class AddCustomerDAOImpl implements AddCustomerDAO{
     }
 
     @Override
-    public String generateId() throws SQLException, ClassNotFoundException {
-        try {
-            ResultSet resultSet=SQLUtil.execute("SELECT cusId FROM customer ORDER BY cusId DESC LIMIT 1");
-            boolean isExist = resultSet.next();
+    public ResultSet generateId() throws SQLException, ClassNotFoundException {
+            return SQLUtil.execute("SELECT cusId FROM customer ORDER BY cusId DESC LIMIT 1");
 
-            if(isExist){
-                String oldCusId = resultSet.getString(1);
-                oldCusId =oldCusId.substring(1,oldCusId.length());
-                int intId =Integer.parseInt(oldCusId);
-                intId =intId+1;
-
-                if (intId <10){
-                    return "C00" +intId;
-                } else if (intId <100) {
-                    return "C0"+intId;
-
-                }else {
-                    return "C"+intId;
-                }
-            }else {
-                return "C001";
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return null;
     }
 
 

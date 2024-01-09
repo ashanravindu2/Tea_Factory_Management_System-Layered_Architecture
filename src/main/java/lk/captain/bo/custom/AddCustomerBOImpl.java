@@ -5,6 +5,7 @@ import lk.captain.dao.DAOFactory;
 import lk.captain.dto.AddCustomerDTO;
 import lk.captain.entity.AddCustomer;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class AddCustomerBOImpl implements AddCustomerBO{
     }
 
     @Override
-    public String generateCusId() throws SQLException, ClassNotFoundException {
+    public ResultSet generateCusId() throws SQLException, ClassNotFoundException {
         return addCustomerDAO.generateId();
     }
 

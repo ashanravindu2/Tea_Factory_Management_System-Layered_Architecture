@@ -14,7 +14,9 @@ import lk.captain.bo.custom.WorkerBO;
 import lk.captain.dto.TeaTypeDTO;
 import lk.captain.dto.WorkerManageDTO;
 import lk.captain.dto.tm.WorkerManageTM;
-import lk.captain.model.TeaTypeModel;
+
+
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -151,11 +153,30 @@ public class WorkerManageController {
 
     public void genersteWorkerId() throws ClassNotFoundException {
         try {
-            String userId = workerBO.generateNextWorkerId();
-            lblWorkId.setText(userId);
+            ResultSet resultSet = workerBO.generateNextWorkerId();
+            boolean isExist = resultSet.next();
+
+            if (isExist) {
+                String currentWorkerId = resultSet.getString(1);
+                currentWorkerId = currentWorkerId.substring(1, currentWorkerId.length());
+                int intId = Integer.parseInt(currentWorkerId);
+                intId = intId + 1;
+
+                if (intId < 10) {
+                    lblWorkId.setText("W00" + intId);
+                } else if (intId < 100) {
+                    lblWorkId.setText("W0" + intId);
+                } else {
+                    lblWorkId.setText("W" + intId);
+                }
+
+            } else {
+                lblWorkId.setText("W001");
+            }
         }catch (SQLException e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+
 
     }
 

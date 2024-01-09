@@ -12,7 +12,7 @@ public interface TeaSupplierBO extends SuperBO {
 
     public boolean supplierSave(SupplierManageDTO supplierManageDTO) throws SQLException, ClassNotFoundException;
 
-    public String generateSupId() throws SQLException, ClassNotFoundException;
+    public ResultSet generateSupId() throws SQLException, ClassNotFoundException;
 
     public List<SupplierManageDTO> getAllTeaSupp() throws SQLException, ClassNotFoundException;
 

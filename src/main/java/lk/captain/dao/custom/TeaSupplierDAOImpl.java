@@ -43,32 +43,9 @@ public class TeaSupplierDAOImpl implements TeaSupplierDAO{
     }
 
     @Override
-    public String generateId() throws SQLException, ClassNotFoundException {
-        try {
-        ResultSet resultSet=SQLUtil.execute("SELECT supplierId FROM suppliers ORDER BY supplierId DESC LIMIT 1");
-        boolean isExist = resultSet.next();
+    public ResultSet generateId() throws SQLException, ClassNotFoundException {
+       return SQLUtil.execute("SELECT supplierId FROM suppliers ORDER BY supplierId DESC LIMIT 1");
 
-        if(isExist){
-            String oldSupId = resultSet.getString(1);
-            oldSupId =oldSupId.substring(1,oldSupId.length());
-            int intId =Integer.parseInt(oldSupId);
-            intId =intId+1;
-
-            if (intId <10){
-                return "S00" +intId;
-            } else if (intId <100) {
-                return "S0"+intId;
-
-            }else {
-                return "S"+intId;
-            }
-        }else {
-            return "S001";
-        }
-    }catch (SQLException e){
-        e.printStackTrace();
-    }
-        return null;
     }
 
     @Override

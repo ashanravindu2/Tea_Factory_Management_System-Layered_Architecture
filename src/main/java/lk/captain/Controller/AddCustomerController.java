@@ -10,6 +10,7 @@ import lk.captain.dto.AddCustomerDTO;
 import lk.captain.dto.tm.AddCustomerTM;
 
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -103,11 +104,31 @@ public class AddCustomerController {
 
     public void generateCusId() throws ClassNotFoundException {
         try {
-            String cusId = addCustomerBO.generateCusId();
-            lblCusId.setText(cusId);
-        }catch (SQLException e){
-            throw new RuntimeException(e);
+            ResultSet resultSet = addCustomerBO.generateCusId();
+        boolean isExist = resultSet.next();
+
+        if(isExist){
+            String oldCusId = resultSet.getString(1);
+            oldCusId =oldCusId.substring(1,oldCusId.length());
+            int intId =Integer.parseInt(oldCusId);
+            intId =intId+1;
+
+            if (intId <10){
+                lblCusId.setText("C00" +intId);
+            } else if (intId <100) {
+                lblCusId.setText("C0"+intId);
+
+            }else {
+                lblCusId.setText("C"+intId);
+            }
+        }else {
+            lblCusId.setText("C001");
         }
+    }catch (SQLException e){
+        e.printStackTrace();
+    }
+
+
     }
 
     @FXML

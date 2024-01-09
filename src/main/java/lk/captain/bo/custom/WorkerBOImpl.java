@@ -6,6 +6,7 @@ import lk.captain.dao.custom.WorkerDAO;
 import lk.captain.dto.WorkerManageDTO;
 import lk.captain.entity.Worker;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +50,7 @@ public class WorkerBOImpl implements WorkerBO{
     }
 
     @Override
-    public String generateNextWorkerId() throws SQLException, ClassNotFoundException {
+    public ResultSet generateNextWorkerId() throws SQLException, ClassNotFoundException {
         return workerDAO.generateId();
     }
 

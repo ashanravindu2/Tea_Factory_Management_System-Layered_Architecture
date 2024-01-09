@@ -7,12 +7,16 @@ import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.TeaCollectorBO;
+import lk.captain.bo.custom.TeaTypeBO;
+import lk.captain.bo.custom.WorkerBO;
 import lk.captain.dto.TeaTypeDTO;
 
 import lk.captain.dto.tm.TeaTypeTM;
-import lk.captain.model.TeaTypeModel;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Pattern;
@@ -51,9 +55,8 @@ public class TeaTypeController {
 
     @FXML
     private TextField txtteaName;
-    private TeaTypeModel teaTypemodel = new TeaTypeModel();
-
-    public void initialize(){
+    TeaTypeBO teaTypeBO = (TeaTypeBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEATYPE);
+    public void initialize() throws ClassNotFoundException {
         loadAllTeaType();
         setCellValueFactory();
     }
@@ -67,7 +70,7 @@ public class TeaTypeController {
     }
 
     @FXML
-    void btnTeTypeSave(ActionEvent event) {
+    void btnTeTypeSave(ActionEvent event) throws ClassNotFoundException {
         boolean isValid = Valid();
         if (isValid == true) {
             String teaTypeId = txtTeaId.getText();
@@ -77,7 +80,7 @@ public class TeaTypeController {
 
 
             try {
-                boolean isSaved = teaTypemodel.teatypeSave(new TeaTypeDTO(teaTypeId, teaTypeName, teaTypeDesc, teaPerPrice));
+                boolean isSaved = teaTypeBO.teatypeSave(new TeaTypeDTO(teaTypeId, teaTypeName, teaTypeDesc, teaPerPrice));
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Tea Type added Successfully").show();
                     loadAllTeaType();
@@ -91,9 +94,9 @@ public class TeaTypeController {
         }
     }
 
-    public void loadAllTeaType(){
+    public void loadAllTeaType() throws ClassNotFoundException {
         try {
-            List<TeaTypeDTO>dtoList = teaTypemodel.loadAllTeaTypes();
+            ArrayList<TeaTypeDTO>dtoList = teaTypeBO.loadAllTeaTypes();
 
             ObservableList<TeaTypeTM> observableList = FXCollections.observableArrayList();
 
@@ -110,7 +113,11 @@ public class TeaTypeController {
                         int selectedIndex = tblTeaType.getSelectionModel().getSelectedIndex();
                         String teaId = (String) colId.getCellData(selectedIndex);
 
-                        deleteteaId(teaId);
+                        try {
+                            deleteteaId(teaId);
+                        } catch (ClassNotFoundException ex) {
+                            throw new RuntimeException(ex);
+                        }
 
                         observableList.remove(selectedIndex);
                         tblTeaType.refresh();
@@ -134,9 +141,9 @@ public class TeaTypeController {
         }
     }
 
-    private void deleteteaId(String teaTypeId){
+    private void deleteteaId(String teaTypeId) throws ClassNotFoundException {
         try {
-            boolean isDeleted = teaTypemodel.deleteTeaType(teaTypeId);
+            boolean isDeleted = teaTypeBO.deleteTeaType(teaTypeId);
             if (isDeleted)
                 new Alert(Alert.AlertType.CONFIRMATION,"Tea Type Deleted !").show();
         }catch (SQLException e){
@@ -145,12 +152,11 @@ public class TeaTypeController {
     }
 
     @FXML
-    void txtSerchOnAction(ActionEvent event) {
+    void txtSerchOnAction(ActionEvent event) throws ClassNotFoundException {
         String id = txtsearchId.getText();
 
-        var teaTypemodel = new TeaTypeModel();
         try {
-            TeaTypeDTO dto = teaTypemodel.serchOnTeaType(id);
+            TeaTypeDTO dto = teaTypeBO.serchOnTeaType(id);
 
             if(dto != null) {
                 fillFields(dto);
@@ -179,7 +185,7 @@ public class TeaTypeController {
 
 
     @FXML
-    void btnTeaTypeUpdateOnAction(ActionEvent event) {
+    void btnTeaTypeUpdateOnAction(ActionEvent event) throws ClassNotFoundException {
         boolean isValid = Valid();
         if (isValid == true) {
             String teaTypeId = txtTeaId.getText();
@@ -189,9 +195,8 @@ public class TeaTypeController {
 
             var dto = new TeaTypeDTO(teaTypeId, teaTypeName, teaTypeDesc, teaPerPrice);
 
-            var model = new TeaTypeModel();
             try {
-                boolean isUpdated = model.updateTeaType(dto);
+                boolean isUpdated = teaTypeBO.updateTeaType(dto);
                 System.out.println(isUpdated);
                 if (isUpdated) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Tea Type Updated Success!").show();

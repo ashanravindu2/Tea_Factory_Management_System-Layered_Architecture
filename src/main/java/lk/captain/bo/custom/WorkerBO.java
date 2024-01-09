@@ -17,7 +17,7 @@ public interface WorkerBO extends SuperBO {
 
     public boolean deleteWorker(String workerId) throws SQLException, ClassNotFoundException;
 
-    public String generateNextWorkerId() throws SQLException, ClassNotFoundException;
+    public ResultSet generateNextWorkerId() throws SQLException, ClassNotFoundException;
 
     public ArrayList<WorkerManageDTO> getAllWorker() throws SQLException, ClassNotFoundException;
 

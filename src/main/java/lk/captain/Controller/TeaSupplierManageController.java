@@ -16,6 +16,7 @@ import lk.captain.dto.tm.TeaSupplierManageTM;
 import lk.captain.model.SupplierManageModel;
 
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -128,15 +129,33 @@ public class TeaSupplierManageController {
 
     public void generateSupId() throws ClassNotFoundException {
         try {
-            String suppid = teaSupplierBO.generateSupId();
-            lblSuppId.setText(suppid);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            ResultSet resultSet = teaSupplierBO.generateSupId();
+            boolean isExist = resultSet.next();
+
+            if(isExist){
+                String oldSupId = resultSet.getString(1);
+                oldSupId =oldSupId.substring(1,oldSupId.length());
+                int intId =Integer.parseInt(oldSupId);
+                intId =intId+1;
+
+                if (intId <10){
+                    lblSuppId.setText("S00" +intId);
+                } else if (intId <100) {
+                    lblSuppId.setText("S0"+intId);
+
+                }else {
+                    lblSuppId.setText("S"+intId);
+                }
+            }else {
+                lblSuppId.setText("S001");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
         }
+
     }
 
     private void loadTeaSupplier() throws ClassNotFoundException {
-        var suppliermanageModel = new SupplierManageModel();
 
         ObservableList<TeaSupplierManageTM> obList = FXCollections.observableArrayList();
 

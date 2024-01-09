@@ -21,7 +21,7 @@ public interface WoodBO extends SuperBO {
     public WoodMaterialDTO search(String id) throws SQLException, ClassNotFoundException;
 
 
-    public String generateId() throws SQLException, ClassNotFoundException;
+    public ResultSet generateId() throws SQLException, ClassNotFoundException;
 
 
     public ArrayList<WoodMaterialDTO> getAll() throws SQLException, ClassNotFoundException;

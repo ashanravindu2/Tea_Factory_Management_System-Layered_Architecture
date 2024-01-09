@@ -44,32 +44,9 @@ public class TeaCollectorDAOImpl implements TeaCollectorDAO{
     }
 
     @Override
-    public String generateId() throws SQLException, ClassNotFoundException {
-    try {
-                ResultSet resultSet=SQLUtil.execute("SELECT teaColecId FROM collector ORDER BY teaColecId DESC LIMIT 1");
-                boolean isExist = resultSet.next();
+    public ResultSet generateId() throws SQLException, ClassNotFoundException {
+              return SQLUtil.execute("SELECT teaColecId FROM collector ORDER BY teaColecId DESC LIMIT 1");
 
-                if(isExist){
-                    String oldSupId = resultSet.getString(1);
-                    oldSupId =oldSupId.substring(1,oldSupId.length());
-                    int intId =Integer.parseInt(oldSupId);
-                    intId =intId+1;
-
-                    if (intId <10){
-                        return "K00" +intId;
-                    } else if (intId <100) {
-                        return "K0"+intId;
-
-                    }else {
-                        return "S"+intId;
-                    }
-                }else {
-                    return "K001";
-                }
-            }catch (SQLException e){
-                e.printStackTrace();
-            }
-            return null;
         }
 
     @Override
