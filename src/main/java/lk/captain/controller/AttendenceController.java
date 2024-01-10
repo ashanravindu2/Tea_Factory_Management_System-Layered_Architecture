@@ -1,4 +1,4 @@
-package lk.captain.Controller;
+package lk.captain.controller;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -12,21 +12,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import lk.captain.QRSacanner.QrCodeScanner;
 import lk.captain.bo.BOFactory;
+import lk.captain.bo.custom.AttendenceBO;
 import lk.captain.bo.custom.TeaCollectorBO;
 import lk.captain.bo.custom.WorkerBO;
 import lk.captain.dto.AttendenceDTO;
-import lk.captain.dto.SupplierManageDTO;
 import lk.captain.dto.TeaCollctorDTO;
 import lk.captain.dto.WorkerManageDTO;
 import lk.captain.dto.tm.AttendenceTM;
 import lk.captain.dto.util.DateTimeUtil;
-import lk.captain.model.AttendenceModel;
+
 
 
 
@@ -89,10 +86,11 @@ public class AttendenceController {
     @FXML
     private Label lblTime;
 
-    AttendenceModel attendenceModel = new AttendenceModel();
+
     WorkerBO workerBO = (WorkerBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.WORKER);
     TeaCollectorBO teaCollectorBO = (TeaCollectorBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.TEACOLLECTOR);
-    public void initialize(){
+    AttendenceBO attendenceBO = (AttendenceBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.ATTENDENCE);
+    public void initialize() throws ClassNotFoundException {
         setCellValueFactory();
         loadAttendence();
         realTime();
@@ -160,7 +158,7 @@ public class AttendenceController {
 
 
     @FXML
-    void btnAddAttendencAciton(ActionEvent event) {
+    void btnAddAttendencAciton(ActionEvent event) throws ClassNotFoundException {
         boolean prsentselect = prsentRadio.isSelected();
         boolean absentselect = absentRadio.isSelected();
 
@@ -176,9 +174,9 @@ public class AttendenceController {
         String date = String.valueOf(LocalDate.now());
         String time = lblTime.getText();
        try {
-            boolean isUpdate = attendenceModel.isUpdated(EmpId,date);
+            boolean isUpdate = attendenceBO.update(new AttendenceDTO(EmpId, name, isMark, date, time));
            if (isUpdate) {
-               boolean isSaved = attendenceModel.manage(new AttendenceDTO(EmpId, name, isMark, date, time));
+               boolean isSaved = attendenceBO.manage(new AttendenceDTO(EmpId, name, isMark, date, time));
                if (isSaved) {
                    new Alert(Alert.AlertType.CONFIRMATION, lblEmpName.getText() + "is Attendence Mark Successfully").show();
                    clearField();
@@ -201,12 +199,12 @@ public class AttendenceController {
 
     }
 
-    void loadAttendence() {
+    void loadAttendence() throws ClassNotFoundException {
 
         ObservableList<AttendenceTM> obList = FXCollections.observableArrayList();
 
         try {
-            List<AttendenceDTO> dtoList = attendenceModel.getAllAttendeceDetail();
+            List<AttendenceDTO> dtoList = attendenceBO.getAllAttendeceDetail();
 
             for(AttendenceDTO dto : dtoList) {
                 obList.add(
@@ -240,7 +238,7 @@ public class AttendenceController {
 
         if (is==true) {
             try {
-                AttendenceDTO dto = attendenceModel.issearchEmpAttendenceId(Id, date);
+                AttendenceDTO dto = attendenceBO.searchEmplIsDate(Id, date);
 
                 if (dto != null) {
                     attField(dto);
@@ -303,7 +301,7 @@ public class AttendenceController {
         stage.getIcons().add(new Image("/image/QrPng.png"));
     }
     @FXML
-    void btnSyncTableAction(ActionEvent event) {
+    void btnSyncTableAction(ActionEvent event) throws ClassNotFoundException {
             initialize();
     }
 }
