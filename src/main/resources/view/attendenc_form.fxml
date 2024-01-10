@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="1109.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.AttendenceController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="1109.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.controller.AttendenceController">
    <children>
       <ImageView fitHeight="714.0" fitWidth="944.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
