@@ -1,4 +1,4 @@
-package lk.captain.Controller;
+package lk.captain.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
