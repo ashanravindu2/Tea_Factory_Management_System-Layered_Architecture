@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="dashboardBorderPane" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.DashBoardController">
+<BorderPane fx:id="dashboardBorderPane" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.controller.DashBoardController">
    <top>
       <AnchorPane prefHeight="39.0" prefWidth="1066.0" styleClass="backgroundColor" stylesheets="@../css/Style3.css" BorderPane.alignment="CENTER">
          <children>

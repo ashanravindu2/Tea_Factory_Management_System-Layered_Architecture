@@ -1,6 +1,5 @@
 package lk.captain.dao;
 
-import lk.captain.bo.custom.WorkerBOImpl;
 import lk.captain.dao.custom.*;
 
 public class DAOFactory {
@@ -17,7 +16,7 @@ public class DAOFactory {
         ADDCUSTOMER,
         TEACOLLECTOR,
         WORKER,
-        TEASUPPLIER,WOOD,TEATYPE,FUEL,WAREHOUSE
+        TEASUPPLIER,WOOD,TEATYPE,FUEL,WAREHOUSE,USERREG,ATTENDENCE,TEALEAFENTRY,PAYMENT,QUERY,TEASELLS,STOREDETAIL,TEAPOWDER
 
     }
 
@@ -39,6 +38,22 @@ public class DAOFactory {
                 return new FuelDAOImpl();
             case WAREHOUSE:
                 return new WareHouseDAOImpl();
+            case USERREG:
+                return new UserRegDAOImpl();
+            case ATTENDENCE:
+                return new AttendenceDAOImpl();
+            case TEALEAFENTRY:
+                return new TeaLeafEntryDAOImpl();
+            case PAYMENT:
+                return new PaymentDAOImpl();
+            case QUERY:
+                return new QueryDAOImpl();
+            case TEASELLS:
+                return new TeaSellsDAOImpl();
+            case STOREDETAIL:
+                return new StoreDetailDAOImpl();
+            case TEAPOWDER:
+                return new TeaPowderDAOImpl();
             default:
                 return null;
         }
