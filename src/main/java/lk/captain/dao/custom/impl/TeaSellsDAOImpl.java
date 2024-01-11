@@ -49,16 +49,15 @@ public class TeaSellsDAOImpl implements TeaSellsDAO {
     public boolean saveOrder(String orderId, String cusId, String date, String teaTypeName, String time, OrderCartTM tmLis) throws SQLException, ClassNotFoundException {
         Connection connection = TransactionConnection.setConnection();
         PreparedStatement stm = connection.prepareStatement("INSERT INTO orders VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
-
+        stm.setString(1, orderId);
+        stm.setString(2, cusId);
+        stm.setDate(3, Date.valueOf(date));
+        stm.setString(8, time);
         for (OrderCartTM orderCartTM : tmLis) {
-            stm.setString(1, orderId);
-            stm.setString(2, cusId);
-            stm.setString(3, date);
             stm.setDouble(4, orderCartTM.getUnitPrice());
             stm.setString(5, orderCartTM.getTeaTypeId());
             stm.setDouble(6, orderCartTM.getQuantity());
             stm.setDouble(7, orderCartTM.getTotal());
-            stm.setString(8, time);
             if (stm.executeUpdate() != 1) {
                 connection.rollback();
                 TransactionConnection.setAutoCommitTrue();

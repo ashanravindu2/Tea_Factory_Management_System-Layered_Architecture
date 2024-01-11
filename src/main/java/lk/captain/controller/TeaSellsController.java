@@ -327,7 +327,7 @@ public class TeaSellsController {
 
 
         try {
-            InputStream resourceAsStream = getClass().getResourceAsStream("/report/OrdersTeaCategoryReport.jrxml");
+            InputStream resourceAsStream = getClass().getResourceAsStream("report/OrdersTeaCategoryReport.jrxml");
             JasperDesign load = JRXmlLoader.load(resourceAsStream);
 
             JRDesignQuery jrDesignQuery = new JRDesignQuery();

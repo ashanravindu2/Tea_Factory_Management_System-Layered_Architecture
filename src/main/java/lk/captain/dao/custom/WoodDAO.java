@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public interface WoodDAO extends CrudDAO<Wood> {
-    public ResultSet getAllAvalable() throws SQLException, ClassNotFoundException;
-    public boolean usedUpdateWood(String id, double used) throws SQLException, ClassNotFoundException;
+
+     ResultSet getAllAvalable() throws SQLException, ClassNotFoundException;
+     boolean usedUpdateWood(String id, double used) throws SQLException, ClassNotFoundException;
 }

@@ -9,9 +9,10 @@ import lk.captain.entity.TeaLeafEntry;
 import java.sql.*;
 
 public interface TeaLeafEntryDAO extends CrudDAO<TeaLeafEntry> {
-    public double getNetTotal(String date) throws SQLException, ClassNotFoundException;
-    public double getNetValue(String date1, String date2,String suppId) throws SQLException, ClassNotFoundException;
-    public TeaLeafEntry seacrhTeaLeaf(String id, String date) throws SQLException, ClassNotFoundException;
-    public boolean deleteTeaLeaf(String suppId,String date) throws SQLException, ClassNotFoundException;
-    public double getReducedTotal(String date) throws SQLException, ClassNotFoundException;
+
+     double getNetTotal(String date) throws SQLException, ClassNotFoundException;
+     double getNetValue(String date1, String date2,String suppId) throws SQLException, ClassNotFoundException;
+     TeaLeafEntry seacrhTeaLeaf(String id, String date) throws SQLException, ClassNotFoundException;
+     boolean deleteTeaLeaf(String suppId,String date) throws SQLException, ClassNotFoundException;
+     double getReducedTotal(String date) throws SQLException, ClassNotFoundException;
 }

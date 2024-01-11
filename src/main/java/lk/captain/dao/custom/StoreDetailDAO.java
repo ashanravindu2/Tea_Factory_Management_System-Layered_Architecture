@@ -8,5 +8,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface StoreDetailDAO extends CrudDAO<StoreDetails> {
+
     boolean updateTM(OrderCartTM orderCartTM) throws SQLException, ClassNotFoundException;
 }

@@ -11,9 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public interface WareHouseBO extends SuperBO {
-    public double getCount() throws SQLException, ClassNotFoundException;
 
-    public boolean isupdated(double reducedTeaTotal) throws SQLException, ClassNotFoundException;
-
-    public  boolean wareHouseUpdate(CartTM cartTM) throws SQLException, ClassNotFoundException;
+     double getCount() throws SQLException, ClassNotFoundException;
+     boolean isupdated(double reducedTeaTotal) throws SQLException, ClassNotFoundException;
+     boolean wareHouseUpdate(CartTM cartTM) throws SQLException, ClassNotFoundException;
 }

@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public interface UserRegDAO extends CrudDAO<UserReg> {
-    public boolean getUser(String adminUser,String adminPass) throws Exception;
-    public String searchUser(String user ,String pass) throws SQLException, ClassNotFoundException;
+
+     boolean getUser(String adminUser,String adminPass) throws Exception;
+     String searchUser(String user ,String pass) throws SQLException, ClassNotFoundException;
 }

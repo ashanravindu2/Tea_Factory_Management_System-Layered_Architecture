@@ -12,13 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface TeaTypeBO extends SuperBO {
-    public boolean teatypeSave(TeaTypeDTO teaTypeDTO) throws SQLException, ClassNotFoundException;
 
-    public ArrayList<TeaTypeDTO> loadAllTeaTypes() throws SQLException, ClassNotFoundException;
-
-    public boolean deleteTeaType(String teaTypeId) throws SQLException, ClassNotFoundException;
-
-    public TeaTypeDTO serchOnTeaType(String id) throws SQLException, ClassNotFoundException;
-
-    public boolean updateTeaType(TeaTypeDTO dto) throws SQLException, ClassNotFoundException;
+    boolean teatypeSave(TeaTypeDTO teaTypeDTO) throws SQLException, ClassNotFoundException;
+    ArrayList<TeaTypeDTO> loadAllTeaTypes() throws SQLException, ClassNotFoundException;
+    boolean deleteTeaType(String teaTypeId) throws SQLException, ClassNotFoundException;
+    TeaTypeDTO serchOnTeaType(String id) throws SQLException, ClassNotFoundException;
+    boolean updateTeaType(TeaTypeDTO dto) throws SQLException, ClassNotFoundException;
 }

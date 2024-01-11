@@ -16,14 +16,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface TeaPowderBO extends SuperBO {
-    public ArrayList<TeaPowderGetDTO> getAll() throws SQLException, ClassNotFoundException;
-    public boolean delete(String id) throws SQLException, ClassNotFoundException;
-public  boolean placeOrder(TeaPowderDTO dto) throws SQLException, ClassNotFoundException;
-    public  boolean saveOrderTm(ArrayList<CartTM> tmList) throws SQLException, ClassNotFoundException;
-    public  boolean wareHouseUpdateTm(ArrayList<CartTM> tmList) throws SQLException, ClassNotFoundException;
-    public boolean saveOrder(CartTM cartTm) throws SQLException, ClassNotFoundException;
-    public  boolean updateTeaStock(TeaPowderDTO dto) throws SQLException, ClassNotFoundException;
-    public  boolean updateTeaPowderTm(ArrayList<CartTM> tmList) throws SQLException, ClassNotFoundException;
-    public  boolean updateTeaPowder(CartTM cartTM) throws SQLException, ClassNotFoundException;
-    public double searchDate(String date) throws SQLException, ClassNotFoundException;
+
+     ArrayList<TeaPowderGetDTO> getAll() throws SQLException, ClassNotFoundException;
+     boolean delete(String id) throws SQLException, ClassNotFoundException;
+     boolean placeOrder(TeaPowderDTO dto) throws SQLException, ClassNotFoundException;
+     boolean saveOrderTm(ArrayList<CartTM> tmList) throws SQLException, ClassNotFoundException;
+     boolean wareHouseUpdateTm(ArrayList<CartTM> tmList) throws SQLException, ClassNotFoundException;
+     boolean saveOrder(CartTM cartTm) throws SQLException, ClassNotFoundException;
+     boolean updateTeaStock(TeaPowderDTO dto) throws SQLException, ClassNotFoundException;
+     boolean updateTeaPowderTm(ArrayList<CartTM> tmList) throws SQLException, ClassNotFoundException;
+     boolean updateTeaPowder(CartTM cartTM) throws SQLException, ClassNotFoundException;
+     double searchDate(String date) throws SQLException, ClassNotFoundException;
 }

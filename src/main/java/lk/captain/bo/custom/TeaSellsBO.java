@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface TeaSellsBO extends SuperBO {
-    public ResultSet generateNextOrderId() throws SQLException, ClassNotFoundException;
-    public boolean placeOrder(TeaSellsDTO pDto) throws SQLException, ClassNotFoundException;
-    public boolean saveOrderTm(String orderId, String cusId, String date, String teaTypeName, String time, ArrayList<OrderCartTM> tmLis) throws SQLException, ClassNotFoundException;
-    public boolean saveOrder(String orderId, String cusId, String date, String teaTypeName, String time, OrderCartTM orderCartTM) throws SQLException, ClassNotFoundException;
+     ResultSet generateNextOrderId() throws SQLException, ClassNotFoundException;
+     boolean placeOrder(TeaSellsDTO pDto) throws SQLException, ClassNotFoundException;
+     boolean saveOrderTm(String orderId, String cusId, String date, String teaTypeName, String time, ArrayList<OrderCartTM> tmLis) throws SQLException, ClassNotFoundException;
+     boolean saveOrders(String orderId, String cusId, String date, String teaTypeName, String time, OrderCartTM orderCartTM) throws SQLException, ClassNotFoundException;
 }

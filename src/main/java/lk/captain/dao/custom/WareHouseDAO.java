@@ -13,8 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public interface WareHouseDAO extends CrudDAO<WareHouse>{
-     double getCount() throws SQLException, ClassNotFoundException;
-     public  boolean wareHouseUpdate(CartTM cartTM) throws SQLException, ClassNotFoundException;
 
-    boolean isupdated(double reducedTeaTotal) throws SQLException, ClassNotFoundException;
+     double getCount() throws SQLException, ClassNotFoundException;
+     boolean wareHouseUpdate(CartTM cartTM) throws SQLException, ClassNotFoundException;
+     boolean isupdated(double reducedTeaTotal) throws SQLException, ClassNotFoundException;
 }

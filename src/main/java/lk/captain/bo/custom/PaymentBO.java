@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public interface PaymentBO extends SuperBO {
-    public boolean addPayement(PaymentDto paymentDto) throws SQLException, ClassNotFoundException;
-    public boolean deleteCode(String code) throws SQLException, ClassNotFoundException;
+
+     boolean addPayement(PaymentDto paymentDto) throws SQLException, ClassNotFoundException;
+     boolean deleteCode(String code) throws SQLException, ClassNotFoundException;
 }

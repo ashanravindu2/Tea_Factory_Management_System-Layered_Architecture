@@ -13,15 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface StoreDetailBO extends SuperBO {
-    public boolean delete(String id) throws SQLException, ClassNotFoundException;
 
-    public StoreDetailsDTO search(String id) throws SQLException, ClassNotFoundException;
+     boolean delete(String id) throws SQLException, ClassNotFoundException;
+     StoreDetailsDTO search(String id) throws SQLException, ClassNotFoundException;
+     ArrayList<StoreDetailsDTO> getAll() throws SQLException, ClassNotFoundException;
+     boolean save(StoreDetailsDTO dto) throws SQLException, ClassNotFoundException;
 
-    public ArrayList<StoreDetailsDTO> getAll() throws SQLException, ClassNotFoundException;
-
-    boolean save(StoreDetailsDTO dto) throws SQLException, ClassNotFoundException;
-
-    //boolean updateTM(OrderCartTM orderCartTM) throws SQLException, ClassNotFoundException;
-
-    //public boolean updateStock(List<OrderCartTM> tmList) throws SQLException, ClassNotFoundException;
 }

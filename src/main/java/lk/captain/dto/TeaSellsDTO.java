@@ -17,6 +17,6 @@ public class TeaSellsDTO {
     private String date;
     private String teaTypeName;
     private String time;
-    private List<OrderCartTM> tmList = new ArrayList<>();
+    private ArrayList<OrderCartTM> tmList = new ArrayList<>();
 
 }

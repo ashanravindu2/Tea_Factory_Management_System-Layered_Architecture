@@ -14,25 +14,13 @@ import java.util.ArrayList;
 
 public interface WoodBO extends SuperBO {
 
-    public boolean delete(String id) throws SQLException, ClassNotFoundException;
-
-
-    public boolean save(WoodMaterialDTO dto) throws SQLException, ClassNotFoundException;
-
-    public boolean update(WoodMaterialDTO dto) throws SQLException, ClassNotFoundException;
-
-    public WoodMaterialDTO search(String id) throws SQLException, ClassNotFoundException;
-
-
-    public ResultSet generateId() throws SQLException, ClassNotFoundException;
-
-
-    public ArrayList<WoodMaterialDTO> getAll() throws SQLException, ClassNotFoundException;
-
-
-    public int searchCount() throws SQLException, ClassNotFoundException;
-
-    public ResultSet getAllAvalable() throws SQLException, ClassNotFoundException;
-
-    public boolean usedUpdateWood(String id, double used) throws SQLException, ClassNotFoundException;
+     boolean delete(String id) throws SQLException, ClassNotFoundException;
+     boolean save(WoodMaterialDTO dto) throws SQLException, ClassNotFoundException;
+     boolean update(WoodMaterialDTO dto) throws SQLException, ClassNotFoundException;
+     WoodMaterialDTO search(String id) throws SQLException, ClassNotFoundException;
+     ResultSet generateId() throws SQLException, ClassNotFoundException;
+     ArrayList<WoodMaterialDTO> getAll() throws SQLException, ClassNotFoundException;
+     int searchCount() throws SQLException, ClassNotFoundException;
+     ResultSet getAllAvalable() throws SQLException, ClassNotFoundException;
+     boolean usedUpdateWood(String id, double used) throws SQLException, ClassNotFoundException;
 }

@@ -10,16 +10,11 @@ import java.util.List;
 
 public interface TeaSupplierBO extends SuperBO {
 
-    public boolean supplierSave(SupplierManageDTO supplierManageDTO) throws SQLException, ClassNotFoundException;
-
-    public ResultSet generateSupId() throws SQLException, ClassNotFoundException;
-
-    public List<SupplierManageDTO> getAllTeaSupp() throws SQLException, ClassNotFoundException;
-
-    public boolean deleteSupplier(String suppId) throws SQLException, ClassNotFoundException;
-
-    public boolean updateSupplier(SupplierManageDTO dto) throws SQLException, ClassNotFoundException;
-
-    public SupplierManageDTO searchSupplierId(String id) throws SQLException, ClassNotFoundException;
+     boolean supplierSave(SupplierManageDTO supplierManageDTO) throws SQLException, ClassNotFoundException;
+     ResultSet generateSupId() throws SQLException, ClassNotFoundException;
+     List<SupplierManageDTO> getAllTeaSupp() throws SQLException, ClassNotFoundException;
+     boolean deleteSupplier(String suppId) throws SQLException, ClassNotFoundException;
+     boolean updateSupplier(SupplierManageDTO dto) throws SQLException, ClassNotFoundException;
+     SupplierManageDTO searchSupplierId(String id) throws SQLException, ClassNotFoundException;
 
 }

@@ -11,17 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface WorkerBO extends SuperBO {
-    public boolean workerManage(WorkerManageDTO workerManageDto) throws SQLException, ClassNotFoundException ;
 
-    public boolean updateWorker(WorkerManageDTO dto) throws SQLException, ClassNotFoundException;
-
-    public boolean deleteWorker(String workerId) throws SQLException, ClassNotFoundException;
-
-    public ResultSet generateNextWorkerId() throws SQLException, ClassNotFoundException;
-
-    public ArrayList<WorkerManageDTO> getAllWorker() throws SQLException, ClassNotFoundException;
-
-        public WorkerManageDTO searchWorkerId(String id) throws SQLException, ClassNotFoundException;
-
-    public int searchCount() throws SQLException, ClassNotFoundException;
+     boolean workerManage(WorkerManageDTO workerManageDto) throws SQLException, ClassNotFoundException ;
+     boolean updateWorker(WorkerManageDTO dto) throws SQLException, ClassNotFoundException;
+     boolean deleteWorker(String workerId) throws SQLException, ClassNotFoundException;
+     ResultSet generateNextWorkerId() throws SQLException, ClassNotFoundException;
+     ArrayList<WorkerManageDTO> getAllWorker() throws SQLException, ClassNotFoundException;
+     WorkerManageDTO searchWorkerId(String id) throws SQLException, ClassNotFoundException;
+     int searchCount() throws SQLException, ClassNotFoundException;
 }

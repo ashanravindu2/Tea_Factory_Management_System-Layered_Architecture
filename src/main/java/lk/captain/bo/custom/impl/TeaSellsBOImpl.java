@@ -30,7 +30,7 @@ public class TeaSellsBOImpl implements TeaSellsBO {
 
     @Override
     public boolean placeOrder(TeaSellsDTO pDto) throws SQLException, ClassNotFoundException {
-                boolean isOrderSaved = saveOrder(pDto.getOrderId(), pDto.getCusId(), pDto.getDate(), pDto.getTeaTypeName(), pDto.getTime(), (OrderCartTM) pDto.getTmList());
+                boolean isOrderSaved = saveOrderTm(pDto.getOrderId(), pDto.getCusId(), pDto.getDate(), pDto.getTeaTypeName(), pDto.getTime(), pDto.getTmList());
                 boolean isTeaTypesStockUpdated =updateStock(pDto.getTmList());
 
                 if (isOrderSaved && isTeaTypesStockUpdated) {
@@ -53,7 +53,7 @@ public class TeaSellsBOImpl implements TeaSellsBO {
     @Override
     public boolean saveOrderTm(String orderId, String cusId, String date, String teaTypeName, String time, ArrayList<OrderCartTM> tmList) throws SQLException, ClassNotFoundException {
         for (OrderCartTM cartTm : tmList) {
-            if (!saveOrder(orderId, cusId, date, teaTypeName, time, cartTm)) {
+            if (!saveOrders(orderId, cusId, date, teaTypeName, time, cartTm)) {
                 return false;
             }
         }
@@ -61,14 +61,9 @@ public class TeaSellsBOImpl implements TeaSellsBO {
     }
 
     @Override
-    public boolean saveOrder(String orderId, String cusId, String date, String teaTypeName, String time, OrderCartTM orderCartTM) throws SQLException, ClassNotFoundException {
+    public boolean saveOrders(String orderId, String cusId, String date, String teaTypeName, String time, OrderCartTM orderCartTM) throws SQLException, ClassNotFoundException {
         return teaSellsDAO.saveOrder(orderId, cusId, date, teaTypeName, time, orderCartTM);
     }
-
-    /*@Override
-    public boolean saveOrder(String orderId, String cusId, String date, String teaTypeName, String time, ArrayList<OrderCartTM> tmLis) throws SQLException, ClassNotFoundException {
-        return teaSellsDAO.saveOrder(orderId, cusId, date, teaTypeName, time, tmLis);
-    }*/
 
 
 }
