@@ -9,13 +9,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="100" prefHeight="534.0" prefWidth="333.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.EmpQSscannerPopUp">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="100" prefHeight="534.0" prefWidth="333.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.controller.EmpQSscannerPopUp">
    <children>
       <Text fx:id="lblTime" layoutX="190.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="45.0">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Text>
-      <JFXButton alignment="BASELINE_CENTER" buttonType="RAISED" ellipsisString="" layoutX="40.0" layoutY="56.0" onAction="#btnQRpopUpAction" prefHeight="385.0" prefWidth="254.0" ripplerFill="BLACK" style="-fx-background-radius: 10 10 10 10; -fx-background-color: #ced7da;" styleClass="stockHover" stylesheets="@../css/CRUDbutton.css" text="Button" textAlignment="CENTER">
+      <JFXButton alignment="BASELINE_CENTER" buttonType="RAISED" ellipsisString="" layoutX="40.0" layoutY="56.0" onAction="#btnQRpopUpAction" prefHeight="385.0" prefWidth="254.0" ripplerFill="BLACK" style="-fx-background-radius: 10 10 10 10; -fx-background-color: #ced7da;" styleClass="stockHover" stylesheets="@../styles/css/CRUDbutton.css" text="Button" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

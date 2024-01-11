@@ -1,6 +1,6 @@
 package lk.captain.dao;
 
-import lk.captain.dao.custom.*;
+import lk.captain.dao.custom.impl.*;
 
 public class DAOFactory {
     //singleton design pattern

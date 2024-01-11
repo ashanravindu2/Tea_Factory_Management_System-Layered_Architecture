@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="369.0" prefWidth="579.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.HomeDetailController">
+<AnchorPane prefHeight="369.0" prefWidth="579.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.controller.HomeDetailController">
    <children>
       <ImageView fitHeight="604.0" fitWidth="928.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -52,11 +52,11 @@
             <Font name="Agency FB Bold" size="24.0" />
          </font>
       </Label>
-      <PieChart fx:id="pieChart" layoutX="536.0" layoutY="51.0" prefHeight="242.0" prefWidth="371.0" stylesheets="@../css/piechart.css">
+      <PieChart fx:id="pieChart" layoutX="536.0" layoutY="51.0" prefHeight="242.0" prefWidth="371.0" stylesheets="@../styles/css/piechart.css">
          <effect>
             <DropShadow />
          </effect></PieChart>
-      <BarChart fx:id="barChart" layoutX="15.0" layoutY="215.0" prefHeight="350.0" prefWidth="200.0" stylesheets="@../css/barchart.css">
+      <BarChart fx:id="barChart" layoutX="15.0" layoutY="215.0" prefHeight="350.0" prefWidth="200.0" stylesheets="@../styles/css/barchart.css">
         <xAxis>
           <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" tickLength="5.0">
                <tickLabelFont>

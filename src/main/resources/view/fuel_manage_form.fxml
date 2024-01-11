@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.FuelController">
+<AnchorPane fx:id="root" prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.controller.FuelController">
    <children>
       <ImageView fitHeight="579.0" fitWidth="1179.0" layoutX="-1.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -37,11 +37,11 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <JFXButton buttonType="RAISED" layoutX="525.0" layoutY="352.0" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="CLEAR" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="525.0" layoutY="352.0" prefHeight="32.0" prefWidth="115.0" stylesheets="@../styles/css/CRUDbutton.css" text="CLEAR" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" rotate="31.0">
                <image>
-                  <Image url="@../assets/Clear.png" />
+                  <Image url="@../assets/png/Clear.png" />
                </image>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
@@ -59,14 +59,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="651.0" layoutY="352.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="UPDATE" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="651.0" layoutY="352.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../styles/css/CRUDbutton.css" text="UPDATE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/Update.png" />
+                  <Image url="@../assets/png/Update.png" />
                </image>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
@@ -81,14 +81,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="776.0" layoutY="352.0" onAction="#btnSaveOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="SAVE" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="776.0" layoutY="352.0" onAction="#btnSaveOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../styles/css/CRUDbutton.css" text="SAVE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/Save.png" />
+                  <Image url="@../assets/png/Save.png" />
                </image>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
@@ -117,7 +117,7 @@
             <Image url="@../assets/Image/icons8-back-64.png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="15.0" layoutY="5.0" onAction="#btnBakc" prefHeight="32.0" prefWidth="40.0" stylesheets="@../css/CRUDbutton.css">
+      <JFXButton buttonType="RAISED" layoutX="15.0" layoutY="5.0" onAction="#btnBakc" prefHeight="32.0" prefWidth="40.0" stylesheets="@../styles/css/CRUDbutton.css">
          <styleClass>
             <String fx:value="back" />
             <String fx:value="backHover" />
@@ -158,14 +158,14 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnUsed" buttonType="RAISED" layoutX="786.0" layoutY="162.0" onAction="#btnUseOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="USE" textFill="WHITE">
+      <JFXButton fx:id="btnUsed" buttonType="RAISED" layoutX="786.0" layoutY="162.0" onAction="#btnUseOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../styles/css/CRUDbutton.css" text="USE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/Save.png" />
+                  <Image url="@../assets/png/Save.png" />
                </image>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
@@ -188,11 +188,11 @@
             <TableColumn fx:id="colAction" prefWidth="112.0" text="Remove" />
         </columns>
       </TableView>
-      <JFXButton buttonType="RAISED" layoutX="651.0" layoutY="161.0" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="CLEAR" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="651.0" layoutY="161.0" prefHeight="32.0" prefWidth="115.0" stylesheets="@../styles/css/CRUDbutton.css" text="CLEAR" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" rotate="31.0">
                <image>
-                  <Image url="@../assets/Clear.png" />
+                  <Image url="@../assets/png/Clear.png" />
                </image>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
@@ -246,7 +246,7 @@
       </TextField>
       <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="36.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/Search.png" />
+            <Image url="@../assets/png/Search.png" />
          </image>
       </ImageView>
       <Label layoutX="679.0" layoutY="294.0" text="Register Code :" textFill="WHITE">

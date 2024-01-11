@@ -7,18 +7,15 @@ import java.sql.SQLException;
 public class DbConnection {
     private static DbConnection dbConnection;
 
-    private final java.sql.Connection connection;
+    private final Connection connection;
 
-    private DbConnection() throws SQLException {
-        connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/tfms",
-                "root",
-                "ijse@1967"
-        );
+    private DbConnection() throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tfms", "root", "ijse@1967");;
     }
 
-    public static DbConnection getInstance() throws SQLException {
-        return (null == dbConnection) ? dbConnection = new DbConnection() : dbConnection;
+    public static DbConnection getDbConnection() throws SQLException, ClassNotFoundException {
+        return dbConnection == null ? dbConnection= new DbConnection() : dbConnection;
     }
 
     public Connection getConnection() {

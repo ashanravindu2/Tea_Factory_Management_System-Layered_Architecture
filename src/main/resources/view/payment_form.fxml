@@ -7,12 +7,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.AllPaymentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.controller.AllPaymentController">
    <children>
       <AnchorPane fx:id="RootNode" layoutY="53.0" prefHeight="612.0" prefWidth="940.0" />
-      <AnchorPane prefHeight="54.0" prefWidth="940.0" styleClass="backgroundColor" stylesheets="@../css/payment.css">
+      <AnchorPane prefHeight="54.0" prefWidth="940.0" styleClass="backgroundColor" stylesheets="@../styles/css/payment.css">
          <children>
-            <JFXButton layoutX="332.0" layoutY="6.0" onAction="#btnCollectorPayment" prefHeight="47.0" prefWidth="239.0" stylesheets="@../css/payment.css" text="TEA COLLECTOR PAYMENT" textFill="WHITE" AnchorPane.topAnchor="6.0">
+            <JFXButton layoutX="332.0" layoutY="6.0" onAction="#btnCollectorPayment" prefHeight="47.0" prefWidth="239.0" stylesheets="@../styles/css/payment.css" text="TEA COLLECTOR PAYMENT" textFill="WHITE" AnchorPane.topAnchor="6.0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -27,7 +27,7 @@
                   <Insets left="5.0" right="5.0" />
                </padding>
             </JFXButton>
-            <JFXButton layoutX="571.0" layoutY="6.0" onAction="#btnSupplierPayment" prefHeight="47.0" prefWidth="239.0" stylesheets="@../css/payment.css" text="TEA SUPPLIER PAYMENT" textFill="WHITE" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="6.0">
+            <JFXButton layoutX="571.0" layoutY="6.0" onAction="#btnSupplierPayment" prefHeight="47.0" prefWidth="239.0" stylesheets="@../styles/css/payment.css" text="TEA SUPPLIER PAYMENT" textFill="WHITE" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="6.0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -42,7 +42,7 @@
                   <Insets left="5.0" />
                </padding>
             </JFXButton>
-            <JFXButton layoutX="93.0" layoutY="5.0" onAction="#btnWorkerPayment" prefHeight="47.0" prefWidth="239.0" stylesheets="@../css/payment.css" text="WORKER PAYMENT" textFill="WHITE" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="5.0">
+            <JFXButton layoutX="93.0" layoutY="5.0" onAction="#btnWorkerPayment" prefHeight="47.0" prefWidth="239.0" stylesheets="@../styles/css/payment.css" text="WORKER PAYMENT" textFill="WHITE" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="5.0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

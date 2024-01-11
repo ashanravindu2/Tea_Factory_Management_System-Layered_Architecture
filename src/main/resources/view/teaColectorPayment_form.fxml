@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="root" prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.TeaColectorPaymentController">
+<AnchorPane fx:id="root" prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.controller.TeaColectorPaymentController">
    <children>
       <ImageView accessibleHelp="QSDQD" accessibleRoleDescription="SASQS" accessibleText="QDQD" fitHeight="666.0" fitWidth="1021.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
          <effect>
@@ -111,7 +111,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="735.0" layoutY="261.0" onAction="#btnPayOnAction" prefHeight="32.0" prefWidth="174.0" stylesheets="@../css/CRUDbutton.css" text="Pay" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="735.0" layoutY="261.0" onAction="#btnPayOnAction" prefHeight="32.0" prefWidth="174.0" stylesheets="@../styles/css/CRUDbutton.css" text="Pay" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -177,7 +177,7 @@
       </Label>
       <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="18.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/Search.png" />
+            <Image url="@../assets/png/Search.png" />
          </image>
       </ImageView>
       <TextField fx:id="txtserchTransaction" layoutX="50.0" layoutY="267.0" onAction="#btntxtserchTransactionActioin" prefHeight="25.0" prefWidth="164.0" promptText="searchTransctionId" />

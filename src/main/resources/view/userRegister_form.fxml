@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loginRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="720.0" styleClass="login" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.UserRegisterController">
+<AnchorPane fx:id="loginRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="720.0" styleClass="login" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.controller.UserRegisterController">
    <children>
       <ImageView fitHeight="465.0" fitWidth="1046.0" layoutX="73.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -38,7 +38,7 @@
             <DropShadow height="59.1" radius="26.12" width="47.38" />
          </effect></Rectangle>
       <JFXButton alignment="CENTER" layoutX="354.0" layoutY="294.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.51" prefHeight="30.0" prefWidth="226.0" style="-fx-background-color: #03470A;" />
-      <JFXButton alignment="CENTER" layoutX="354.0" layoutY="294.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#btnRegisterOnAction" prefHeight="30.0" prefWidth="226.0" ripplerFill="#ffffff91" stylesheets="@../css/Style3.css" text="REGISTER" textFill="WHITE">
+      <JFXButton alignment="CENTER" layoutX="354.0" layoutY="294.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#btnRegisterOnAction" prefHeight="30.0" prefWidth="226.0" ripplerFill="#ffffff91" stylesheets="@../styles/css/Style3.css" text="REGISTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

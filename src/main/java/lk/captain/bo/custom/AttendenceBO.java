@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 public interface AttendenceBO extends SuperBO {
 
-    public boolean manage(AttendenceDTO attendenceDTO) throws SQLException;
+    public boolean manage(AttendenceDTO attendenceDTO) throws SQLException, ClassNotFoundException;
 
     public ArrayList<AttendenceDTO> getAllAttendeceDetail() throws SQLException, ClassNotFoundException;
 

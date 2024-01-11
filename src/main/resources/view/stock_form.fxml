@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="stockNode" prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.StocklController">
+<AnchorPane fx:id="stockNode" prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.controller.StocklController">
    <children>
       <ImageView fitHeight="693.0" fitWidth="1066.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-81.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -31,7 +31,7 @@
             <Font name="Serif Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="TOP" layoutX="107.0" layoutY="108.0" onAction="#btnTeaMnageAction" prefHeight="343.0" prefWidth="226.0" stylesheets="@../css/CRUDbutton.css" text="TEA MANAGE" textFill="WHITE" AnchorPane.topAnchor="108.0">
+      <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="TOP" layoutX="107.0" layoutY="108.0" onAction="#btnTeaMnageAction" prefHeight="343.0" prefWidth="226.0" stylesheets="@../styles/css/CRUDbutton.css" text="TEA MANAGE" textFill="WHITE" AnchorPane.topAnchor="108.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -50,7 +50,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton buttonType="RAISED" contentDisplay="TOP" layoutX="614.0" layoutY="110.0" onAction="#btnWoodMnageAction" prefHeight="337.0" prefWidth="195.0" stylesheets="@../css/CRUDbutton.css" text="WOOD MANAGE" textFill="WHITE">
+      <JFXButton buttonType="RAISED" contentDisplay="TOP" layoutX="614.0" layoutY="110.0" onAction="#btnWoodMnageAction" prefHeight="337.0" prefWidth="195.0" stylesheets="@../styles/css/CRUDbutton.css" text="WOOD MANAGE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -69,7 +69,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton alignment="TOP_CENTER" buttonType="RAISED" contentDisplay="TOP" layoutX="363.0" layoutY="108.0" onAction="#btnFuelMnageAction" prefHeight="343.0" prefWidth="195.0" stylesheets="@../css/CRUDbutton.css" text="FUEL MANAGE" textFill="WHITE">
+      <JFXButton alignment="TOP_CENTER" buttonType="RAISED" contentDisplay="TOP" layoutX="363.0" layoutY="108.0" onAction="#btnFuelMnageAction" prefHeight="343.0" prefWidth="195.0" stylesheets="@../styles/css/CRUDbutton.css" text="FUEL MANAGE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

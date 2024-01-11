@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.TeaManageController">
+<AnchorPane fx:id="root" prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.controller.TeaManageController">
    <children>
       <ImageView fitHeight="627.0" fitWidth="1096.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -58,11 +58,11 @@
          </font>
       </Label>
       <TextField fx:id="txtStock" layoutX="268.0" layoutY="174.0" onKeyTyped="#btnStockCheckAction" prefHeight="26.0" prefWidth="150.0" />
-      <JFXButton buttonType="RAISED" layoutX="637.0" layoutY="232.0" onAction="#btnClear" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="CLEAR" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="637.0" layoutY="232.0" onAction="#btnClear" prefHeight="32.0" prefWidth="115.0" stylesheets="@../styles/css/CRUDbutton.css" text="CLEAR" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" rotate="31.0">
                <image>
-                  <Image url="@../assets/Clear.png" />
+                  <Image url="@../assets/png/Clear.png" />
                </image>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
@@ -80,14 +80,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton fx:id="savebtnId" buttonType="RAISED" layoutX="762.0" layoutY="232.0" onAction="#btnSaveAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="SAVE" textFill="WHITE">
+      <JFXButton fx:id="savebtnId" buttonType="RAISED" layoutX="762.0" layoutY="232.0" onAction="#btnSaveAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../styles/css/CRUDbutton.css" text="SAVE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/Save.png" />
+                  <Image url="@../assets/png/Save.png" />
                </image>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
@@ -116,7 +116,7 @@
             <Image url="@../assets/Image/icons8-back-64.png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="15.0" layoutY="5.0" onAction="#btnBakc" prefHeight="32.0" prefWidth="40.0" stylesheets="@../css/CRUDbutton.css">
+      <JFXButton buttonType="RAISED" layoutX="15.0" layoutY="5.0" onAction="#btnBakc" prefHeight="32.0" prefWidth="40.0" stylesheets="@../styles/css/CRUDbutton.css">
          <styleClass>
             <String fx:value="back" />
             <String fx:value="backHover" />
@@ -139,7 +139,7 @@
       </TextField>
       <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="49.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/Search.png" />
+            <Image url="@../assets/png/Search.png" />
          </image>
       </ImageView>
    </children>

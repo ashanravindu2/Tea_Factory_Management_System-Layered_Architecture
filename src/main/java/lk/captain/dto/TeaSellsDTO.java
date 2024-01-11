@@ -1,12 +1,10 @@
 package lk.captain.dto;
 
-import lk.captain.dto.tm.OrderCartTM;
+import lk.captain.view.tm.OrderCartTM;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Time;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 

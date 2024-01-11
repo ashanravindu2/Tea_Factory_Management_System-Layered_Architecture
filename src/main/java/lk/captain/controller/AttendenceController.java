@@ -21,8 +21,8 @@ import lk.captain.bo.custom.WorkerBO;
 import lk.captain.dto.AttendenceDTO;
 import lk.captain.dto.TeaCollctorDTO;
 import lk.captain.dto.WorkerManageDTO;
-import lk.captain.dto.tm.AttendenceTM;
-import lk.captain.dto.util.DateTimeUtil;
+import lk.captain.view.tm.AttendenceTM;
+import lk.captain.util.util.DateTimeUtil;
 
 
 
@@ -298,7 +298,7 @@ public class AttendenceController {
         stage.setScene(scene);
         stage.setTitle("Attendence Marker");
         stage.show();
-        stage.getIcons().add(new Image("/image/QrPng.png"));
+        stage.getIcons().add(new Image("/assets/png/QrPng.png"));
     }
     @FXML
     void btnSyncTableAction(ActionEvent event) throws ClassNotFoundException {

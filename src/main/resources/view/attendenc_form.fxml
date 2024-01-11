@@ -41,7 +41,7 @@
       </TextField>
       <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="49.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/Search.png" />
+            <Image url="@../assets/png/Search.png" />
          </image>
       </ImageView>
       <Label layoutX="128.0" layoutY="54.0" opacity="0.75" prefHeight="19.0" prefWidth="44.0" text="DATE">
@@ -66,7 +66,7 @@
       </TextField>
       <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="48.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="48.0">
          <image>
-            <Image url="@../assets/Search.png" />
+            <Image url="@../assets/png/Search.png" />
          </image>
       </ImageView>
       <Label layoutX="57.0" layoutY="367.0" text="Name :" AnchorPane.leftAnchor="52.0">
@@ -139,7 +139,7 @@
          </font>
       </Label>
       <DatePicker fx:id="datePicker" editable="false" layoutX="61.0" layoutY="79.0" prefHeight="26.0" prefWidth="168.0" promptText="Date" style="-fx-background-radius: 8 8 8 8; -fx-background-color: #81ecec;" />
-      <JFXButton layoutX="55.0" layoutY="525.0" onAction="#btnAddAttendencAciton" prefHeight="30.0" prefWidth="180.0" stylesheets="@../css/CRUDbutton.css" text="Add Attendence" textFill="WHITE">
+      <JFXButton layoutX="55.0" layoutY="525.0" onAction="#btnAddAttendencAciton" prefHeight="30.0" prefWidth="180.0" stylesheets="@../styles/css/CRUDbutton.css" text="Add Attendence" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -150,11 +150,11 @@
       </JFXButton>
       <ImageView cache="true" fitHeight="26.0" fitWidth="32.0" layoutX="869.0" layoutY="78.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/sync.gif" />
+            <Image url="@../assets/png/sync.gif" />
          </image>
       </ImageView>
       <Button layoutX="855.0" layoutY="76.0" minWidth="44.0" mnemonicParsing="false" onAction="#btnSyncTableAction" prefHeight="30.0" prefWidth="44.0" style="-fx-background-color: whight;" />
-      <JFXButton buttonType="RAISED" layoutX="289.0" layoutY="64.0" onAction="#btnQRScanAction" prefHeight="30.0" prefWidth="126.0" ripplerFill="#ffffff69" stylesheets="@../css/CRUDbutton.css" text="QR Scan" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="289.0" layoutY="64.0" onAction="#btnQRScanAction" prefHeight="30.0" prefWidth="126.0" ripplerFill="#ffffff69" stylesheets="@../styles/css/CRUDbutton.css" text="QR Scan" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

@@ -1,6 +1,6 @@
 package lk.captain.bo;
 
-import lk.captain.bo.custom.*;
+import lk.captain.bo.custom.impl.*;
 
 public class BOFactory {
     private static BOFactory boFactory;

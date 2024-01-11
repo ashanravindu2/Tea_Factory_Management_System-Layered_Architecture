@@ -1,6 +1,6 @@
 package lk.captain.dto;
 
-import lk.captain.dto.tm.CartTM;
+import lk.captain.view.tm.CartTM;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.TeaSellsController">
+<AnchorPane prefHeight="612.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.controller.TeaSellsController">
    <children>
       <AnchorPane prefHeight="612.0" prefWidth="940.0">
          <children>
@@ -167,7 +167,7 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <JFXButton buttonType="RAISED" layoutX="291.0" layoutY="107.0" onAction="#btnAddCusAction" prefHeight="25.0" prefWidth="69.0" ripplerFill="#4efff3" stylesheets="@../css/CRUDbutton.css" text="ADD" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="291.0" layoutY="107.0" onAction="#btnAddCusAction" prefHeight="25.0" prefWidth="69.0" ripplerFill="#4efff3" stylesheets="@../styles/css/CRUDbutton.css" text="ADD" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -189,7 +189,7 @@
                   <String fx:value="SAVEBACKGROUND" />
                </styleClass>
             </JFXButton>
-            <JFXButton fx:id="addCartBtn" buttonType="RAISED" layoutX="798.0" layoutY="251.0" onAction="#btnaddCartAction" prefHeight="37.0" prefWidth="115.0" ripplerFill="#3cff00" stylesheets="@../css/CRUDbutton.css" text="Add to cart" textFill="WHITE">
+            <JFXButton fx:id="addCartBtn" buttonType="RAISED" layoutX="798.0" layoutY="251.0" onAction="#btnaddCartAction" prefHeight="37.0" prefWidth="115.0" ripplerFill="#3cff00" stylesheets="@../styles/css/CRUDbutton.css" text="Add to cart" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -211,7 +211,7 @@
                   <String fx:value="addtocaertHover" />
                </styleClass>
             </JFXButton>
-            <JFXButton fx:id="placeIdBtn" buttonType="RAISED" layoutX="723.0" layoutY="522.0" onAction="#btnPlaceAction" prefHeight="37.0" prefWidth="189.0" ripplerFill="#00ccff" stylesheets="@../css/CRUDbutton.css" text="Place Order" textFill="WHITE">
+            <JFXButton fx:id="placeIdBtn" buttonType="RAISED" layoutX="723.0" layoutY="522.0" onAction="#btnPlaceAction" prefHeight="37.0" prefWidth="189.0" ripplerFill="#00ccff" stylesheets="@../styles/css/CRUDbutton.css" text="Place Order" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

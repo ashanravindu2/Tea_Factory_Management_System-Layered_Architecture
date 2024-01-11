@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loginRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="613.0" styleClass="login" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.LogInController">
+<AnchorPane fx:id="loginRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="613.0" styleClass="login" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.controller.LogInController">
    <children>
       <ImageView fitHeight="421.0" fitWidth="984.0" layoutX="-315.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -24,7 +24,7 @@
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="301.0" layoutX="323.0" layoutY="44.0" opacity="0.34" strokeType="INSIDE" style="-fx-arc-height: 22; -fx-arc-width: 22;" width="202.0" />
       <JFXButton alignment="CENTER" layoutX="341.0" layoutY="280.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.51" prefHeight="30.0" prefWidth="167.0" style="-fx-background-color: #03470A;" />
-      <JFXButton alignment="CENTER" layoutX="341.0" layoutY="280.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#btnLoginAction" prefHeight="30.0" prefWidth="167.0" ripplerFill="#ffffff91" styleClass="logButton23" stylesheets="@../css/Style3.css" text="LOG IN" textFill="WHITE">
+      <JFXButton alignment="CENTER" layoutX="341.0" layoutY="280.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#btnLoginAction" prefHeight="30.0" prefWidth="167.0" ripplerFill="#ffffff91" styleClass="logButton23" stylesheets="@../styles/css/Style3.css" text="LOG IN" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

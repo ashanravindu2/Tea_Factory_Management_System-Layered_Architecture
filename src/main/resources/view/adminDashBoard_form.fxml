@@ -13,7 +13,7 @@
 
 <BorderPane fx:id="dashboardBorderPane" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.controller.AdminDashBoeard">
    <top>
-      <AnchorPane prefHeight="39.0" prefWidth="1066.0" styleClass="backgroundColor" stylesheets="@../css/Style3.css" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="39.0" prefWidth="1066.0" styleClass="backgroundColor" stylesheets="@../styles/css/Style3.css" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="40.0" fitWidth="36.0" layoutX="14.0" layoutY="5.0" opacity="0.82" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="776.0" AnchorPane.topAnchor="5.0">
                <image>
@@ -25,7 +25,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Pane layoutX="364.0" layoutY="8.0" prefHeight="36.0" prefWidth="289.0" style="-fx-background-radius: 5 5 5 5;" styleClass="backgroundColor" stylesheets="@../css/Style3.css" AnchorPane.leftAnchor="364.0" AnchorPane.topAnchor="8.0">
+            <Pane layoutX="364.0" layoutY="8.0" prefHeight="36.0" prefWidth="289.0" style="-fx-background-radius: 5 5 5 5;" styleClass="backgroundColor" stylesheets="@../styles/css/Style3.css" AnchorPane.leftAnchor="364.0" AnchorPane.topAnchor="8.0">
                <children>
                   <ImageView fitHeight="31.0" fitWidth="45.0" layoutX="142.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -54,7 +54,7 @@
                   <Image url="@../assets/Image/icons8-logout-96.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="btnLogOut" buttonType="RAISED" layoutX="806.0" onAction="#btnLogOutAction" prefHeight="51.0" prefWidth="117.0" ripplerFill="BLACK" styleClass="logButton" stylesheets="@../css/Style3.css" text="     LOG OUT" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <JFXButton fx:id="btnLogOut" buttonType="RAISED" layoutX="806.0" onAction="#btnLogOutAction" prefHeight="51.0" prefWidth="117.0" ripplerFill="BLACK" styleClass="logButton" stylesheets="@../styles/css/Style3.css" text="     LOG OUT" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -69,20 +69,20 @@
                   <Image url="@../assets/Image/icons8-person-96.png" />
                </image>
             </ImageView>
-            <JFXButton buttonType="RAISED" layoutX="925.0" layoutY="-3.0" prefHeight="54.0" prefWidth="141.0" ripplerFill="BLACK" styleClass="logButton" stylesheets="@../css/Style3.css" textFill="WHITE" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="925.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <JFXButton buttonType="RAISED" layoutX="925.0" layoutY="-3.0" prefHeight="54.0" prefWidth="141.0" ripplerFill="BLACK" styleClass="logButton" stylesheets="@../styles/css/Style3.css" textFill="WHITE" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="925.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
             <Line endX="100.11155700683594" endY="91.98866271972656" layoutX="703.0" layoutY="-54.0" scaleX="4.0" scaleY="2.0" startX="100.0" startY="62.50508499145508" stroke="WHITE" AnchorPane.bottomAnchor="12.304229736328125" AnchorPane.topAnchor="7.797977447509766" />
-            <JFXButton buttonType="RAISED" layoutX="676.0" onAction="#btnUserRegisterAction" prefHeight="51.0" prefWidth="126.0" ripplerFill="BLACK" styleClass="logButton" stylesheets="@../css/Style3.css" text="User Register" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="676.0" onAction="#btnUserRegisterAction" prefHeight="51.0" prefWidth="126.0" ripplerFill="BLACK" styleClass="logButton" stylesheets="@../styles/css/Style3.css" text="User Register" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icon/usericon.png" />
+                        <Image url="@../assets/png/usericon.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -91,14 +91,14 @@
       </AnchorPane>
    </top>
    <left>
-      <AnchorPane fx:id="slider" prefHeight="610.0" prefWidth="179.0" styleClass="backgroundColor2" stylesheets="@../css/Style3.css" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="slider" prefHeight="610.0" prefWidth="179.0" styleClass="backgroundColor2" stylesheets="@../styles/css/Style3.css" BorderPane.alignment="CENTER">
          <children>
             <VBox layoutX="-4.0" layoutY="14.0" prefHeight="610.0" prefWidth="180.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
                <children>
                   <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btnHomeOnAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Home" textFill="WHITE">
                      <stylesheets>
-                        <URL value="@../css/Style.css" />
-                        <URL value="@../css/Style3.css" />
+                        <URL value="@../styles/css/Style.css" />
+                        <URL value="@../styles/css/Style3.css" />
                      </stylesheets>
                      <VBox.margin>
                         <Insets bottom="5.0" top="11.0" />
@@ -126,8 +126,8 @@
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" onAction="#btnEmployeeAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Employee" textFill="WHITE">
                      <stylesheets>
-                        <URL value="@../css/Style.css" />
-                        <URL value="@../css/Style3.css" />
+                        <URL value="@../styles/css/Style.css" />
+                        <URL value="@../styles/css/Style3.css" />
                      </stylesheets>
                      <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
@@ -155,8 +155,8 @@
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="10.0" layoutY="120.0" onAction="#btnTeaTypeOnAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Tea type" textFill="WHITE">
                      <stylesheets>
-                        <URL value="@../css/Style.css" />
-                        <URL value="@../css/Style3.css" />
+                        <URL value="@../styles/css/Style.css" />
+                        <URL value="@../styles/css/Style3.css" />
                      </stylesheets>
                      <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
@@ -184,8 +184,8 @@
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="10.0" layoutY="65.0" onAction="#btnTeaLeafEntryAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Tea leaf entry" textFill="WHITE">
                      <stylesheets>
-                        <URL value="@../css/Style.css" />
-                        <URL value="@../css/Style3.css" />
+                        <URL value="@../styles/css/Style.css" />
+                        <URL value="@../styles/css/Style3.css" />
                      </stylesheets>
                      <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
@@ -213,8 +213,8 @@
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btnPowderAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Tea Powder" textFill="WHITE">
                      <stylesheets>
-                        <URL value="@../css/Style.css" />
-                        <URL value="@../css/Style3.css" />
+                        <URL value="@../styles/css/Style.css" />
+                        <URL value="@../styles/css/Style3.css" />
                      </stylesheets>
                      <font>
                         <Font name="System Bold" size="18.0" />
@@ -242,8 +242,8 @@
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btnStockOnAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Stock" textFill="WHITE">
                      <stylesheets>
-                        <URL value="@../css/Style.css" />
-                        <URL value="@../css/Style3.css" />
+                        <URL value="@../styles/css/Style.css" />
+                        <URL value="@../styles/css/Style3.css" />
                      </stylesheets>
                      <font>
                         <Font name="System Bold" size="18.0" />
@@ -271,8 +271,8 @@
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="10.0" layoutY="175.0" onAction="#btnSellsOnAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Sells" textFill="WHITE">
                      <stylesheets>
-                        <URL value="@../css/Style.css" />
-                        <URL value="@../css/Style3.css" />
+                        <URL value="@../styles/css/Style.css" />
+                        <URL value="@../styles/css/Style3.css" />
                      </stylesheets>
                      <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
@@ -300,8 +300,8 @@
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="10.0" layoutY="285.0" onAction="#btnPaymentAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Payment" textFill="WHITE">
                      <stylesheets>
-                        <URL value="@../css/Style.css" />
-                        <URL value="@../css/Style3.css" />
+                        <URL value="@../styles/css/Style.css" />
+                        <URL value="@../styles/css/Style3.css" />
                      </stylesheets>
                      <VBox.margin>
                         <Insets top="5.0" />
@@ -329,8 +329,8 @@
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="10.0" layoutY="382.0" onAction="#btnAttendenceAction" prefHeight="55.0" prefWidth="170.0" ripplerFill="#07080d" style="-fx-background-radius: 8 8 8 8;" text="Attendence" textFill="WHITE">
                      <stylesheets>
-                        <URL value="@../css/Style.css" />
-                        <URL value="@../css/Style3.css" />
+                        <URL value="@../styles/css/Style.css" />
+                        <URL value="@../styles/css/Style3.css" />
                      </stylesheets>
                      <font>
                         <Font name="System Bold" size="18.0" />

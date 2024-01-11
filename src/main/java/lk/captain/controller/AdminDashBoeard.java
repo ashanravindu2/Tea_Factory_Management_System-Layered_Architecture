@@ -14,7 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import lk.captain.dto.util.DateTimeUtil;
+import lk.captain.util.util.DateTimeUtil;
 
 import java.io.IOException;
 import java.time.LocalDate;

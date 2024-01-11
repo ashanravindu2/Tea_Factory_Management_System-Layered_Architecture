@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="560.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.Controller.TeaCollectorManageController">
+<AnchorPane fx:id="root" prefHeight="560.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.captain.controller.TeaCollectorManageController">
    <children>
       <ImageView accessibleHelp="QSDQD" accessibleRoleDescription="SASQS" accessibleText="QDQD" fitHeight="552.0" fitWidth="963.0" layoutX="2.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
          <effect>
@@ -63,11 +63,11 @@
          </font>
       </Label>
       <TextField fx:id="txtColceName" layoutX="416.0" layoutY="74.0" prefHeight="26.0" prefWidth="167.0" />
-      <JFXButton buttonType="RAISED" layoutX="417.0" layoutY="192.0" onAction="#btnClearOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="CLEAR" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="417.0" layoutY="192.0" onAction="#btnClearOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../styles/css/CRUDbutton.css" text="CLEAR" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" rotate="31.0">
                <image>
-                  <Image url="@../assets/Clear.png" />
+                  <Image url="@../assets/png/Clear.png" />
                </image>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
@@ -85,14 +85,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="544.0" layoutY="192.0" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="DELETE" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="544.0" layoutY="192.0" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../styles/css/CRUDbutton.css" text="DELETE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/Delete.png" />
+                  <Image url="@../assets/png/Delete.png" />
                </image>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
@@ -107,14 +107,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="670.0" layoutY="192.0" onAction="#btnUpdateOnaction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="UPDATE" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="670.0" layoutY="192.0" onAction="#btnUpdateOnaction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../styles/css/CRUDbutton.css" text="UPDATE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/Update.png" />
+                  <Image url="@../assets/png/Update.png" />
                </image>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
@@ -129,14 +129,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="796.0" layoutY="192.0" onAction="#btnColecSaveOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../css/CRUDbutton.css" text="SAVE" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="796.0" layoutY="192.0" onAction="#btnColecSaveOnAction" prefHeight="32.0" prefWidth="115.0" stylesheets="@../styles/css/CRUDbutton.css" text="SAVE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/Save.png" />
+                  <Image url="@../assets/png/Save.png" />
                </image>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="17.59" radius="8.295" width="17.59" />
@@ -189,7 +189,7 @@
       </TextField>
       <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="21.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/Search.png" />
+            <Image url="@../assets/png/Search.png" />
          </image>
       </ImageView>
    </children>
