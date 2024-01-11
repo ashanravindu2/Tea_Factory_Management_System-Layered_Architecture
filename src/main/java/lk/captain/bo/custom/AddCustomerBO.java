@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface AddCustomerBO extends SuperBO {
+
      boolean addCustomer(AddCustomerDTO addCustomerDTO) throws SQLException, ClassNotFoundException;
      ResultSet generateCusId() throws SQLException, ClassNotFoundException;
      boolean deleteCus(String cusIds) throws SQLException, ClassNotFoundException;

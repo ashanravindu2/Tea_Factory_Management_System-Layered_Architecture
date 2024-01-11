@@ -13,15 +13,10 @@ import java.util.regex.Pattern;
 
 public interface AttendenceBO extends SuperBO {
 
-    public boolean manage(AttendenceDTO attendenceDTO) throws SQLException, ClassNotFoundException;
-
-    public ArrayList<AttendenceDTO> getAllAttendeceDetail() throws SQLException, ClassNotFoundException;
-
-    public boolean update(AttendenceDTO dto) throws SQLException, ClassNotFoundException;
-
-    public int issearchAttendenceCount(String id,String isdate1 ,String isdate2) throws SQLException, ClassNotFoundException;
-
-    public AttendenceDTO searchEmplIsDate(String id, String date) throws SQLException, ClassNotFoundException;
-
-    public ResultSet isTodayAtt() throws SQLException, ClassNotFoundException;
+     boolean manage(AttendenceDTO attendenceDTO) throws SQLException, ClassNotFoundException;
+     ArrayList<AttendenceDTO> getAllAttendeceDetail() throws SQLException, ClassNotFoundException;
+     boolean update(AttendenceDTO dto) throws SQLException, ClassNotFoundException;
+     int issearchAttendenceCount(String id,String isdate1 ,String isdate2) throws SQLException, ClassNotFoundException;
+     AttendenceDTO searchEmplIsDate(String id, String date) throws SQLException, ClassNotFoundException;
+     ResultSet isTodayAtt() throws SQLException, ClassNotFoundException;
 }
