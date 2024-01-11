@@ -20,9 +20,4 @@ public class OrderCartTM extends ArrayList<OrderCartTM> {
     private double unitPrice;
     private double total;
     private Button btn;
-
-    @Override
-    public <T> T[] toArray(IntFunction<T[]> generator) {
-        return super.toArray(generator);
-    }
 }

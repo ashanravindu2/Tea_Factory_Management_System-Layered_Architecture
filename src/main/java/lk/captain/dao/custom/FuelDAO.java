@@ -13,6 +13,6 @@ import java.sql.SQLException;
 public interface FuelDAO extends CrudDAO<Fuel> {
 
      boolean usedUpdateFuel(String id ,double liter) throws SQLException, ClassNotFoundException;
-    public ResultSet getAllAvalable() throws SQLException, ClassNotFoundException;
+     ResultSet getAllAvalable() throws SQLException, ClassNotFoundException;
 
 }

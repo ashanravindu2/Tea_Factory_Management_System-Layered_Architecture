@@ -3,7 +3,6 @@ package lk.captain.dao;
 import lk.captain.dao.custom.impl.*;
 
 public class DAOFactory {
-    //singleton design pattern
     private static DAOFactory daoFactory;
 
     private DAOFactory() {
@@ -13,10 +12,8 @@ public class DAOFactory {
         return (daoFactory==null)?daoFactory=new DAOFactory():(daoFactory);
     }
     public enum DAOTypes{
-        ADDCUSTOMER,
-        TEACOLLECTOR,
-        WORKER,
-        TEASUPPLIER,WOOD,TEATYPE,FUEL,WAREHOUSE,USERREG,ATTENDENCE,TEALEAFENTRY,PAYMENT,QUERY,TEASELLS,STOREDETAIL,TEAPOWDER
+        ADDCUSTOMER, TEACOLLECTOR, WORKER, TEASUPPLIER,WOOD,TEATYPE,FUEL,WAREHOUSE,USERREG,
+        ATTENDENCE,TEALEAFENTRY,PAYMENT,QUERY,TEASELLS,STOREDETAIL,TEAPOWDER
 
     }
 
