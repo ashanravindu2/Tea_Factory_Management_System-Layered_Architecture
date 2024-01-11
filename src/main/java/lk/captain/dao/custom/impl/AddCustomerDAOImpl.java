@@ -1,13 +1,14 @@
-package lk.captain.dao.custom;
+package lk.captain.dao.custom.impl;
 
 import lk.captain.dao.SQLUtil;
+import lk.captain.dao.custom.AddCustomerDAO;
 import lk.captain.entity.AddCustomer;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class AddCustomerDAOImpl implements AddCustomerDAO{
+public class AddCustomerDAOImpl implements AddCustomerDAO {
 
     @Override
     public boolean delete(String cusIds) throws SQLException, ClassNotFoundException {

@@ -1,5 +1,6 @@
-package lk.captain.bo.custom;
+package lk.captain.bo.custom.impl;
 
+import lk.captain.bo.custom.AddCustomerBO;
 import lk.captain.dao.custom.AddCustomerDAO;
 import lk.captain.dao.DAOFactory;
 import lk.captain.dto.AddCustomerDTO;
@@ -9,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class AddCustomerBOImpl implements AddCustomerBO{
+public class AddCustomerBOImpl implements AddCustomerBO {
     AddCustomerDAO addCustomerDAO = (AddCustomerDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ADDCUSTOMER);
 
     @Override

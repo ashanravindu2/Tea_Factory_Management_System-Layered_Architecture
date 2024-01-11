@@ -7,7 +7,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.captain.bo.custom.AddCustomerBO;
 import lk.captain.bo.BOFactory;
 import lk.captain.dto.AddCustomerDTO;
-import lk.captain.dto.tm.AddCustomerTM;
+import lk.captain.view.tm.AddCustomerTM;
 
 
 import java.sql.ResultSet;
